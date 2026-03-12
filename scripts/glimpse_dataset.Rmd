@@ -1,0 +1,305 @@
+---
+title: "glimpse_data"
+author: "Wanting Echo Zhao"
+date: "2026-03-11"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+library(tidyverse)
+library(readxl)
+library(jsonlite)
+
+# 1. Dog Licensing
+dog_lic <- read_csv("data/Dog_Licensing.csv")
+cat("=== DOG LICENSE ===\n")
+cat("Rows:", nrow(dog_lic), "Cols:", ncol(dog_lic), "\n")
+glimpse(dog_lic)
+
+# 2. Dog Bites
+dog_bite <- read_csv("data/Dog_Bite.csv")
+cat("\n=== DOG BITE ===\n")
+cat("Rows:", nrow(dog_bite), "Cols:", ncol(dog_bite), "\n")
+glimpse(dog_bite)
+
+# 3. Population by Community District
+pop_cd <- read_csv("data/NYCity_Pop_By_CD.csv")
+cat("\n=== POPULATION BY CD ===\n")
+cat("Rows:", nrow(pop_cd), "Cols:", ncol(pop_cd), "\n")
+glimpse(pop_cd)
+
+# 4. Income median
+income <- read_xlsx("data/NYC_Income_Household_Median.xlsx")
+cat("\n=== INCOME ===\n")
+cat("Rows:", nrow(income), "Cols:", ncol(income), "\n")
+glimpse(income)
+
+# 5. Dog Runs
+dog_runs <- fromJSON("data/Dog_Runs.json")
+cat("\n=== DOG RUNS ===\n")
+str(dog_runs, max.level = 2)
+```
+
+---
+
+## Join Validation Plan
+
+Once you see the column names, here's how all 5 datasets connect:
+```
+Dog_Licensing   (zipcode)  ──→  nyc_zips shapefile (ZCTA5CE20)
+                                        ↑
+Dog_Bite        (zipcode)  ──→  nyc_zips shapefile
+                                        ↑
+Dog_Runs        (lat/lon)  ──→  st_join() to nyc_zips polygons
+                                        ↑
+Income          (zipcode?) ──→  nyc_zips shapefile
+                                        ↑
+Population      (CD?)      ──→  ⚠️ May need borough bridge table
+```
+
+
+## Try to fix 
+```{r}
+library(tidyverse)
+library(readxl)
+library(jsonlite)
+library(tigris)
+library(sf)
+
+# ── 1. DOG LICENSE (already clean from earlier) ──────────────────────────────
+borough_lookup <- tibble(
+  prefix = c("100","101","102","103","104","105","106",
+             "107","108","109","110","111","113","114",
+             "115","116","112","117","118","119"),
+  borough = c("Manhattan","Manhattan","Manhattan","Staten Island",
+              "Bronx","Bronx","Bronx","Bronx","Bronx","Bronx",
+              "Queens","Queens","Queens","Queens","Queens","Queens",
+              "Brooklyn","Staten Island","Staten Island","Staten Island")
+)
+
+dog_lic_clean <- dog_lic %>%
+  filter(!is.na(zipcode)) %>%
+  mutate(
+    zipcode = as.character(as.integer(zipcode)),
+    prefix  = str_sub(zipcode, 1, 3)
+  ) %>%
+  filter(str_starts(zipcode,"10") | str_starts(zipcode,"11")) %>%
+  left_join(borough_lookup, by = "prefix")
+
+cat("Dog license clean rows:", nrow(dog_lic_clean), "\n")
+table(dog_lic_clean$borough, useNA="always")
+
+# ── 2. DOG BITE ───────────────────────────────────────────────────────────────
+dog_bite_clean <- dog_bite %>%
+  mutate(
+    year    = year(dateofbite),
+    has_zip = !is.na(zipcode) & zipcode != "",
+    zipcode = na_if(zipcode, "")
+  ) %>%
+  filter(borough %in% c("Bronx","Brooklyn","Manhattan","Queens","Staten Island"))
+
+cat("Dog bite clean rows:", nrow(dog_bite_clean), "\n")
+cat("Rows with zipcode:", sum(dog_bite_clean$has_zip), "\n")
+
+# ── 3. INCOME — filter to NYC only ───────────────────────────────────────────
+# First check column names
+cat("\nIncome columns:\n")
+print(names(income))
+
+# Filter to NY state and NYC zipcodes only
+income_nyc <- income %>%
+  filter(state_id == "NY") %>%
+  filter(str_starts(as.character(zip), "10") | 
+         str_starts(as.character(zip), "11")) %>%
+  mutate(zipcode = as.character(as.integer(zip)))
+
+cat("Income NYC rows:", nrow(income_nyc), "\n")
+glimpse(income_nyc)
+
+# ── 4. DOG RUNS — parse JSON properly ────────────────────────────────────────
+# Extract column names from meta
+col_names <- map_chr(dog_runs$meta$view$columns, "fieldName")
+cat("\nDog runs columns:\n")
+print(col_names)
+
+# Convert data matrix to dataframe
+dog_runs_df <- as_tibble(
+  dog_runs$data, .name_repair = "minimal"
+) %>%
+  setNames(col_names) %>%
+  select(any_of(c("name","location_1","borough","park_borough",
+                  "lat","lon","latitude","longitude","accessible")))
+
+cat("Dog runs rows:", nrow(dog_runs_df), "\n")
+glimpse(dog_runs_df)
+
+# ── 5. NYC MAP via tigris (no download needed) ────────────────────────────────
+options(tigris_use_cache = TRUE)
+
+nyc_zips <- zctas(cb = TRUE, year = 2020) %>%
+  filter(str_starts(ZCTA5CE20, "10") | str_starts(ZCTA5CE20, "11"))
+
+cat("\nNYC zip polygons:", nrow(nyc_zips), "\n")
+plot(st_geometry(nyc_zips), main = "NYC Zipcodes via tigris")
+```
+
+## 2nd clarify data
+```{r}
+# ── 1. FIX BOROUGH (rename to avoid conflict) ────────────────────
+dog_lic_clean <- dog_lic %>%
+  filter(!is.na(zipcode)) %>%
+  mutate(
+    zipcode = as.character(as.integer(zipcode)),
+    prefix  = str_sub(zipcode, 1, 3)
+  ) %>%
+  filter(str_starts(zipcode,"10") | str_starts(zipcode,"11")) %>%
+  select(-any_of("borough")) %>%
+  left_join(borough_lookup, by = "prefix")
+
+table(dog_lic_clean$borough, useNA="always")
+
+# ── 2. CHECK INCOME — no income column, just population/density ──
+# This dataset has NO median income — just population & density
+# It's from simplemaps base (free tier has no income)
+# Use population + density for normalisation only
+# You need a different source for actual income
+
+# Quick check what we DO have:
+income_nyc %>% select(zipcode, population, density) %>% head(5)
+
+# ── 3. FIX DOG RUNS JSON ─────────────────────────────────────────
+# Check actual structure
+cat("Dog runs data class:", class(dog_runs$data), "\n")
+cat("Meta columns type:", class(dog_runs$meta$view$columns), "\n")
+
+# Try direct extraction
+if(is.data.frame(dog_runs$data)) {
+  dog_runs_df <- as_tibble(dog_runs$data)
+} else {
+  # It's a matrix — extract differently
+  dog_runs_raw <- as_tibble(
+    as.data.frame(dog_runs$data, stringsAsFactors = FALSE)
+  )
+  cat("Dog runs raw cols:", ncol(dog_runs_raw), "\n")
+  print(head(dog_runs_raw, 2))
+}
+
+# Also try simpler approach — re-read with flatten
+dog_runs2 <- fromJSON("data/Dog_Runs.json", flatten = TRUE)
+cat("\nDog runs2 names:\n")
+print(names(dog_runs2))
+```
+
+
+### find Median income in the NYC via API
+
+```{r}
+library(tidycensus)
+census_api_key("d43934f52489c25471f4f6e0942464d34a9052a8", install = TRUE, overwrite = TRUE)
+
+readRenviron("~/.Renviron")
+
+income_acs <- get_acs(
++     geography = "zcta",
++     variables = c(
++         median_income   = "B19013_001",  # median household income
++         total_pop       = "B01003_001"   # total population
++     ),
++     year = 2022,
++     output = "wide"
++ ) %>%
++     filter(
++         str_starts(GEOID, "10") | str_starts(GEOID, "11")
++     ) %>%
++     rename(zipcode = GEOID) %>%
++     select(zipcode, median_income = median_incomeE, 
++            total_pop = total_popE)
+```
+
+## Final test
+
+```{r}
+library(tidyverse)
+library(sf)
+library(tigris)
+
+# ── DOG RUNS: decode borough + extract coordinates ───────────────
+dr <- read.csv("data/Dog_Runs.csv")
+```
+
+```{r}
+dog_runs_clean <- dr %>%
+  filter(FEATURESTATUS == "Active") %>%
+  mutate(
+    borough = case_when(
+      BOROUGH == "M" ~ "Manhattan",
+      BOROUGH == "B" ~ "Brooklyn",
+      BOROUGH == "Q" ~ "Queens",
+      BOROUGH == "X" ~ "Bronx",
+      BOROUGH == "R" ~ "Staten Island",
+      TRUE ~ NA_character_
+    ),
+    zipcode = na_if(ZIPCODE, "")
+  ) %>%
+  select(name = NAME, borough, zipcode,
+         dog_area_type = DOG_AREA_TYPE,
+         surface = SURFACE, seating = SEATING,
+         the_geom)
+
+cat("Active dog runs:", nrow(dog_runs_clean), "\n")
+table(dog_runs_clean$borough, useNA = "always")
+
+# ── VALIDATE ALL JOINS ────────────────────────────────────────────
+# Aggregate dogs per zipcode
+dogs_per_zip <- dog_lic_clean %>%
+  count(zipcode, name = "total_dogs")
+
+# Bites per zipcode
+bites_per_zip <- dog_bite_clean %>%
+  filter(has_zip) %>%
+  count(zipcode, name = "total_bites")
+
+# Dog runs per zipcode
+runs_per_zip <- dog_runs_clean %>%
+  filter(!is.na(zipcode)) %>%
+  count(zipcode, name = "dog_runs_count")
+
+# ── MASTER JOIN ───────────────────────────────────────────────────
+master <- dogs_per_zip %>%
+  left_join(bites_per_zip,  by = "zipcode") %>%
+  left_join(runs_per_zip,   by = "zipcode") %>%
+  left_join(
+    income_acs %>% select(zipcode, median_income, total_pop),
+    by = "zipcode"
+  ) %>%
+  mutate(
+    dogs_per_1000 = (total_dogs / total_pop) * 1000,
+    bites_per_1000_dogs = (total_bites / total_dogs) * 1000,
+    has_dog_run = !is.na(dog_runs_count)
+  )
+
+cat("\nMaster table rows:", nrow(master), "\n")
+cat("Missing income:", sum(is.na(master$median_income)), "\n")
+cat("Missing bites:", sum(is.na(master$total_bites)), "\n")
+cat("Missing dog runs:", sum(is.na(master$dog_runs_count)), "\n")
+
+# ── JOIN TO SHAPEFILE ─────────────────────────────────────────────
+nyc_map_final <- nyc_zips %>%
+  left_join(master, by = c("ZCTA5CE20" = "zipcode"))
+
+cat("\nFinal map rows:", nrow(nyc_map_final), "\n")
+cat("Map NAs (no dog data):", 
+    sum(is.na(nyc_map_final$total_dogs)), "\n")
+
+# ── QUICK PREVIEW MAP ─────────────────────────────────────────────
+ggplot(nyc_map_final) +
+  geom_sf(aes(fill = dogs_per_1000), color = "white", size = 0.1) +
+  scale_fill_viridis_c(na.value = "grey90", name = "Dogs\nper 1000\nresidents") +
+  labs(title = "NYC Dog Ownership Density by Zipcode",
+       subtitle = "Registered dogs per 1,000 residents") +
+  theme_void()
+```
