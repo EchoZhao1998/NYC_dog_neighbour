@@ -39,7 +39,7 @@ cat("Rows:", nrow(income), "Cols:", ncol(income), "\n")
 glimpse(income)
 
 # 5. Dog Runs
-dog_runs <- fromJSON("data/Dog_Runs.json")
+dog_runs <- read.csv("data/Dog_Runs.csv")
 cat("\n=== DOG RUNS ===\n")
 str(dog_runs, max.level = 2)
 ```
@@ -209,7 +209,7 @@ income_acs <- get_acs(
 +         median_income   = "B19013_001",  # median household income
 +         total_pop       = "B01003_001"   # total population
 +     ),
-+     year = 2022,
++     year = 2022, # year can determin later
 +     output = "wide"
 + ) %>%
 +     filter(

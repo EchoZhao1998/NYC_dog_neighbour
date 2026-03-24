@@ -1,0 +1,228 @@
+---
+title: "DEP2"
+author: "Wanting Echo Zhao"
+date: "2026-03-21"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Step 1 — Package setup & data loading
+
+```{r}
+
+# 1. Load libraries
+library(tidyverse)
+library(readr)
+library(readxl)
+library(sf)
+library(tigris)
+library(tidycensus)
+library(spdep)
+library(viridis)
+library(patchwork)
+library(lubridate)
+library(janitor)
+# library(jsonlite)
+
+options(tigris_use_cache = TRUE)   # cache tigris downloads locally
+census_api_key("d43934f52489c25471f4f6e0942464d34a9052a8",install = T, overwrite = T)
+
+# 2. Dataset A — Dog Licensing
+dogs_raw <- read_csv("data/Dog_Licensing.csv") |> clean_names()
+glimpse(dogs_raw)
+
+# 3. Dataset B — Dog Bites
+bites_raw <- read_csv("data/Dog_Bite.csv") |> clean_names()
+glimpse(bites_raw)
+
+# 4. Dataset C — Dog Runs
+# runs_raw <- read_json("https://data.cityofnewyork.us/api/views/hxx3-bwgv/rows.json?accessType=DOWNLOAD")
+# glimpse(runs_raw)
+
+# 5. Dataset E — ZCTA boundaries via tigris
+# nyc_zips <- c(Manhattan, Brooklyn, Queens, Bronx, Staten Island)
+  # tigris will pull all NY ZCTAs; we filter to NYC after
+
+zcta_all <- zctas(cb = TRUE, year = 2020)
+# Filter to NYC ZCTAs after joining with licensing data
+
+# 6. Dataset D — ACS median income via tidycensus
+income_raw <- get_acs(
+  geography = "zcta",
+  variables = "B19013_001",   # median household income
+  year = 2022,
+  survey = "acs5"
+)
+glimpse(income_raw)
+
+```
+
+# PHASE 2: Data Checking & Cleaning
+
+## A: Dog Licensing
+
+```{r}
+# A: Dog Licensing
+
+# 1. Check overall missingness
+cat("=== Dataset A: Missingness ===\n")
+dogs_raw |> summarise(across(everything(), ~mean(is.na(.)))) |> 
+  pivot_longer(everything(), names_to = "column", values_to = "pct_missing") |>
+  arrange(desc(pct_missing)) |> print(n = 17)
+
+# 2. Check extract_year range
+cat("\n=== Extract year distribution ===\n")
+dogs_raw |> count(extract_year) |> print()
+
+# 3. Check zipcode validity — NYC zips start with 100xx-104xx or 110xx-114xx
+cat("\n=== Invalid zipcodes ===\n")
+dogs_raw |> 
+  filter(!str_detect(as.character(zipcode), "^(100|101|102|103|104|110|111|112|113|114)")) |>
+  count(zipcode) |> arrange(desc(n)) |> print
+
+# 4. Duplicate check
+cat("\n=== Duplicate rows ===\n")
+cat("Total duplicates:", sum(duplicated(dogs_raw)), "\n")
+
+# 5. Gender distribution
+cat("\n=== Gender values ===\n")
+dogs_raw |> count(animalgender) |> print()
+
+
+```
+
+## B: Dog Bites
+
+```{r}
+# 1. Missingness
+cat("\n=== Dataset B: Missingness ===\n")
+bites_raw |> summarise(across(everything(), ~mean(is.na(.)))) |>
+  pivot_longer(everything(), names_to = "column", values_to = "pct_missing") |>
+  arrange(desc(pct_missing)) |> print()
+
+# 2. Date range
+cat("\n=== Bite date range ===\n")
+cat("Min:", format(min(bites_raw$dateofbite, na.rm=TRUE)), "\n")
+cat("Max:", format(max(bites_raw$dateofbite, na.rm=TRUE)), "\n")
+
+# 3. Species check — should all be DOG
+cat("\n=== Species values ===\n")
+bites_raw |> count(species) |> print()
+
+# 4. Borough values
+cat("\n=== Borough values ===\n")
+bites_raw |> count(borough) |> arrange(desc(n)) |> print()
+
+# 5. Zipcode issues in B
+cat("\n=== Bite zipcode issues ===\n")
+bites_raw |> 
+  filter(!str_detect(zipcode, "^(100|101|102|103|104|110|111|112|113|114)") | is.na(zipcode)) |>
+  count(zipcode) |> arrange(desc(n)) |> print(n = 20)
+```
+
+## C: Dog Runs — load from NYC Open Data JSON
+
+```{r}
+# The raw JSON from that URL is NYC Socrata format, not GeoJSON
+# Use the GeoJSON endpoint instead:
+dog_runs <- st_read("https://data.cityofnewyork.us/api/geospatial/hxx3-bwgv?method=export&type=GeoJSON")
+cat("\n=== Dog runs CRS ===\n")
+st_crs(dog_runs)
+cat("\n=== Dog runs columns ===\n")
+glimpse(dog_runs)
+cat("\n=== Dog runs count ===\n")
+nrow(dog_runs)
+```
+### As Step below, which found can not transter json file into sf, so change format of this dataset.
+
+```{r}
+# Check dog runs CSV
+dog_runs_raw <- read_csv("data/Dog_Runs.csv") |>
+  clean_names()
+
+glimpse(dog_runs_raw)
+names(dog_runs_raw)
+
+# Dataset C — parse WKT geometry from the_geom column
+dog_runs_sf <- dog_runs_raw |>
+  filter(!is.na(the_geom)) |>                        # all 91 rows have geometry
+  st_as_sf(wkt = "the_geom", crs = 4326) |>          # parse WKT, assign WGS84
+  mutate(borough_full = case_when(
+    borough == "M" ~ "Manhattan",
+    borough == "B" ~ "Brooklyn",
+    borough == "Q" ~ "Queens",
+    borough == "X" ~ "Bronx",
+    borough == "R" ~ "Staten Island",
+    TRUE ~ NA_character_
+  ))
+
+# Sanity checks
+cat("Dog runs loaded:", nrow(dog_runs_sf), "\n")
+cat("CRS:", st_crs(dog_runs_sf)$input, "\n")
+cat("Borough distribution:\n")
+dog_runs_sf |> st_drop_geometry() |> count(borough_full)
+
+# Visual check
+plot(st_geometry(zcta_nyc), col = "grey90", border = "white")
+plot(st_geometry(dog_runs_sf), col = "steelblue", add = TRUE)
+```
+
+
+# D: Income — filter to NYC ZCTAs only
+```{r}
+# Use 2022 ACS (best match for 2016-2023 dog data window)
+income_raw <- get_acs(
+  geography = "zcta",
+  variables = "B19013_001",
+  year = 2022,
+  survey = "acs5"
+)
+head(income_raw)
+str(income_raw)
+
+# NYC zipcodes list (all 5 boroughs)
+nyc_zip_list <- dogs_raw |> 
+  filter(str_detect(as.character(zipcode), "^(100|101|102|103|104|110|111|112|113|114)")) |>
+  pull(zipcode) |> unique() |> as.character()
+
+income_nyc <- income_raw |>
+  filter(GEOID %in% nyc_zip_list) |>
+  rename(zip = GEOID, median_income = estimate) |>
+  select(zip, median_income, moe)
+
+cat("\n=== Income: NYC ZCTAs retained ===\n")
+nrow(income_nyc)
+cat("\n=== Income: NA estimates ===\n")
+sum(is.na(income_nyc$median_income))
+```
+
+## E: ZCTA boundaries — filter to NYC
+```{r}
+zcta_nyc <- zctas(cb = TRUE, year = 2020) |>
+  filter(ZCTA5CE20 %in% nyc_zip_list)
+
+cat("\n=== ZCTA NYC polygons ===\n")
+nrow(zcta_nyc)
+plot(st_geometry(zcta_nyc))  # quick sanity check — should look like NYC
+```
+
+```{r}
+zcta_all <- zctas(cb = TRUE, year = 2020)
+
+nyc_bbox <- st_bbox(c(xmin = -74.26, ymin = 40.49,
+                       xmax = -73.70, ymax = 40.92),
+                    crs = st_crs(4326)) |> st_as_sfc()
+
+zcta_nyc <- zcta_all |>
+  st_transform(4326) |>
+  filter(st_intersects(geometry, nyc_bbox, sparse = FALSE)[,1])
+
+nyc_zip_list <- zcta_nyc$ZCTA5CE20
+cat("NYC ZCTAs from tigris:", length(nyc_zip_list), "\n")
+```
+
+# PHASE 2: Cleaning & Master Dataset Construction
+

@@ -1,0 +1,1210 @@
+{
+  "meta" : {
+    "view" : {
+      "id" : "hxx3-bwgv",
+      "name" : "Dog Runs",
+      "assetType" : "dataset",
+      "attribution" : "Department of Parks and Recreation (DPR)",
+      "averageRating" : 0,
+      "category" : "Recreation",
+      "createdAt" : 1556120568,
+      "description" : "Dog runs are large, fenced-in areas for dogs to exercise unleashed during park hours. Each record in this dataset is an individual dog run. Planimetrics have ensured good GIS quality of the data. \r\n\r\nUser guide:  https://drive.google.com/open?id=1_LB-hb9eJ9Bph7K2Yf06_KOtra8qKppbPnfSyH1lRUg\r\nData Dictionary: https://drive.google.com/open?id=1a3vdtIHUTUl2wokZ1r3fot8wm-lrnKGXYL-6xU5Fj2A",
+      "diciBackend" : false,
+      "displayType" : "table",
+      "downloadCount" : 1689,
+      "hideFromCatalog" : false,
+      "hideFromDataJson" : false,
+      "locked" : false,
+      "newBackend" : true,
+      "numberOfComments" : 0,
+      "oid" : 41222422,
+      "provenance" : "official",
+      "publicationAppendEnabled" : false,
+      "publicationDate" : 1743461668,
+      "publicationGroup" : 16148301,
+      "publicationStage" : "published",
+      "rowsUpdatedAt" : 1773929376,
+      "rowsUpdatedBy" : "yrqv-pmyz",
+      "tableId" : 19824379,
+      "totalTimesRated" : 0,
+      "viewCount" : 1146,
+      "viewLastModified" : 1773929376,
+      "viewType" : "tabular",
+      "approvals" : [ {
+        "reviewedAt" : 1556564418,
+        "reviewedAutomatically" : true,
+        "state" : "approved",
+        "submissionId" : 6808217,
+        "submissionObject" : "public_audience_request",
+        "submissionOutcome" : "change_audience",
+        "submittedAt" : 1556564418,
+        "targetAudience" : "public",
+        "workflowId" : 2285,
+        "submissionDetails" : {
+          "permissionType" : "READ"
+        },
+        "submissionOutcomeApplication" : {
+          "failureCount" : 0,
+          "status" : "success"
+        },
+        "submitter" : {
+          "id" : "5fuc-pqz2",
+          "displayName" : "NYC OpenData"
+        }
+      } ],
+      "clientContext" : {
+        "clientContextVariables" : [ ],
+        "inheritedVariables" : { }
+      },
+      "columns" : [ {
+        "id" : -1,
+        "name" : "sid",
+        "dataTypeName" : "meta_data",
+        "fieldName" : ":sid",
+        "position" : 0,
+        "renderTypeName" : "meta_data",
+        "format" : { },
+        "flags" : [ "hidden" ]
+      }, {
+        "id" : -1,
+        "name" : "id",
+        "dataTypeName" : "meta_data",
+        "fieldName" : ":id",
+        "position" : 0,
+        "renderTypeName" : "meta_data",
+        "format" : { },
+        "flags" : [ "hidden" ]
+      }, {
+        "id" : -1,
+        "name" : "position",
+        "dataTypeName" : "meta_data",
+        "fieldName" : ":position",
+        "position" : 0,
+        "renderTypeName" : "meta_data",
+        "format" : { },
+        "flags" : [ "hidden" ]
+      }, {
+        "id" : -1,
+        "name" : "created_at",
+        "dataTypeName" : "meta_data",
+        "fieldName" : ":created_at",
+        "position" : 0,
+        "renderTypeName" : "meta_data",
+        "format" : { },
+        "flags" : [ "hidden" ]
+      }, {
+        "id" : -1,
+        "name" : "created_meta",
+        "dataTypeName" : "meta_data",
+        "fieldName" : ":created_meta",
+        "position" : 0,
+        "renderTypeName" : "meta_data",
+        "format" : { },
+        "flags" : [ "hidden" ]
+      }, {
+        "id" : -1,
+        "name" : "updated_at",
+        "dataTypeName" : "meta_data",
+        "fieldName" : ":updated_at",
+        "position" : 0,
+        "renderTypeName" : "meta_data",
+        "format" : { },
+        "flags" : [ "hidden" ]
+      }, {
+        "id" : -1,
+        "name" : "updated_meta",
+        "dataTypeName" : "meta_data",
+        "fieldName" : ":updated_meta",
+        "position" : 0,
+        "renderTypeName" : "meta_data",
+        "format" : { },
+        "flags" : [ "hidden" ]
+      }, {
+        "id" : -1,
+        "name" : "meta",
+        "dataTypeName" : "meta_data",
+        "fieldName" : ":meta",
+        "position" : 0,
+        "renderTypeName" : "meta_data",
+        "format" : { },
+        "flags" : [ "hidden" ]
+      }, {
+        "id" : 608016554,
+        "name" : "OBJECTID",
+        "dataTypeName" : "number",
+        "description" : "Unique identifier for the record.",
+        "fieldName" : "objectid",
+        "position" : 1,
+        "renderTypeName" : "number",
+        "tableColumnId" : 79903367,
+        "cachedContents" : {
+          "non_null" : "91",
+          "largest" : "2797",
+          "null" : "0",
+          "top" : [ {
+            "item" : "381",
+            "count" : "1"
+          }, {
+            "item" : "260",
+            "count" : "1"
+          }, {
+            "item" : "298",
+            "count" : "1"
+          }, {
+            "item" : "1988",
+            "count" : "1"
+          }, {
+            "item" : "1187",
+            "count" : "1"
+          }, {
+            "item" : "313",
+            "count" : "1"
+          }, {
+            "item" : "289",
+            "count" : "1"
+          }, {
+            "item" : "375",
+            "count" : "1"
+          }, {
+            "item" : "374",
+            "count" : "1"
+          }, {
+            "item" : "1992",
+            "count" : "1"
+          }, {
+            "item" : "307",
+            "count" : "1"
+          }, {
+            "item" : "280",
+            "count" : "1"
+          }, {
+            "item" : "326",
+            "count" : "1"
+          }, {
+            "item" : "2789",
+            "count" : "1"
+          }, {
+            "item" : "286",
+            "count" : "1"
+          }, {
+            "item" : "779",
+            "count" : "1"
+          }, {
+            "item" : "316",
+            "count" : "1"
+          }, {
+            "item" : "318",
+            "count" : "1"
+          }, {
+            "item" : "371",
+            "count" : "1"
+          }, {
+            "item" : "376",
+            "count" : "1"
+          } ],
+          "smallest" : "255",
+          "count" : "91",
+          "cardinality" : "91"
+        },
+        "format" : { }
+      }, {
+        "id" : 608016555,
+        "name" : "SYSTEM",
+        "dataTypeName" : "text",
+        "description" : "Unique identifier for the record.",
+        "fieldName" : "system",
+        "position" : 2,
+        "renderTypeName" : "text",
+        "tableColumnId" : 79903368,
+        "cachedContents" : {
+          "non_null" : "88",
+          "largest" : "X247-DOGAREA0028",
+          "null" : "3",
+          "top" : [ {
+            "item" : "M283-DOGAREA0041",
+            "count" : "1"
+          }, {
+            "item" : "M081-DOGAREA0023",
+            "count" : "1"
+          }, {
+            "item" : "M098-DOGAREA0028",
+            "count" : "1"
+          }, {
+            "item" : "B114-DOGAREA0029",
+            "count" : "1"
+          }, {
+            "item" : "M366-DOGAREA0044",
+            "count" : "1"
+          }, {
+            "item" : "M098-DOGAREA0029",
+            "count" : "1"
+          }, {
+            "item" : "Q010A-DOGAREA0003",
+            "count" : "1"
+          }, {
+            "item" : "X247-DOGAREA0028",
+            "count" : "1"
+          }, {
+            "item" : "M099-DOGAREA0030",
+            "count" : "1"
+          }, {
+            "item" : "B431-DOGAREA0043",
+            "count" : "1"
+          }, {
+            "item" : "B130-DOGAREA0031",
+            "count" : "1"
+          }, {
+            "item" : "M077-DOGAREA0022",
+            "count" : "1"
+          }, {
+            "item" : "Q219-DOGAREA0011",
+            "count" : "1"
+          }, {
+            "item" : "B431-DOGAREA0042",
+            "count" : "1"
+          }, {
+            "item" : "X039-DOGAREA0012",
+            "count" : "1"
+          }, {
+            "item" : "B223B-DOGAREA0033",
+            "count" : "1"
+          }, {
+            "item" : "R106-DOGAREA0014",
+            "count" : "1"
+          }, {
+            "item" : "Q021-DOGAREA0007",
+            "count" : "1"
+          }, {
+            "item" : "R031-DOGAREA0006",
+            "count" : "1"
+          }, {
+            "item" : "R006-DOGAREA0003",
+            "count" : "1"
+          } ],
+          "smallest" : "B016-DOGAREA0001",
+          "count" : "91",
+          "cardinality" : "91"
+        },
+        "format" : { }
+      }, {
+        "id" : 608016556,
+        "name" : "the_geom",
+        "dataTypeName" : "multipolygon",
+        "description" : "The spatial information",
+        "fieldName" : "the_geom",
+        "position" : 3,
+        "renderTypeName" : "multipolygon",
+        "tableColumnId" : 79903369,
+        "format" : { }
+      }, {
+        "id" : 608016557,
+        "name" : "GISPROPNUM",
+        "dataTypeName" : "text",
+        "description" : "Unique identifier for the Parks Property that the dog run is within.",
+        "fieldName" : "gispropnum",
+        "position" : 4,
+        "renderTypeName" : "text",
+        "tableColumnId" : 79903370,
+        "cachedContents" : {
+          "non_null" : "88",
+          "largest" : "X247",
+          "null" : "3",
+          "top" : [ {
+            "item" : "M071",
+            "count" : "4"
+          }, {
+            "item" : "X092",
+            "count" : "3"
+          }, {
+            "item" : "M022",
+            "count" : "2"
+          }, {
+            "item" : "B025",
+            "count" : "2"
+          }, {
+            "item" : "M098",
+            "count" : "2"
+          }, {
+            "item" : "M081",
+            "count" : "2"
+          }, {
+            "item" : "B431",
+            "count" : "2"
+          }, {
+            "item" : "B223B",
+            "count" : "1"
+          }, {
+            "item" : "M283A",
+            "count" : "1"
+          }, {
+            "item" : "X002",
+            "count" : "1"
+          }, {
+            "item" : "R006",
+            "count" : "1"
+          }, {
+            "item" : "M086",
+            "count" : "1"
+          }, {
+            "item" : "Q341C",
+            "count" : "1"
+          }, {
+            "item" : "Q340",
+            "count" : "1"
+          }, {
+            "item" : "Q141",
+            "count" : "1"
+          }, {
+            "item" : "X110A",
+            "count" : "1"
+          }, {
+            "item" : "B082",
+            "count" : "1"
+          }, {
+            "item" : "B068",
+            "count" : "1"
+          }, {
+            "item" : "M053",
+            "count" : "1"
+          }, {
+            "item" : "M089",
+            "count" : "1"
+          } ],
+          "smallest" : "B016",
+          "count" : "91",
+          "cardinality" : "91"
+        },
+        "format" : { }
+      }, {
+        "id" : 608016558,
+        "name" : "DEPARTMENT",
+        "dataTypeName" : "text",
+        "description" : "Parks District that the dog run is within.",
+        "fieldName" : "department",
+        "position" : 5,
+        "renderTypeName" : "text",
+        "tableColumnId" : 79903371,
+        "cachedContents" : {
+          "non_null" : "91",
+          "largest" : "X-15",
+          "null" : "0",
+          "top" : [ {
+            "item" : "M-01",
+            "count" : "7"
+          }, {
+            "item" : "Q-02",
+            "count" : "5"
+          }, {
+            "item" : "M-14",
+            "count" : "5"
+          }, {
+            "item" : "B-01",
+            "count" : "5"
+          }, {
+            "item" : "B-02",
+            "count" : "4"
+          }, {
+            "item" : "X-08",
+            "count" : "4"
+          }, {
+            "item" : "M-06",
+            "count" : "4"
+          }, {
+            "item" : "R-03",
+            "count" : "4"
+          }, {
+            "item" : "M-12",
+            "count" : "4"
+          }, {
+            "item" : "M-04",
+            "count" : "3"
+          }, {
+            "item" : "B-10",
+            "count" : "3"
+          }, {
+            "item" : "X-13",
+            "count" : "3"
+          }, {
+            "item" : "B-06",
+            "count" : "3"
+          }, {
+            "item" : "M-03",
+            "count" : "3"
+          }, {
+            "item" : "M-08",
+            "count" : "2"
+          }, {
+            "item" : "M-11",
+            "count" : "2"
+          }, {
+            "item" : "M-02",
+            "count" : "2"
+          }, {
+            "item" : "M-09",
+            "count" : "2"
+          }, {
+            "item" : "M-05",
+            "count" : "2"
+          }, {
+            "item" : "Q-16",
+            "count" : "1"
+          } ],
+          "smallest" : "B-01",
+          "count" : "91",
+          "cardinality" : "91"
+        },
+        "format" : { }
+      }, {
+        "id" : 608016559,
+        "name" : "PARENTID",
+        "dataTypeName" : "text",
+        "description" : "Unique identifier of the zone that the dog run is within. If the park is not zoned it will be equivalent to GISPROPNUM.",
+        "fieldName" : "parentid",
+        "position" : 6,
+        "renderTypeName" : "text",
+        "tableColumnId" : 79903372,
+        "cachedContents" : {
+          "non_null" : "88",
+          "largest" : "X247",
+          "null" : "3",
+          "top" : [ {
+            "item" : "M081-ZN01",
+            "count" : "2"
+          }, {
+            "item" : "M022",
+            "count" : "2"
+          }, {
+            "item" : "B025",
+            "count" : "2"
+          }, {
+            "item" : "X047",
+            "count" : "1"
+          }, {
+            "item" : "M042",
+            "count" : "1"
+          }, {
+            "item" : "B082",
+            "count" : "1"
+          }, {
+            "item" : "X002",
+            "count" : "1"
+          }, {
+            "item" : "M098-ZN01",
+            "count" : "1"
+          }, {
+            "item" : "B223B",
+            "count" : "1"
+          }, {
+            "item" : "Q341C",
+            "count" : "1"
+          }, {
+            "item" : "M099",
+            "count" : "1"
+          }, {
+            "item" : "X092-ZN14",
+            "count" : "1"
+          }, {
+            "item" : "X110A",
+            "count" : "1"
+          }, {
+            "item" : "Q141",
+            "count" : "1"
+          }, {
+            "item" : "M086",
+            "count" : "1"
+          }, {
+            "item" : "M283A",
+            "count" : "1"
+          }, {
+            "item" : "Q340",
+            "count" : "1"
+          }, {
+            "item" : "M089",
+            "count" : "1"
+          }, {
+            "item" : "M029-ZN03",
+            "count" : "1"
+          }, {
+            "item" : "M072-ZN26",
+            "count" : "1"
+          } ],
+          "smallest" : "B016",
+          "count" : "91",
+          "cardinality" : "91"
+        },
+        "format" : { }
+      }, {
+        "id" : 608016560,
+        "name" : "COMMUNITYBOARD",
+        "dataTypeName" : "text",
+        "description" : "Community board number that the dog run is within. ",
+        "fieldName" : "communityboard",
+        "position" : 7,
+        "renderTypeName" : "text",
+        "tableColumnId" : 79903373,
+        "cachedContents" : {
+          "non_null" : "80",
+          "largest" : "Null",
+          "null" : "11",
+          "top" : [ {
+            "item" : "402",
+            "count" : "5"
+          }, {
+            "item" : "112",
+            "count" : "5"
+          }, {
+            "item" : "107",
+            "count" : "4"
+          }, {
+            "item" : "208",
+            "count" : "4"
+          }, {
+            "item" : "109",
+            "count" : "3"
+          }, {
+            "item" : "302",
+            "count" : "3"
+          }, {
+            "item" : "108",
+            "count" : "3"
+          }, {
+            "item" : "103",
+            "count" : "3"
+          }, {
+            "item" : "301",
+            "count" : "3"
+          }, {
+            "item" : "306",
+            "count" : "3"
+          }, {
+            "item" : "101",
+            "count" : "3"
+          }, {
+            "item" : "106",
+            "count" : "3"
+          }, {
+            "item" : "310",
+            "count" : "3"
+          }, {
+            "item" : "503",
+            "count" : "3"
+          }, {
+            "item" : "105",
+            "count" : "2"
+          }, {
+            "item" : "102",
+            "count" : "2"
+          }, {
+            "item" : "Null",
+            "count" : "2"
+          }, {
+            "item" : "111",
+            "count" : "2"
+          }, {
+            "item" : "104",
+            "count" : "2"
+          }, {
+            "item" : "406",
+            "count" : "1"
+          } ],
+          "smallest" : "101",
+          "count" : "91",
+          "cardinality" : "91"
+        },
+        "format" : { }
+      }, {
+        "id" : 608016561,
+        "name" : "COUNCILDISTRICT",
+        "dataTypeName" : "text",
+        "description" : "Council district number that the dog run is within.",
+        "fieldName" : "councildistrict",
+        "position" : 8,
+        "renderTypeName" : "text",
+        "tableColumnId" : 79903374,
+        "cachedContents" : {
+          "non_null" : "82",
+          "largest" : "NULL",
+          "null" : "9",
+          "top" : [ {
+            "item" : "1",
+            "count" : "7"
+          }, {
+            "item" : "11",
+            "count" : "6"
+          }, {
+            "item" : "33",
+            "count" : "5"
+          }, {
+            "item" : "7",
+            "count" : "5"
+          }, {
+            "item" : "26",
+            "count" : "5"
+          }, {
+            "item" : "39",
+            "count" : "4"
+          }, {
+            "item" : "2",
+            "count" : "4"
+          }, {
+            "item" : "5",
+            "count" : "4"
+          }, {
+            "item" : "6",
+            "count" : "3"
+          }, {
+            "item" : "3",
+            "count" : "3"
+          }, {
+            "item" : "51",
+            "count" : "3"
+          }, {
+            "item" : "9",
+            "count" : "3"
+          }, {
+            "item" : "8",
+            "count" : "2"
+          }, {
+            "item" : "34",
+            "count" : "2"
+          }, {
+            "item" : "Null",
+            "count" : "2"
+          }, {
+            "item" : "17",
+            "count" : "2"
+          }, {
+            "item" : "43",
+            "count" : "2"
+          }, {
+            "item" : "10",
+            "count" : "2"
+          }, {
+            "item" : "18",
+            "count" : "1"
+          }, {
+            "item" : "25",
+            "count" : "1"
+          } ],
+          "smallest" : "1",
+          "count" : "91",
+          "cardinality" : "91"
+        },
+        "format" : { }
+      }, {
+        "id" : 608016562,
+        "name" : "PRECINCT",
+        "dataTypeName" : "text",
+        "description" : "Precint that the dog run is within.",
+        "fieldName" : "precinct",
+        "position" : 9,
+        "renderTypeName" : "text",
+        "tableColumnId" : 79903375,
+        "cachedContents" : {
+          "non_null" : "83",
+          "largest" : "Null",
+          "null" : "8",
+          "top" : [ {
+            "item" : "108",
+            "count" : "5"
+          }, {
+            "item" : "50",
+            "count" : "5"
+          }, {
+            "item" : "1",
+            "count" : "4"
+          }, {
+            "item" : "84",
+            "count" : "4"
+          }, {
+            "item" : "123",
+            "count" : "3"
+          }, {
+            "item" : "13",
+            "count" : "3"
+          }, {
+            "item" : "34",
+            "count" : "3"
+          }, {
+            "item" : "68",
+            "count" : "3"
+          }, {
+            "item" : "20",
+            "count" : "3"
+          }, {
+            "item" : "19",
+            "count" : "3"
+          }, {
+            "item" : "26",
+            "count" : "2"
+          }, {
+            "item" : "83",
+            "count" : "2"
+          }, {
+            "item" : "94",
+            "count" : "2"
+          }, {
+            "item" : "76",
+            "count" : "2"
+          }, {
+            "item" : "17",
+            "count" : "2"
+          }, {
+            "item" : "Null",
+            "count" : "2"
+          }, {
+            "item" : "18",
+            "count" : "2"
+          }, {
+            "item" : "6",
+            "count" : "2"
+          }, {
+            "item" : "33",
+            "count" : "2"
+          }, {
+            "item" : "79",
+            "count" : "1"
+          } ],
+          "smallest" : "1",
+          "count" : "91",
+          "cardinality" : "91"
+        },
+        "format" : { }
+      }, {
+        "id" : 608016563,
+        "name" : "ZIPCODE",
+        "dataTypeName" : "text",
+        "description" : "Zip code that the dog run in within.",
+        "fieldName" : "zipcode",
+        "position" : 10,
+        "renderTypeName" : "text",
+        "tableColumnId" : 79903376,
+        "cachedContents" : {
+          "non_null" : "77",
+          "largest" : "Null",
+          "null" : "14",
+          "top" : [ {
+            "item" : "10024",
+            "count" : "4"
+          }, {
+            "item" : "11201",
+            "count" : "4"
+          }, {
+            "item" : "10471",
+            "count" : "3"
+          }, {
+            "item" : "10019",
+            "count" : "2"
+          }, {
+            "item" : "10011",
+            "count" : "2"
+          }, {
+            "item" : "10002",
+            "count" : "2"
+          }, {
+            "item" : "11377",
+            "count" : "2"
+          }, {
+            "item" : "Null",
+            "count" : "2"
+          }, {
+            "item" : "11231",
+            "count" : "2"
+          }, {
+            "item" : "10028",
+            "count" : "2"
+          }, {
+            "item" : "10040",
+            "count" : "2"
+          }, {
+            "item" : "11101",
+            "count" : "2"
+          }, {
+            "item" : "10003",
+            "count" : "2"
+          }, {
+            "item" : "10462",
+            "count" : "1"
+          }, {
+            "item" : "11215",
+            "count" : "1"
+          }, {
+            "item" : "10026",
+            "count" : "1"
+          }, {
+            "item" : "10038",
+            "count" : "1"
+          }, {
+            "item" : "10467",
+            "count" : "1"
+          }, {
+            "item" : "10065",
+            "count" : "1"
+          }, {
+            "item" : "10029",
+            "count" : "1"
+          } ],
+          "smallest" : "10002",
+          "count" : "91",
+          "cardinality" : "91"
+        },
+        "format" : { }
+      }, {
+        "id" : 608016564,
+        "name" : "BOROUGH",
+        "dataTypeName" : "text",
+        "description" : "Borough that the dog run is within.",
+        "fieldName" : "borough",
+        "position" : 11,
+        "renderTypeName" : "text",
+        "tableColumnId" : 79903377,
+        "cachedContents" : {
+          "non_null" : "91",
+          "largest" : "X",
+          "null" : "0",
+          "top" : [ {
+            "item" : "M",
+            "count" : "39"
+          }, {
+            "item" : "B",
+            "count" : "20"
+          }, {
+            "item" : "X",
+            "count" : "14"
+          }, {
+            "item" : "Q",
+            "count" : "13"
+          }, {
+            "item" : "R",
+            "count" : "5"
+          } ],
+          "smallest" : "B",
+          "count" : "91",
+          "cardinality" : "91"
+        },
+        "format" : { }
+      }, {
+        "id" : 608016565,
+        "name" : "DOG_AREA_TYPE",
+        "dataTypeName" : "text",
+        "description" : "Type of dog area.",
+        "fieldName" : "dog_area_type",
+        "position" : 12,
+        "renderTypeName" : "text",
+        "tableColumnId" : 79903378,
+        "cachedContents" : {
+          "non_null" : "91",
+          "largest" : "Dog Run",
+          "null" : "0",
+          "top" : [ {
+            "item" : "Dog Run",
+            "count" : "91"
+          } ],
+          "smallest" : "Dog Run",
+          "count" : "91",
+          "cardinality" : "91"
+        },
+        "format" : { }
+      }, {
+        "id" : 608016566,
+        "name" : "NAME",
+        "dataTypeName" : "text",
+        "description" : "Name of the dog run.",
+        "fieldName" : "name",
+        "position" : 13,
+        "renderTypeName" : "text",
+        "tableColumnId" : 79903379,
+        "cachedContents" : {
+          "non_null" : "91",
+          "largest" : "Woodlawn Dog Run",
+          "null" : "0",
+          "top" : [ {
+            "item" : "Fishbridge Garden Dog Run",
+            "count" : "1"
+          }, {
+            "item" : "Manhattan Beach Dog Run (Oriental Boulevard)",
+            "count" : "1"
+          }, {
+            "item" : "Greenwood Playground Dog Run",
+            "count" : "1"
+          }, {
+            "item" : "Cooper Park Small Dog Run",
+            "count" : "1"
+          }, {
+            "item" : "Bronx River Park Dog Run",
+            "count" : "1"
+          }, {
+            "item" : "Riverside Park Dog Run (72nd St)",
+            "count" : "1"
+          }, {
+            "item" : "Stuyvesant Square Dog Park",
+            "count" : "1"
+          }, {
+            "item" : "Riverside Park South Dog Run",
+            "count" : "1"
+          }, {
+            "item" : "Madison Square Park Dog Run",
+            "count" : "1"
+          }, {
+            "item" : "Frank S. Hackett Park Dog Run",
+            "count" : "1"
+          }, {
+            "item" : "Conference House Park Dog Run",
+            "count" : "1"
+          }, {
+            "item" : "Riverside Park Dog Run (W. 142nd St.)",
+            "count" : "1"
+          }, {
+            "item" : "Veteran's Grove Dog Run",
+            "count" : "1"
+          }, {
+            "item" : "Corlears Hook Park Dog Run",
+            "count" : "1"
+          }, {
+            "item" : "Soundview Park Dog Run",
+            "count" : "1"
+          }, {
+            "item" : "Kensington Dog Run",
+            "count" : "1"
+          }, {
+            "item" : "Coleman Oval Park Dog Run",
+            "count" : "1"
+          }, {
+            "item" : "Theodore Roosevelt Park Dog Run",
+            "count" : "1"
+          }, {
+            "item" : "DiMattina Park Dog Run - North",
+            "count" : "1"
+          }, {
+            "item" : "McGolrick Park Dog Run",
+            "count" : "1"
+          } ],
+          "smallest" : "Adam Yauch Park Dog Run",
+          "count" : "91",
+          "cardinality" : "91"
+        },
+        "format" : { }
+      }, {
+        "id" : 608016567,
+        "name" : "SEATING",
+        "dataTypeName" : "text",
+        "description" : "Indicates whether or not the dog run has seating.",
+        "fieldName" : "seating",
+        "position" : 14,
+        "renderTypeName" : "text",
+        "tableColumnId" : 79903380,
+        "cachedContents" : {
+          "non_null" : "22",
+          "largest" : "Yes",
+          "null" : "69",
+          "top" : [ {
+            "item" : "Yes",
+            "count" : "21"
+          }, {
+            "item" : "No",
+            "count" : "1"
+          } ],
+          "smallest" : "No",
+          "count" : "91",
+          "cardinality" : "91"
+        },
+        "format" : { }
+      }, {
+        "id" : 608016568,
+        "name" : "SURFACE",
+        "dataTypeName" : "text",
+        "description" : "Type of surface the dog run has.",
+        "fieldName" : "surface",
+        "position" : 15,
+        "renderTypeName" : "text",
+        "tableColumnId" : 79903381,
+        "cachedContents" : {
+          "non_null" : "19",
+          "largest" : "Synthetic",
+          "null" : "72",
+          "top" : [ {
+            "item" : "Natural",
+            "count" : "11"
+          }, {
+            "item" : "Concrete",
+            "count" : "3"
+          }, {
+            "item" : "Sand",
+            "count" : "3"
+          }, {
+            "item" : "Synthetic",
+            "count" : "1"
+          }, {
+            "item" : "Asphalt",
+            "count" : "1"
+          } ],
+          "smallest" : "Asphalt",
+          "count" : "91",
+          "cardinality" : "91"
+        },
+        "format" : { }
+      }, {
+        "id" : 608016569,
+        "name" : "FEATURESTATUS",
+        "dataTypeName" : "text",
+        "description" : "The current status of the feature. ",
+        "fieldName" : "featurestatus",
+        "position" : 16,
+        "renderTypeName" : "text",
+        "tableColumnId" : 79903382,
+        "cachedContents" : {
+          "non_null" : "91",
+          "largest" : "Active",
+          "null" : "0",
+          "top" : [ {
+            "item" : "Active",
+            "count" : "91"
+          } ],
+          "smallest" : "Active",
+          "count" : "91",
+          "cardinality" : "91"
+        },
+        "format" : { }
+      } ],
+      "grants" : [ {
+        "inherited" : false,
+        "type" : "viewer",
+        "flags" : [ "public" ]
+      } ],
+      "metadata" : {
+        "attachments" : [ {
+          "filename" : "DogRuns_20190417.zip",
+          "assetId" : "27a219d9-e62c-430e-a9fa-7af0d0191bf3",
+          "name" : "DogRuns_20190417.zip"
+        } ],
+        "custom_fields" : {
+          "Update" : {
+            "Automation" : "Yes",
+            "Date Made Public" : "4/29/2019",
+            "Update Frequency" : "Monthly"
+          },
+          "Dataset Information" : {
+            "Agency" : "Department of Parks and Recreation (DPR)"
+          }
+        },
+        "availableDisplayTypes" : [ "table", "fatrow", "page" ]
+      },
+      "owner" : {
+        "id" : "5fuc-pqz2",
+        "displayName" : "NYC OpenData",
+        "profileImageUrlLarge" : "/api/users/5fuc-pqz2/profile_images/LARGE",
+        "profileImageUrlMedium" : "/api/users/5fuc-pqz2/profile_images/THUMB",
+        "profileImageUrlSmall" : "/api/users/5fuc-pqz2/profile_images/TINY",
+        "screenName" : "NYC OpenData",
+        "type" : "interactive",
+        "flags" : [ "acceptedEula", "mayBeStoriesCoOwner" ]
+      },
+      "query" : { },
+      "rights" : [ "read" ],
+      "tableAuthor" : {
+        "id" : "5fuc-pqz2",
+        "displayName" : "NYC OpenData",
+        "profileImageUrlLarge" : "/api/users/5fuc-pqz2/profile_images/LARGE",
+        "profileImageUrlMedium" : "/api/users/5fuc-pqz2/profile_images/THUMB",
+        "profileImageUrlSmall" : "/api/users/5fuc-pqz2/profile_images/TINY",
+        "screenName" : "NYC OpenData",
+        "type" : "interactive",
+        "flags" : [ "acceptedEula", "mayBeStoriesCoOwner" ]
+      },
+      "tags" : [ "dog", "dog runs", "parks" ],
+      "flags" : [ "default", "ownerMayBeContacted", "restorable", "restorePossibleForType" ]
+    }
+  },
+  "data" : [ [ "row-d8fe-hs2a~hf7k", "00000000-0000-0000-4B27-761EA31FDA4E", 0, 1773929376, null, 1773929376, null, "{ }", "2797", "B082-DOGAREA0045", "MULTIPOLYGON (((-74.03650678412465 40.61231389729492, -74.03675635384344 40.61211036659531, -74.03657767371351 40.6119977206556, -74.03598023213573 40.61176225721033, -74.0359111160724 40.61181058008492, -74.03650678412465 40.61231389729492)))", "B082", "B-10", "B082", "310", "43", "68", "11209", "B", "Dog Run", "Frank Decolvenaere Dog Run", "Yes", "Synthetic", "Active" ]
+, [ "row-s6t7_xck4_xnix", "00000000-0000-0000-2E69-F00E1B20325A", 0, 1773929376, null, 1773929376, null, "{ }", "256", "X110A-DOGAREA0022", "MULTIPOLYGON (((-73.905665046473 40.90135705164516, -73.90566157871062 40.901349474842334, -73.90565643437648 40.901342467576065, -73.90564976864015 40.90133624248717, -73.90564178299195 40.90133098704059, -73.90563271812726 40.90132685991804, -73.90562284920568 40.9013239865114, -73.90561247280398 40.901322453509415, -73.9056019033597 40.9013223061932, -73.90559146011365 40.90132355022673, -73.90558145880783 40.901326148047914, -73.90557220100271 40.90133001976037, -73.90556396694652 40.90133505033173, -73.90553871642749 40.90142699518379, -73.90553807489869 40.901434136395814, -73.9055389358818 40.90144126442942, -73.90554128064568 40.901448198272035, -73.90554504654237 40.90145476047701, -73.90555013886213 40.90146078617822, -73.90555642846387 40.90146612038658, -73.90556375650675 40.901470628799935, -73.9055719344515 40.90147419690244, -73.90562403853025 40.90148853468727, -73.905665046473 40.90135705164516)))", "X110A", "X-08", "X110A", "208", "11", "50", "10471", "X", "Dog Run", "Frank S. Hackett Park Dog Run", null, null, "Active" ]
+, [ "row-w724-yy42_t4x4", "00000000-0000-0000-2D44-175EEBCF235B", 0, 1773929376, null, 1773929376, null, "{ }", "2789", "B068-DOGAREA0044", "MULTIPOLYGON (((-73.9714968265382 40.64922961677055, -73.97147188765318 40.64914456209811, -73.97140701860519 40.64892145894633, -73.97124313052507 40.64898653631844, -73.97116298482578 40.64901733016447, -73.97118150267058 40.649040893248824, -73.97119536380572 40.64906624449248, -73.97120427760625 40.64909285432007, -73.97120805986667 40.64912016436552, -73.97120662924706 40.649147604581444, -73.97120538334497 40.64915248597572, -73.97120526296774 40.64915745770354, -73.97120627054441 40.64916237118015, -73.97120837658146 40.64916707781262, -73.97121151847705 40.64917143710456, -73.97121560052011 40.64917531845686, -73.97122050098307 40.64917860387115, -73.97122607211844 40.6491811960544, -73.97123214843575 40.649183016620135, -73.97123854551685 40.64918401149104, -73.97124507183968 40.64918415000164, -73.97125153114148 40.649183427600256, -73.97125773069452 40.64918186765216, -73.97126224926613 40.64917967692135, -73.97126718965961 40.6491781004488, -73.97127240879546 40.64917718322457, -73.97127775650773 40.64917695312719, -73.97128307791097 40.6491774155211, -73.97128822049245 40.64917855686037, -73.97129303411185 40.64918034558952, -73.97129738164351 40.649182728543806, -73.97130113660874 40.6491856381529, -73.97130419027101 40.64918898974102, -73.9713064551803 40.64919268693107, -73.97130837838972 40.64919640925034, -73.97131107495859 40.6491998417958, -73.97131447162289 40.64920289269631, -73.97131847856194 40.64920547998235, -73.97132298585083 40.64920753248552, -73.97132787409888 40.649208996144935, -73.97133300972082 40.64920983220502, -73.97133825676069 40.64921001631786, -73.97134347215928 40.649209545746196, -73.97134851639846 40.64920843126161, -73.97135325349863 40.64920670344773, -73.97135755574944 40.649204409099795, -73.97136053971009 40.64920213243375, -73.97136397159582 40.64920025751006, -73.9713677591644 40.649198834734676, -73.97137180190245 40.64919790280476, -73.97137598984386 40.649197486907475, -73.97138021066407 40.649197597821065, -73.97138435086244 40.649198231915186, -73.97138829930789 40.64919937385337, -73.97139194960566 40.64920099209115, -73.97139520364249 40.64920304247868, -73.97139797513245 40.649205470963544, -73.97140018725358 40.64920821088836, -73.97140178092133 40.64921118929653, -73.97140271478852 40.6492143269322, -73.97140616400745 40.64921890512104, -73.97141059832047 40.64922296035388, -73.97141588535995 40.64922637192836, -73.97142186673943 40.649229037146, -73.97142836278067 40.64923087671651, -73.9714351772432 40.649231833858444, -73.9714421067799 40.64923188150571, -73.97144894212167 40.64923101690482, -73.9714554798987 40.6492292661203, -73.97146152264065 40.64922668313427, -73.97146688942084 40.649223343545415, -73.9714968265382 40.64922961677055)))", "B068", "B-14", "B068", "314", "40", "70", "11226", "B", "Dog Run", "Kensington Dog Run", "Yes", "Natural", "Active" ]
+, [ "row-ijxb.ijkd.rcqq", "00000000-0000-0000-AAE7-FC0892CC7A36", 0, 1773929376, null, 1773929376, null, "{ }", "2788", "Q066C-DOGAREA0018", "MULTIPOLYGON (((-73.92203493112896 40.77402156354413, -73.9220398203104 40.774015978329665, -73.92204351962943 40.77400988622723, -73.92204594007364 40.77400343485925, -73.92204702342318 40.773996776371405, -73.92204674580124 40.77399007013667, -73.92205476296812 40.773972648122765, -73.92206656911772 40.77395651909207, -73.92208181899558 40.77394215647454, -73.92210006554086 40.77392998050157, -73.92212077648294 40.77392034741126, -73.92214334382987 40.77391353864898, -73.92216710638175 40.77390975457924, -73.92219137106348 40.77390910459463, -73.922215425952 40.77391160892587, -73.92223856752629 40.77391719325701, -73.92224554674063 40.773919256516976, -73.92225288000714 40.77392041050725, -73.92226036362524 40.77392062177167, -73.92226779030722 40.77391988566793, -73.92227495155242 40.77391822186635, -73.92228165067401 40.77391567706057, -73.9222877004341 40.77391232136364, -73.9222929325201 40.773908248314434, -73.92229720347156 40.773903571279725, -73.92230039231417 40.77389842075101, -73.92230241122809 40.77389293804815, -73.92230320682663 40.77388719427501, -73.92230271841663 40.77388143162599, -73.9223009600225 40.773875813101554, -73.92229798120675 40.7738704999252, -73.92229386826257 40.773865644340106, -73.92228873711217 40.773861385101696, -73.92228273567873 40.77385784477809, -73.92227603560328 40.773855122540354, -73.92226810430593 40.77385384027667, -73.92226057099283 40.773851558722434, -73.92225365235619 40.77384834376064, -73.92224754610416 40.77384428827668, -73.92224242741246 40.773839507653314, -73.92223844181818 40.77383413886528, -73.92223570522401 40.77382833687753, -73.9222342956171 40.77382226563435, -73.92223425306499 40.77381610166146, -73.92223878177649 40.77380675119139, -73.9222412653113 40.77379696799998, -73.92224163822262 40.77378700778601, -73.9221965587448 40.77375446558951, -73.92218482404746 40.773757148368816, -73.92217386466336 40.77376131660038, -73.92216400292861 40.77376684623263, -73.9221555292414 40.77377357537151, -73.922148692583 40.77378130697534, -73.9221367152059 40.77379702707075, -73.92212154866812 40.77381106647149, -73.92210359258986 40.77382305353875, -73.9220833199668 40.773832673414915, -73.9220612676907 40.77383967071906, -73.92203801521302 40.773843862139564, -73.92201417625297 40.77384513642872, -73.92199038102177 40.7738434606941, -73.92196725727295 40.77383887768466, -73.92192595898727 40.77382849662454, -73.92188743647625 40.773858159205204, -73.92188419617567 40.773866759515265, -73.92188294909212 40.773875654740586, -73.92188373225729 40.77388458015835, -73.92188652110741 40.77389327100401, -73.92189123421497 40.77390146787724, -73.92189772972316 40.77390892664531, -73.92190581599837 40.7739154256543, -73.92191525043816 40.7739207720318, -73.92192575368217 40.7739248043981, -73.92193701315146 40.7739274054758, -73.92194141917078 40.773927776766456, -73.92194570259988 40.77392864595219, -73.92194976632749 40.773929995857586, -73.92195351563034 40.77393179309997, -73.9219568676367 40.77393399890153, -73.92195974659576 40.7739365627829, -73.92196210752715 40.77393945769852, -73.92196386288417 40.773942590837294, -73.92196497247613 40.7739458910323, -73.921965410334 40.77394928082273, -73.92196516588884 40.77395268185755, -73.92196424515589 40.77395601489668, -73.92196376861233 40.773963399600284, -73.92196456782824 40.773970768058305, -73.92203078403303 40.774018569266595, -73.92203493112896 40.77402156354413)))", "Q066C", "Q-01", "Q066C", "401", "22", "114", "11102", "Q", "Dog Run", "Triborough Bridge Playground C Dog Run", "Yes", "Asphalt", "Active" ]
+, [ "row-3dh8_hk33_qtbi", "00000000-0000-0000-2F70-1F3D2784D968", 0, 1773929376, null, 1773929376, null, "{ }", "2388", "X002-DOGAREA0029", "MULTIPOLYGON (((-73.8707908532998 40.855740791041974, -73.87075826507142 40.8557186294574, -73.87073068046703 40.855692848090285, -73.87070878848218 40.85566408886638, -73.87069313445403 40.85563307099262, -73.87067623097322 40.855581635766356, -73.87066511213345 40.85552929932643, -73.87065985902585 40.85547643636998, -73.8706605088507 40.85542342604659, -73.87066221619486 40.85540354240011, -73.87065949969883 40.85538372313189, -73.87065243535714 40.85536453293516, -73.87064122610388 40.855346515933796, -73.87062618878582 40.8553301857622, -73.87060775182836 40.855316005752215, -73.87058643865105 40.8553043790092, -73.87056285701665 40.855295636693945, -73.8705376753343 40.85529002628995, -73.87051160961948 40.8552877088873, -73.87048540216627 40.855288749253695, -73.87045979782447 40.85529311760863, -73.87043552383712 40.855300690501394, -73.87041327086169 40.85531125259054, -73.87039367042458 40.855324502921924, -73.87037728185476 40.8553400657197, -73.87036456854992 40.85535749756356, -73.87035589438703 40.85537630359298, -73.87035150472524 40.85539594829202, -73.87035152399663 40.85541587439651, -73.87036593499542 40.85547422715102, -73.87038674897396 40.85553145427819, -73.87041381848402 40.85558715308903, -73.87044695217828 40.85564092894896, -73.87048591598176 40.855692402482994, -73.87052540841326 40.85573432508046, -73.87057094477446 40.85577255072211, -73.87062193304489 40.855806579864556, -73.87067770282086 40.85583596600567, -73.87069019712754 40.855840898496254, -73.87070358645187 40.85584421020288, -73.8707175104223 40.85584581337378, -73.87073159079519 40.855845662560306, -73.8707454492271 40.85584376364202, -73.87075871084492 40.85584016752709, -73.87077101847659 40.85583497106867, -73.87078203858586 40.85582831437028, -73.87079147432398 40.855820378098635, -73.87079907147682 40.85581137448549, -73.87080462439148 40.855801549135144, -73.87080798312351 40.85579116482354, -73.87080905580368 40.85578050420249, -73.87080781578683 40.85576985269799, -73.87080429571857 40.85575950030494, -73.87079858993812 40.85574972538067, -73.8707908532998 40.855740791041974)))", "X002", "X-14", "X002", "227", "15", "49", "10462", "X", "Dog Run", "Bronx River Park Dog Run", "Yes", null, "Active" ]
+, [ "row-9xc7.jm69.aayq", "00000000-0000-0000-B62F-A328527F4DD6", 0, 1773929376, null, 1773929376, null, "{ }", "1993", "M283A-DOGAREA0042", "MULTIPOLYGON (((-74.01681166888038 40.711928554227256, -74.01678351122442 40.71203060330778, -74.01704575171958 40.71207462766468, -74.01710228421523 40.712000787308774, -74.01690898923685 40.71197024442526, -74.01691551737916 40.711943628872426, -74.01681166888038 40.711928554227256)))", "M283A", "M-01", "M283A", null, null, null, null, "M", "Dog Run", "Sirius Dog Run", null, null, "Active" ]
+, [ "row-9vwr~k24h~cntq", "00000000-0000-0000-4607-CF6919D2030B", 0, 1773929376, null, 1773929376, null, "{ }", "1992", null, "MULTIPOLYGON (((-74.01634094360534 40.70724611439286, -74.01618841678872 40.707701312853295, -74.01621660354468 40.70771292638086, -74.01618953589018 40.70778269909701, -74.01624965636064 40.70780746999224, -74.01645116246097 40.70728803280105, -74.01634094360534 40.70724611439286)))", null, "M-01", null, null, null, null, null, "M", "Dog Run", "West Thames Street Dog Run", null, null, "Active" ]
+, [ "row-3vns.pge8_av36", "00000000-0000-0000-F0E5-BE919F2EE0D7", 0, 1773929376, null, 1773929376, null, "{ }", "1991", "M263-DOGAREA0040", "MULTIPOLYGON (((-73.97832053294691 40.74004109591252, -73.97840832230666 40.739920778518155, -73.97860177563872 40.73964842017146, -73.97853851290976 40.739622424261015, -73.97825939027356 40.74001539201365, -73.97832053294691 40.74004109591252)))", "M263", "M-06", "M263", null, null, null, null, "M", "Dog Run", "Bellevue South Park Dog Run", null, null, "Active" ]
+, [ "row-36td.gteq_9hxt", "00000000-0000-0000-4E5D-2E66B7F78B7C", 0, 1773929376, null, 1773929376, null, "{ }", "1990", "R097-DOGAREA0013", "MULTIPOLYGON (((-74.18741640802779 40.53834544277189, -74.18755096720575 40.538218704093175, -74.18732000572177 40.5380468152874, -74.18718731884343 40.5381728356243, -74.18741640802779 40.53834544277189)))", "R097", "R-03", "R097", null, null, null, null, "R", "Dog Run", "Ida Court Dog Run", null, null, "Active" ]
+, [ "row-w663.6jin-xcn9", "00000000-0000-0000-F169-24D0A53E159E", 0, 1773929376, null, 1773929376, null, "{ }", "1989", null, "MULTIPOLYGON (((-74.00052945033535 40.76359559500704, -74.00055765183637 40.763576533901855, -74.00052669155001 40.76353967911254, -74.00050202962423 40.763500172302585, -74.0004840533358 40.76345863212074, -74.00047304455215 40.76341570963346, -74.0002591768662 40.763378780635364, -74.00028507878832 40.763459823251466, -74.00026622768696 40.76348599735171, -74.00052945033535 40.76359559500704)))", null, "M-04", null, null, null, null, null, "M", "Dog Run", "Pier 84 Dog Run", null, null, "Active" ]
+, [ "row-4i8z_hpxa_ezyz", "00000000-0000-0000-6319-EF90EBDECA31", 0, 1773929376, null, 1773929376, null, "{ }", "1988", null, "MULTIPOLYGON (((-74.01244630958983 40.72153555284229, -74.01244416815955 40.72150859361904, -74.01243783698676 40.72148267043427, -74.01242755889949 40.72145878012523, -74.01241372939346 40.721437840267455, -74.01239688005518 40.721420656758546, -74.01237765725044 40.721407888700696, -74.01235680081578 40.72140002679098, -74.01233511209803 40.721397373513994, -74.01231342317969 40.721400031438314, -74.01229256965608 40.721407897816675, -74.01227335276205 40.721420669992824, -74.01225650860165 40.721437857111525, -74.01224268684743 40.721458799931746, -74.01223241760393 40.72148269244217, -74.01222609602735 40.72150861698252, -74.0122239645766 40.72153557666356, -74.01222610591869 40.72156253589083, -74.01223243701669 40.72158845908697, -74.01224271505409 40.72161234941301, -74.0122565445426 40.72163328929083, -74.01227339508202 40.721650472819654, -74.01229261675311 40.72166324089463, -74.01231347326258 40.72167110281566, -74.01233516325215 40.72167375609652, -74.0123568510751 40.72167109816831, -74.01237770467347 40.721663231778614, -74.01239692280109 40.72165045958532, -74.01241376579542 40.7216332724467, -74.01242758753207 40.72161232960643, -74.01243785672553 40.72158843707903, -74.01244417822731 40.72156251252735, -74.01244630958983 40.72153555284229)))", null, "M-01", null, null, null, null, null, "M", "Dog Run", "Tribeca Dog Park", null, null, "Active" ]
+, [ "row-swzs.4giw~x4j7", "00000000-0000-0000-9DC4-A09714DE821B", 0, 1773929376, null, 1773929376, null, "{ }", "1589", "B025-DOGAREA0005", "MULTIPOLYGON (((-73.93633586930186 40.71542350573422, -73.9362919535276 40.715325665286535, -73.93609844210262 40.715319799272514, -73.9361649294871 40.715467926913306, -73.93633586930186 40.71542350573422)))", "B025", "B-01", "B025", null, null, null, null, "B", "Dog Run", "Cooper Park Small Dog Run", "Yes", "Sand", "Active" ]
+, [ "row-ymwg.hcbu_ukgc", "00000000-0000-0000-50B5-98DF5FC96AED", 0, 1773929376, null, 1773929376, null, "{ }", "1588", "B025-DOGAREA0004", "MULTIPOLYGON (((-73.9361649294871 40.715467926913306, -73.93609844210262 40.715319799272514, -73.93590165727657 40.71531383385554, -73.93599109745003 40.71551309995774, -73.9361649294871 40.715467926913306)))", "B025", "B-01", "B025", null, null, null, null, "B", "Dog Run", "Cooper Park Large Dog Run", "Yes", "Sand", "Active" ]
+, [ "row-yvet.7bin~8aqe", "00000000-0000-0000-B56F-9F94A3F35660", 0, 1773929376, null, 1773929376, null, "{ }", "1189", "M071-DOGAREA0020", "MULTIPOLYGON (((-73.98772926764407 40.78113544925195, -73.98743783444495 40.78097891693654, -73.98741758244074 40.78096803846582, -73.98700310242441 40.78153766881783, -73.9870516126142 40.78155947632688, -73.98718992829488 40.78146716513972, -73.98731406276914 40.78140809064644, -73.98746452829657 40.7813375825134, -73.9875986977809 40.781251824233614, -73.98771907898568 40.78114509704363, -73.98772926764407 40.78113544925195)))", "M071", "M-14", "M071", null, null, "20", null, "M", "Dog Run", "Riverside Park South Dog Run", "Yes", "Natural", "Active" ]
+, [ "row-qbfg_xabr-pfyy", "00000000-0000-0000-648A-A1862162879C", 0, 1773929376, null, 1773929376, null, "{ }", "1188", "B130-DOGAREA0031", "MULTIPOLYGON (((-73.97619088044168 40.649409142603616, -73.9762394057307 40.64950062181468, -73.97633265170596 40.64943106795135, -73.9765426232078 40.649411627369915, -73.97654144524822 40.649405952067625, -73.97651572018518 40.64928210673405, -73.97631639629977 40.64935691418362, -73.97619689342973 40.64940664040932, -73.97619088044168 40.649409142603616)))", "B130", "B-07", "B130", "307", "39", "72", "11218", "B", "Dog Run", "Greenwood Playground Dog Run", null, "Natural", "Active" ]
+, [ "row-e3ra-987k-34uh", "00000000-0000-0000-CE19-5548A028AC19", 0, 1773929376, null, 1773929376, null, "{ }", "1187", "X247-DOGAREA0028", "MULTIPOLYGON (((-73.89822371990437 40.8149567650444, -73.89820458191153 40.814946414939214, -73.89818349629552 40.81493854938487, -73.89816101388604 40.81493337418024, -73.89813772710087 40.81493102672362, -73.89811424625472 40.81493156698663, -73.898091190072 40.814934981108046, -73.8980691607981 40.814941180471344, -73.8980487394603 40.8149500007998, -73.89803046214746 40.81496121204097, -73.89801480697248 40.81497451835502, -73.89800218694164 40.81498957071538, -73.89799293216292 40.815005974997106, -73.89814331951268 40.815098074868985, -73.89815278039508 40.81509026060401, -73.89816379320271 40.81508372281356, -73.89817606253396 40.81507863863436, -73.89818925867995 40.81507514284948, -73.89818863435639 40.81507416525831, -73.89818744975337 40.81507218401808, -73.89818633037284 40.815070181223454, -73.89818527976924 40.81506815777814, -73.89818429557073 40.81506611458052, -73.89818337896108 40.81506405253211, -73.89818253230672 40.815061974336494, -73.8981817556077 40.81505987999371, -73.89818104767451 40.81505777220419, -73.89818040969386 40.81505565006846, -73.89817984402936 40.81505351809113, -73.89817934831319 40.8150513744691, -73.89817892372518 40.81504922280537, -73.89817857145054 40.815047063101055, -73.89817829148517 40.8150448980576, -73.89817808264371 40.81504272767398, -73.89817794610737 40.81504055465269, -73.89817788306132 40.81503837899484, -73.89817789113098 40.815036203399806, -73.89817797150022 40.815034028769084, -73.89817812416892 40.8150318551027, -73.898178350317 40.815029686003726, -73.89817864757241 40.815027522370485, -73.89817901593518 40.81502536420308, -73.89817945658649 40.81502321420397, -73.8981799695249 40.815021073273655, -73.89818055237711 40.81501894321106, -73.89818120632707 40.815016824917706, -73.89818193018806 40.81501471929307, -73.89818272395597 40.81501262903861, -73.89818358644557 40.81501055415331, -73.8981845188393 40.81500849643917, -73.89818551757863 40.81500645769401, -73.89818658503408 40.81500443792005, -73.89818771882963 40.815002440717045, -73.89818891896803 40.8150004642841, -73.89819018425847 40.81499851222208, -73.8981915146996 40.81499658543151, -73.89819290791948 40.814994684810785, -73.8981943639168 40.81499281126041, -73.89819588269012 40.81499096568087, -73.89819746186481 40.81498915077153, -73.89819910025561 40.81498736653143, -73.89820079786107 40.81498561386096, -73.8982025534933 40.81498389456013, -73.89820436478028 40.81498220952728, -73.898204887 40.8149817489336, -73.89820623290596 40.81498055966401, -73.89820815431182 40.81497894676817, -73.89821012899775 40.81497737083972, -73.89821175214205 40.81497548032724, -73.89821331369816 40.81497356004392, -73.89821481247813 40.814971611789744, -73.89821624848189 40.81496963556468, -73.8982176205215 40.81496763316873, -73.89821892740885 40.81496560640181, -73.89822016795878 40.8149635552629, -73.8982205221234 40.81496292972972, -73.89822134216855 40.81496148155292, -73.89822245003671 40.814959386172454, -73.89822348918865 40.814957271820894, -73.89822371990437 40.8149567650444)))", "X247", "X-02", "X247", "202", "8", "41", "10455", "X", "Dog Run", "Fox Playground Dog Run", null, null, "Active" ]
+, [ "row-2kky_8mkj-wzrx", "00000000-0000-0000-7F2B-2840855B4343", 0, 1773929376, null, 1773929376, null, "{ }", "1186", "X020-DOGAREA0008", "MULTIPOLYGON (((-73.89464998638445 40.88153523239843, -73.89412594472479 40.8816092798929, -73.89414690401628 40.881721389968256, -73.89414626264455 40.88174939363235, -73.89413953313712 40.881776932463794, -73.894126899409 40.88180324751959, -73.89410870904794 40.881827616926, -73.89408546380258 40.881849369377385, -73.89405780056352 40.88186790663133, -73.89398860511102 40.88188666507823, -73.89401489146725 40.881891590571605, -73.89405805354552 40.88189826588918, -73.89411878464539 40.88191016392654, -73.89423566909264 40.88191337417509, -73.89431057690713 40.881902315474505, -73.89433766290944 40.88189831689797, -73.89445876010431 40.88186586878273, -73.89458291724982 40.88182356390085, -73.89478233186938 40.8817551800706, -73.89489541119255 40.88170881346046, -73.89502110195959 40.88164389556729, -73.89514373832763 40.881578373236266, -73.89521540326054 40.881537068137824, -73.89529221657521 40.881501488461005, -73.89537338515807 40.88147200177602, -73.89545807328957 40.88144891168143, -73.8954415278959 40.881421248132646, -73.89509968769913 40.881471687601554, -73.89467904426368 40.881531126582615, -73.89468134417282 40.88154050185321, -73.89465228628964 40.88154460766959, -73.89464998638445 40.88153523239843)))", "X020", "X-08", "X020", "208", "11", "50", null, "X", "Dog Run", "Fort Independence Playground Dog Run", "Yes", null, "Active" ]
+, [ "row-2n7g~erqx.6rz3", "00000000-0000-0000-698B-7B7AB6F275A0", 0, 1773929376, null, 1773929376, null, "{ }", "1185", "Q083-DOGAREA0009", "MULTIPOLYGON (((-73.83631846029287 40.71079844104306, -73.83636948707343 40.71073894829291, -73.83645575240733 40.71067354869878, -73.83654201875541 40.71060814904114, -73.8366556660903 40.710548745063996, -73.83683203849853 40.710447734373616, -73.83697695315574 40.710406244162435, -73.83709447804648 40.710361737016854, -73.8372420682152 40.71031435280224, -73.83743533191351 40.71021926162292, -73.83756074846626 40.71014796049192, -73.83769399289963 40.71007667026121, -73.83770487717098 40.71004338825839, -73.83767625801335 40.71002147175678, -73.837522525519 40.71000439458023, -73.83736143355092 40.71002854847076, -73.83718520972882 40.710069994888045, -73.83700899178592 40.71010846304922, -73.83685627268788 40.71014100825687, -73.83669175953494 40.71019438339439, -73.83655067832123 40.710268639333485, -73.83640569791244 40.71033693356887, -73.83628817260339 40.71038144091194, -73.83622154936707 40.71041708478138, -73.8361588553872 40.7104467782154, -73.8361118446656 40.71046458106536, -73.83609611622799 40.710494341319716, -73.83609608693537 40.71050625415701, -73.83609603567268 40.71052710184728, -73.83615846740172 40.71060462578546, -73.8362092148996 40.71065830730724, -73.83624822192164 40.71071197120543, -73.83627941658926 40.71075966799028, -73.83628202818223 40.71077998276167, -73.83629076442438 40.710792385336106, -73.83629826501107 40.710798114256335, -73.83630326500918 40.71080193323549, -73.83631203286774 40.71080194570319, -73.83631846029287 40.71079844104306)))", "Q083", "Q-05", "Q015-ZN01", null, "NULL", "83", null, "Q", "Dog Run", "Overlook Dog Park / The Barking Lot", null, "Natural", "Active" ]
+, [ "row-u58s~uscd.b3h2", "00000000-0000-0000-0D50-21A2EDD1B007", 0, 1773929376, null, 1773929376, null, "{ }", "1184", "M391-DOGAREA0045", "MULTIPOLYGON (((-74.00589950932687 40.70435656880518, -74.00584932214 40.704341566142034, -74.00579656542942 40.70433308869332, -74.00574269346879 40.704331371416494, -74.00568919009615 40.704336461063306, -74.00563752966771 40.70434821708228, -74.00558913801127 40.70436631522247, -74.00554559594262 40.70439009623722, -74.00550778614809 40.70441900267321, -74.00547673802909 40.70445224743992, -74.00545329638938 40.70448892548851, -74.00543810132007 40.70452803812615, -74.00543156453506 40.704568520931915, -74.00543386463774 40.70460926897121, -74.00544494002233 40.704649175517666, -74.00584035623959 40.70439464635187, -74.00589950932687 40.70435656880518)))", "M391", "M-01", "M391-ZN01", null, "1", "1", null, "M", "Dog Run", "East River Esplanade Waterfront Dog Run", "Yes", "Concrete", "Active" ]
+, [ "row-77pu~j53i-38c8", "00000000-0000-0000-E68A-14C45CC88D05", 0, 1773929376, null, 1773929376, null, "{ }", "1182", "M283-DOGAREA0041", "MULTIPOLYGON (((-74.01488617355969 40.716564110283265, -74.01476448090749 40.7165083618631, -74.01446693582758 40.71688438242854, -74.01459028183369 40.7169380399665, -74.01488617355969 40.716564110283265)), ((-74.01491960184111 40.71639499735246, -74.01494465568904 40.71640631171473, -74.01514542313629 40.716148929573244, -74.01512036935124 40.71613761615482, -74.01491960184111 40.71639499735246)))", "M283", "M-01", "M283-ZN02", "101", "1", "1", null, "M", "Dog Run", "North End Dog Run", "Yes", null, "Active" ]
+, [ "row-66am-c8dk_meg9", "00000000-0000-0000-EE4F-B2028EFFB8B5", 0, 1773929376, null, 1773929376, null, "{ }", "784", "M098-DOGAREA0029", "MULTIPOLYGON (((-73.99768480672438 40.73022459322584, -73.99740784087811 40.730089913579725, -73.99740291764498 40.730090232248784, -73.99739809264395 40.73009104169701, -73.99739257985296 40.730092630069294, -73.9973874624095 40.73009485781126, -73.99738286934459 40.73009766909447, -73.99737891430101 40.73010099368184, -73.9973756943496 40.73010475052989, -73.99737329117293 40.730108845987715, -73.99737176277907 40.730113176498094, -73.99737114823613 40.7301176367026, -73.99737146293735 40.73012211493847, -73.99737269741743 40.73012650044296, -73.99737409294443 40.73012945234158, -73.99737590634118 40.73013227007397, -73.99738122470004 40.73013832881611, -73.99739124949156 40.73014863896522, -73.99740191471095 40.730158570013835, -73.99741319550039 40.73016809944852, -73.99742506581826 40.73017720565627, -73.99743749725528 40.73018586612363, -73.9974504625859 40.73019406283951, -73.99746393103317 40.7302017750915, -73.99747787182004 40.730208985769, -73.99749225180197 40.73021567776154, -73.99750703783421 40.73022183575953, -73.99752219677185 40.73022744625448, -73.9975376931026 40.730232495737866, -73.99764824957924 40.730271467552754, -73.99765450570823 40.730271822480674, -73.99766075476205 40.73027140026932, -73.99766683219816 40.73027021352246, -73.997672575841 40.730268293754655, -73.99767783298432 40.73026568959031, -73.99768246749392 40.730262472166956, -73.99768635388882 40.730258726129854, -73.99768862088028 40.73025577340813, -73.99769097433438 40.73025141319338, -73.99769238079301 40.7302468224294, -73.99769280237226 40.73024211908217, -73.99769222723044 40.73023742562048, -73.99769067312 40.73023286271291, -73.99768817791706 40.73022854832679, -73.99768480672438 40.73022459322584)))", "M098", "M-02", "M098-ZN02", "102", "1", "6", "10011", "M", "Dog Run", "Robin Kovary Run for Small Dogs", "Yes", "Natural", "Active" ]
+, [ "row-wmke~aak8-nsrc", "00000000-0000-0000-2BA3-5E0F7BBBC54F", 0, 1773929376, null, 1773929376, null, "{ }", "783", "M086-DOGAREA0025", "MULTIPOLYGON (((-73.98391986317685 40.73317315010798, -73.98392082520061 40.7331650393657, -73.98392103551515 40.73315689700065, -73.98392049292704 40.73314876443603, -73.98391920216267 40.7331406794939, -73.98391716794721 40.73313268449868, -73.98391440092614 40.73312481727323, -73.98391091411175 40.73311711834216, -73.98390672643636 40.73310962372837, -73.98390185564817 40.733102371255626, -73.98389632896614 40.73309539694794, -73.983890171242 40.73308873502806, -73.9838834144305 40.73308241881908, -73.98387609048709 40.7330764789427, -73.98386823610268 40.733070944220216, -73.98385989151957 40.73306584347339, -73.98385109579743 40.733061201021336, -73.98384189391525 40.733057039382956, -73.98383232966853 40.73305337927601, -73.98382245158854 40.73305023961785, -73.98381230820756 40.73304763482338, -73.98380197751256 40.7330461565374, -73.9837915330362 40.7330452401515, -73.9837810304161 40.73304488927558, -73.98377052173848 40.73304510751899, -73.98376005909105 40.733045892187555, -73.98375535213856 40.73304650476968, -73.98374969692946 40.73304723968693, -73.98373948615848 40.73304914372078, -73.98372947886772 40.73305159439088, -73.98371972477973 40.73305457909726, -73.98371027480141 40.73305808343905, -73.98370117628936 40.73306208851228, -73.98369247423265 40.73306657541285, -73.98368421243741 40.73307152163422, -73.98367643234332 40.7330769001672, -73.98366917538942 40.733082686703995, -73.98366247591386 40.733088849731885, -73.98365636943825 40.73309535863863, -73.98365088438172 40.7331021819106, -73.98358676925882 40.73318496100426, -73.98364645320086 40.733209115720214, -73.98367651061976 40.73322127954588, -73.98384818481992 40.733290754540405, -73.98391253915594 40.73319689638457, -73.9839157100829 40.73318911823841, -73.98391815655614 40.7331811896061, -73.98391986317685 40.73317315010798)))", "M086", "M-06", "M086", "106", "2", "13", "10003", "M", "Dog Run", "Stuyvesant Square Dog Park", "Yes", "Concrete", "Active" ]
+, [ "row-iigz.endr.k7xw", "00000000-0000-0000-FFAC-EB59EA879EC6", 0, 1773929376, null, 1773929376, null, "{ }", "782", "M072-DOGAREA0021", "MULTIPOLYGON (((-73.95441012913086 40.82518712812843, -73.95431969114968 40.82513265197618, -73.95426748913094 40.82517044489705, -73.9542531547718 40.82518077059742, -73.95427139120768 40.82519862745434, -73.95415969498387 40.82526776458165, -73.95412867581283 40.82528616828206, -73.95409710340218 40.82530402065059, -73.95406499435455 40.82532131268838, -73.9540323664584 40.82533803539716, -73.95399923750257 40.82535417887815, -73.95399968450931 40.82535747306926, -73.9539993337055 40.82536077504664, -73.95399819583784 40.825363972252475, -73.95399630891333 40.82536695934408, -73.95399373820241 40.82536963369087, -73.95399056793211 40.82537190797834, -73.95398825789947 40.82537304078059, -73.95398690366002 40.82537370570644, -73.95397970906377 40.825377311121244, -73.95400095281785 40.82538851185671, -73.95402269485488 40.825399150877665, -73.95404490910396 40.82540921466599, -73.95406756712218 40.825418691503685, -73.95409064402217 40.82542757057463, -73.95409472370805 40.82542847449533, -73.95410162314192 40.82543000358164, -73.95411281490458 40.82543178831539, -73.95412415293109 40.825432915744514, -73.95413556728525 40.8254333777366, -73.95414698921203 40.82543317246337, -73.9541583487698 40.82543229989701, -73.95416957719786 40.82543076631366, -73.95418060691924 40.82542858069148, -73.95420167430213 40.82540675114237, -73.9543532489656 40.82524968917045, -73.9544006396847 40.82519747107086, -73.95441012913086 40.82518712812843)))", "M072", "M-14", "M072-ZN26", "109", "7", "30", null, "M", "Dog Run", "Riverside Park Dog Run (W. 142nd St.)", "Yes", "Natural", "Active" ]
+, [ "row-8xig.cr8m_skue", "00000000-0000-0000-4DA5-BF48E8A2214A", 0, 1773929376, null, 1773929376, null, "{ }", "781", "X118-DOGAREA0023", "MULTIPOLYGON (((-73.87748385052834 40.81894288786234, -73.87745321881368 40.81897204132842, -73.87744189873128 40.81898370784616, -73.87743278851279 40.81899644109954, -73.87742607357998 40.819009964833654, -73.87742185272313 40.81902405853203, -73.8774202046631 40.819038457532486, -73.87741943607227 40.81908119701746, -73.87742726643559 40.81909662095436, -73.87743843935914 40.81911080665795, -73.87745262845193 40.81912334135258, -73.8774694183388 40.81913385719286, -73.87748831885159 40.81914204928882, -73.87750878043664 40.81914767662284, -73.87753020361288 40.8191505755674, -73.87755196385908 40.819150662612955, -73.87757342584013 40.81914793348281, -73.87759396354787 40.819142468557295, -73.87761297571934 40.81913442838777, -73.8776299095585 40.81912404561701, -73.87764427021928 40.8191116249895, -73.87765920581565 40.819090793425204, -73.8776768160422 40.819061293808225, -73.87769992794165 40.81903407377954, -73.87772804140458 40.819009720830394, -73.8777605485736 40.81898876020308, -73.87779674926755 40.81897164680351, -73.87783586049547 40.81895874810205, -73.87784320809878 40.81895631553884, -73.87784991608565 40.81895298450184, -73.87785579700343 40.8189488475437, -73.87786068587454 40.81894402245502, -73.87786444258225 40.81893864416206, -73.87786696490896 40.818932864740724, -73.8778681790654 40.818926847102944, -73.87786805155528 40.81892075870572, -73.87786658680297 40.81891477244923, -73.87786382598631 40.818909056770096, -73.87785984585784 40.81890377203797, -73.87785475875138 40.818899066953854, -73.87784870784894 40.818895074042295, -73.87784186363129 40.818891906046005, -73.87783441914503 40.818889651418054, -73.87780619945508 40.81888604834259, -73.87772545062424 40.81888179253811, -73.87765096571387 40.81888171352682, -73.8776131907554 40.81888537628284, -73.87757667809188 40.81889359238051, -73.87754237162993 40.81890615030618, -73.87751115977623 40.818922725025494, -73.87748385052834 40.81894288786234)))", "X118", "X-09", "X118-ZN04", "209", "18", "43", "10473", "X", "Dog Run", "Soundview Park Dog Run", "Yes", "Sand", "Active" ]
+, [ "row-83sa-ttsc-xfw6", "00000000-0000-0000-0990-2B73CBC3E899", 0, 1773929376, null, 1773929376, null, "{ }", "779", "X045-DOGAREA0014", "MULTIPOLYGON (((-73.91221621697598 40.809805717959314, -73.91235932423511 40.809717195299676, -73.91213031908303 40.80950346873106, -73.91198721197885 40.809591991109485, -73.91221621697598 40.809805717959314)))", "X045", "X-01", "X045", "201", "17", "40", "10454", "X", "Dog Run", "St. Mary's Park Dog Run", "No", "Natural", "Active" ]
+, [ "row-hc9w~6ydj_j3pu", "00000000-0000-0000-B8A8-FD357174A20B", 0, 1773929376, null, 1773929376, null, "{ }", "383", "B111A-DOGAREA0027", "MULTIPOLYGON (((-73.9858087835966 40.672865284752284, -73.98580813411105 40.67286605461262, -73.98565501597503 40.67304762990045, -73.98574124280428 40.673089782024874, -73.98599022133958 40.67279106311838, -73.98583064212099 40.672713131905816, -73.98573110653143 40.672825340900594, -73.9858087835966 40.672865284752284)))", "B111A", "B-06", "B111A", "306", "39", "78", "11215", "B", "Dog Run", "Washington Park Dog Run", null, null, "Active" ]
+, [ "row-yuu4_ewf8_jk7h", "00000000-0000-0000-5710-BE9EA3709B53", 0, 1773929376, null, 1773929376, null, "{ }", "381", "B431-DOGAREA0043", "MULTIPOLYGON (((-74.00004416122805 40.692831521200986, -74.00006654291435 40.692829020465915, -74.00008808105251 40.692823754251954, -74.00010819119416 40.692815867542734, -74.00012632556755 40.692805573761206, -74.00014199200731 40.69279315296837, -74.0001547646021 40.69277894195765, -74.000164297892 40.69276332705048, -74.00017033160033 40.69274673148918, -74.0001727024645 40.692729608232554, -74.00017134541864 40.692712420144495, -74.00016629832562 40.69269563549157, -74.00015742040087 40.6926793001996, -74.00014505119496 40.6926643372931, -74.00012954445309 40.69265117631516, -74.00011134383375 40.69264019457904, -74.00009097226105 40.69263170456107, -74.00006901062893 40.69262595209975, -74.00004608952001 40.69262309928625, -74.00002286436101 40.69262322896705, -74.00000000122617 40.69262633844047, -73.99997815317607 40.69263233675504, -73.99995794724386 40.69264105371458, -73.99993996195731 40.69265223807718, -73.99992471077539 40.692665571062605, -73.99991263262412 40.692680670854784, -73.9999040706005 40.692697104308294, -73.99989927315575 40.69271440135638, -73.9998983739823 40.692732065817005, -73.99990140266124 40.69274959340306, -73.99990826928153 40.69276648072742, -73.99991877981994 40.692782246014914, -73.99993263140821 40.69279643630632, -73.99994942771302 40.69280864546897, -73.99996868840019 40.6928185241024, -73.99998986096618 40.6928257903449, -74.00001234085032 40.69283023437587, -74.00003548326603 40.69283173012299, -74.00004416122805 40.692831521200986)))", "B431", "B-02", "B431-ZN06", "302, 306", "1,33", "84", "11201", "B", "Dog Run", "Pier 6 Dog Run", null, null, "Active" ]
+, [ "row-p69q~v8y8.xkw4", "00000000-0000-0000-9A97-7BB9E6F84C63", 0, 1773929376, null, 1773929376, null, "{ }", "380", "Q471-DOGAREA0017", "MULTIPOLYGON (((-73.9601116258101 40.7433999109701, -73.9601625426344 40.74341273830387, -73.9602154213745 40.7434195707178, -73.96026905088969 40.74342025290432, -73.96032220101145 40.74341476822944, -73.96037365332712 40.743403242345565, -73.96042222723045 40.74338594049884, -73.96046680952848 40.743363258533705, -73.96050637694167 40.74333571659695, -73.95997585147634 40.743231325892324, -73.9599444635792 40.74333056164932, -73.9601116258101 40.7433999109701)))", "Q471", "Q-02", "Q471", "402", "26", "108", "11101", "Q", "Dog Run", "Hunters Point South Park Dog Run", null, null, "Active" ]
+, [ "row-q736~rvxa-cn2e", "00000000-0000-0000-C38C-44A1FDDAD241", 0, 1773929376, null, 1773929376, null, "{ }", "379", "Q340-DOGAREA0012", "MULTIPOLYGON (((-73.92179626494021 40.7472127045456, -73.92179525414362 40.747206322868905, -73.92179282695362 40.74720016535716, -73.92178905656948 40.74719441306182, -73.92178405172777 40.74718923355076, -73.92177795907274 40.74718477910918, -73.92177095724435 40.74718117953109, -73.92176324977714 40.74717853941343, -73.92175506510023 40.74717693815577, -73.92161506068904 40.74716230608188, -73.92160560397605 40.74721233359848, -73.9215918658435 40.747279341755494, -73.92162870453586 40.74728310302962, -73.92161072261308 40.74738745771503, -73.92161187974256 40.74740128758337, -73.92161613478899 40.7474147629593, -73.9216233627133 40.747427484833004, -73.92163334727698 40.74743907664491, -73.9216457952356 40.747449196902885, -73.92166033869876 40.74745754638767, -73.92167654814256 40.74746387806762, -73.92169394305806 40.74746800430988, -73.92171201088782 40.74746980409772, -73.92174770926378 40.74729529305534, -73.92177999986303 40.74729917906295, -73.92179626494021 40.7472127045456)))", "Q340", "Q-02", "Q340", "402", "26", "108", "11104", "Q", "Dog Run", "Lou Lodati Dog Park", null, null, "Active" ]
+, [ "row-2qek_mjgc.895d", "00000000-0000-0000-6CEF-C494673FD2FC", 0, 1773929376, null, 1773929376, null, "{ }", "378", "M042-DOGAREA0011", "MULTIPOLYGON (((-73.92179248756099 40.87085776914007, -73.92178834636692 40.870855725825976, -73.92178061729422 40.87085119833287, -73.92177178861043 40.87085570469711, -73.92176345044447 40.8708607138659, -73.9217556526551 40.87086619525659, -73.92174844391796 40.870872115584156, -73.92174597823397 40.8708746758025, -73.92173774265315 40.870883231163546, -73.92172768393756 40.870894685761456, -73.92171828677704 40.87090645777934, -73.92170957017723 40.87091852561841, -73.9217015495885 40.87093086497617, -73.92169424045896 40.87094345335101, -73.92168765586526 40.87095626733926, -73.9216818088854 40.87096928263667, -73.92166833653873 40.870993448912266, -73.92165558516169 40.87101784169834, -73.92164356070106 40.871042448392316, -73.92163227147728 40.871067255492676, -73.92162172225105 40.87109225039616, -73.92161191897237 40.87111741779859, -73.92160286758929 40.8711427441969, -73.92159457286246 40.87116821698766, -73.92158703955589 40.87119382086598, -73.92158027124505 40.87121954232709, -73.92157427150555 40.87124536786623, -73.92156904510031 40.8712712830789, -73.92156459204831 40.871297272656925, -73.92155986307529 40.871326875708036, -73.92155595609718 40.871356549555664, -73.92155287468974 40.87138628069503, -73.9215506188711 40.871416054718345, -73.92154918984349 40.871445859019715, -73.92154858881023 40.87147568009259, -73.92154881578834 40.87150550442968, -73.92154987079489 40.871535318523655, -73.92155048333773 40.871545010898885, -73.92156519518738 40.87153920374304, -73.92162004771853 40.871517552744905, -73.9219569479562 40.87103259870244, -73.9219575646318 40.87101455872919, -73.92195795160553 40.87097391363306, -73.92195794058911 40.87096308524906, -73.92195718220992 40.87095227346893, -73.92195568117855 40.87094150801189, -73.92195343864346 40.870930821296355, -73.92195046287398 40.87092024304394, -73.9219467621372 40.87090980477727, -73.92194234707495 40.8708995362197, -73.92193722951521 40.870889467095175, -73.92193142603192 40.87087962623048, -73.92192495201401 40.87087004155107, -73.9219178264079 40.87086074188535, -73.92190912953807 40.8708641263403, -73.9219001023384 40.87086696847687, -73.92189080177276 40.87086924852272, -73.9218812895435 40.870870952111744, -73.92187162735115 40.87087206667884, -73.92186187926006 40.87087258686443, -73.9218521081475 40.87087250820863, -73.92184237688419 40.87087183165447, -73.92183275189657 40.87087056084891, -73.92182329367236 40.87086870573834, -73.9218140638855 40.87086627627005, -73.92180512538766 40.87086328959583, -73.92179653390981 40.87085976556434, -73.92179248756099 40.87085776914007)))", "M042", "M-12", "M042", "112", "7", "34", "10034", "M", "Dog Run", "Homer's Dog Run", null, "Natural", "Active" ]
+, [ "row-59qp.n29f-fvam", "00000000-0000-0000-5038-8B95E9E8F282", 0, 1773929376, null, 1773929376, null, "{ }", "377", "X092-DOGAREA0020", "MULTIPOLYGON (((-73.88278270889644 40.88378811994906, -73.88293735535706 40.88376683450444, -73.88293867482874 40.88377217032791, -73.88294118716827 40.88377725252334, -73.8829448190801 40.88378192973454, -73.88294945928355 40.88378606047203, -73.88295496917526 40.88378952212891, -73.88296118401918 40.883792209181074, -73.88296791767614 40.88379404219675, -73.88297496616849 40.88379496513886, -73.88298211834737 40.88379495167916, -73.88298916064629 40.883794000700604, -73.88299588063161 40.88379214170397, -73.88300207768853 40.88378943031611, -73.88300756420787 40.88378594829129, -73.88301217745864 40.883781799020674, -73.88301577721361 40.88377710843039, -73.88301825525697 40.883772015986374, -73.88301953894248 40.88376667559831, -73.88301958883586 40.88376124661254, -73.88301840346091 40.883755893816655, -73.88301601694712 40.883750775730924, -73.88301250377097 40.88374604731456, -73.88300796809445 40.88374185004947, -73.88300254495519 40.883738310140664, -73.88299929566764 40.883736676064835, -73.88299645878493 40.883734647993634, -73.88299411607318 40.88373228364125, -73.88299233504 40.883729652413564, -73.88299116894405 40.88372683000548, -73.88299064967619 40.88372389839371, -73.88299079251158 40.88372094223955, -73.88299159374027 40.88371804708549, -73.88299634884781 40.88371351795374, -73.88300002521194 40.88370844293358, -73.88300251816214 40.88370296959895, -73.88300375504579 40.88369725546141, -73.88300370116676 40.88369146437459, -73.88300235623059 40.88368576382871, -73.88299976147614 40.88368031775422, -73.8829959901884 40.88367528381054, -73.88299115127059 40.88367080618581, -73.8829853845013 40.88366701379142, -73.88297885579499 40.883664016654706, -73.88297175246389 40.88366190141234, -73.88296428085144 40.883660727705525, -73.88295665446427 40.883660529969276, -73.88294909516353 40.883661314731924, -73.88294181774538 40.88366305789815, -73.88293503586398 40.88366571015804, -73.88292894067783 40.88366919516404, -73.88292371152369 40.883673412243695, -73.88291949692773 40.88367823908152, -73.88291641815415 40.88368353802613, -73.88291456564572 40.88368915608657, -73.88291399189336 40.883694931228476, -73.88291471261684 40.88370069597722, -73.88277196852503 40.88371964230949, -73.88277002694734 40.883713861011586, -73.88276681048781 40.88370841700185, -73.88276241378284 40.88370347066302, -73.88275696827516 40.88369916800735, -73.88275063273151 40.883695635264175, -73.8827435932441 40.883692977979436, -73.88273605968395 40.883691273808054, -73.88272825264968 40.88369057250089, -73.88272040346736 40.88369089590464, -73.88271274233375 40.8836922334474, -73.88270549475058 40.883694545736894, -73.88269887559208 40.88369776455456, -73.88269308079495 40.883701795548575, -73.88268827904984 40.883706520026166, -73.88268461298289 40.88371179765647, -73.88268219083777 40.88371747366584, -73.88268108409945 40.88372338063641, -73.88268132392353 40.88372934480589, -73.88268290587756 40.883735188773834, -73.88268578043136 40.88374074139731, -73.8826898660053 40.883745839605126, -73.88269503947188 40.88375033199021, -73.88270114919459 40.883754086026705, -73.8827033699333 40.88375631158611, -73.88270511804396 40.88375876718985, -73.88270635209801 40.883761396965625, -73.8827070425429 40.88376413874982, -73.8827071752535 40.883766928593545, -73.88270674441166 40.88376970165583, -73.88270576199982 40.883772391312704, -73.88270425066912 40.88377493635415, -73.88270026962816 40.88377985437046, -73.8826974636084 40.88378521932192, -73.88269591713498 40.88379087010732, -73.88269567677666 40.88379663928351, -73.88269674758652 40.883802353061576, -73.88269910020126 40.88380784212004, -73.88270266253635 40.88381294159656, -73.88270732926304 40.8838174992016, -73.88271295942936 40.88382137881822, -73.88271938713206 40.88382446411495, -73.88272641794742 40.88382666394487, -73.8827338431711 40.883827911459846, -73.88274144099312 40.883828170414915, -73.88274898362349 40.88382743157375, -73.88275624558635 40.88382571902058, -73.8827630108534 40.88382308206266, -73.88276907639379 40.88381960063732, -73.88277426167875 40.88381537811732, -73.88277841105464 40.883810541313274, -73.88278140087284 40.88380523417771, -73.88278314305248 40.88379961600745, -73.88278358272186 40.88379385333694, -73.88278270889644 40.88378811994906)))", "X092", "X-13", "X092-ZN14", "Null", "Null", "Null", "Null", "X", "Dog Run", "Dog Bone Run", null, "Concrete", "Active" ]
+, [ "row-nh5t-6nmp-tbqk", "00000000-0000-0000-D153-3E4525A4C2E2", 0, 1773929376, null, 1773929376, null, "{ }", "376", "X092-DOGAREA0019", "MULTIPOLYGON (((-73.87315817379164 40.89946602067053, -73.87314271387982 40.899442326343, -73.87306752444653 40.89947057023942, -73.87311145115007 40.89953789732973, -73.87311325178499 40.89954892754284, -73.87311273095101 40.89956003444705, -73.87310990104578 40.89957093980619, -73.87310483261368 40.89958136814937, -73.87309765432842 40.89959105577584, -73.87308854585397 40.899599760652364, -73.87307773784448 40.89960726241332, -73.87307312629636 40.89961645579263, -73.8730706607303 40.89962611347975, -73.87307041646046 40.89963594920353, -73.8730723987921 40.899645671212845, -73.87307655012637 40.899654990388726, -73.87308274756626 40.89966363104754, -73.87309080646624 40.899671336347986, -73.87310048753234 40.89967787910446, -73.87311150512417 40.89968306449803, -73.87314728530468 40.89969168093368, -73.87317738017475 40.89971744534255, -73.87318214050958 40.899720457289604, -73.87318748475374 40.89972283863822, -73.87319327061834 40.89972452439715, -73.87319934153187 40.8997254711711, -73.87320553495805 40.899725651766985, -73.8732116847557 40.89972506240034, -73.87321762356056 40.89972371819571, -73.8732231934616 40.89972165589948, -73.87322824482074 40.89971893027702, -73.87328110580215 40.899661807545655, -73.87328717326217 40.89965211328577, -73.87329120653514 40.899641826975625, -73.87329310902835 40.89963119254069, -73.87329283635174 40.899620462067936, -73.87329039513943 40.89960989130235, -73.8732858430668 40.89959973064173, -73.87327928767229 40.89959022063323, -73.87327399823076 40.89957901820259, -73.87327118179398 40.899567312414135, -73.87327091490828 40.899555414019176, -73.87327320408521 40.899543641796406, -73.87327798938752 40.89953230904851, -73.87328514087791 40.89952171909584, -73.87329014607518 40.8995139399007, -73.87329337093124 40.899505635569874, -73.87329472599288 40.89949704013127, -73.87329417282767 40.89948839307165, -73.8732917275876 40.89947993753957, -73.87328745628245 40.899471909534284, -73.87328148190734 40.89946453431173, -73.87326455928597 40.89944736150502, -73.87325966878845 40.8994441576151, -73.8732541373487 40.8994416220813, -73.87324812504103 40.89943982801856, -73.87324179910296 40.89943882603754, -73.8732353422448 40.89943864335332, -73.87322893721445 40.89943928737049, -73.87322276443967 40.899440737576015, -73.8732170008256 40.89944295364242, -73.87321181026434 40.899445873616315, -73.87315817379164 40.89946602067053)))", "X092", "X-13", "X092-ZN21", "Null", "Null", "Null", "Null", "X", "Dog Run", "Woodlawn Dog Run", null, "Natural", "Active" ]
+, [ "row-g3u8_4tuu-pzgd", "00000000-0000-0000-D0E1-F66315F17B1F", 0, 1773929376, null, 1773929376, null, "{ }", "375", "X092-DOGAREA0018", "MULTIPOLYGON (((-73.895125884814 40.899071536907506, -73.89484184137336 40.89919106094677, -73.89490569460271 40.89931977578378, -73.89519139559947 40.89921204043407, -73.89525870354305 40.899220678633405, -73.89547777786862 40.89871652402196, -73.89529984173345 40.89867208416656, -73.895125884814 40.899071536907506)))", "X092", "X-13", "X092-ZN06", "226", "11", "50", "10471", "X", "Dog Run", "Canine Court Dog Run", null, null, "Active" ]
+, [ "row-uh8j~nuur~9f3z", "00000000-0000-0000-635E-0BBFDEBF7B74", 0, 1773929376, null, 1773929376, null, "{ }", "374", "M366-DOGAREA0044", "MULTIPOLYGON (((-74.01227046002407 40.71618119678133, -74.01225881693813 40.71617599667481, -74.01219820452607 40.71614772709301, -74.01213758033033 40.7161194574804, -74.0120769680211 40.7160911878345, -74.01201635576324 40.71606291815665, -74.01197588015472 40.71604404047628, -74.01196564518311 40.716083319094025, -74.01193498868713 40.71620097303252, -74.01196296890735 40.71620650196251, -74.01195033304006 40.71625499664868, -74.01217155257838 40.71632572475653, -74.01224968327236 40.716211556092794, -74.01227046002407 40.71618119678133)))", "M366", "M-01", "M366", "101", "1", "1", "10007", "M", "Dog Run", "Tribeca Dog Run", null, null, "Active" ]
+, [ "row-397q-qzd3.hxkm", "00000000-0000-0000-17BC-4FE3AEE7F042", 0, 1773929376, null, 1773929376, null, "{ }", "371", "M028-DOGAREA0006", "MULTIPOLYGON (((-73.94554819444434 40.840697885464216, -73.94538379413493 40.84062171605193, -73.94491945907129 40.841110965572874, -73.94528313958895 40.84129654301922, -73.94554819444434 40.840697885464216)))", "M028", "M-12", "M028-ZN01B", "112", "7", "33", "10032", "M", "Dog Run", "The Rocky Run", "Yes", "Natural", "Active" ]
+, [ "row-47ij_tnwg~i7tr", "00000000-0000-0000-A569-2C35DCC389F1", 0, 1773929376, null, 1773929376, null, "{ }", "370", "M022-DOGAREA0005", "MULTIPOLYGON (((-73.99439430763937 40.76750808547049, -73.99434574240482 40.767487475070936, -73.99427662002655 40.76745843311613, -73.99421842708918 40.76743398333691, -73.9939834623174 40.76733526169504, -73.99395211683682 40.76732209198846, -73.99389037515344 40.76732874795574, -73.99391342514421 40.76743100407042, -73.9939425464447 40.76756019006021, -73.99395281238978 40.76760573447238, -73.99397426010347 40.767602699998264, -73.9939958344962 40.76760023914758, -73.9940175106956 40.76759835371998, -73.99403926146036 40.76759704551501, -73.99406106073371 40.76759631723284, -73.99408288009009 40.767596169772354, -73.99410469465724 40.76759660313238, -73.99412647719431 40.76759761641099, -73.99414819927581 40.76759920870627, -73.99416983721427 40.76760137731549, -73.99419136258435 40.76760412043635, -73.99421274814526 40.76760743446546, -73.9942339702095 40.76761131579973, -73.9942550015364 40.76761575903487, -73.99427581488536 40.76762075876656, -73.99429638656898 40.76762630959078, -73.99430550043358 40.76762904487116, -73.99439430763937 40.76750808547049)))", "M022", "M-04", "M022", "104", "3", "18", "10019", "M", "Dog Run", "DeWitt Clinton Park Large Dog Run", null, null, "Active" ]
+, [ "row-ibr6.asc9~7abj", "00000000-0000-0000-CF62-1491CD1C0EDE", 0, 1773929376, null, 1773929376, null, "{ }", "369", "M022-DOGAREA0004", "MULTIPOLYGON (((-73.99448221572271 40.76769957911417, -73.9945628596147 40.76757962595668, -73.99439430763937 40.76750808547049, -73.99430550043358 40.76762904487116, -73.99448221572271 40.76769957911417)))", "M022", "M-04", "M022", "104", "3", "18", "10019", "M", "Dog Run", "DeWitt Clinton Park Small Dog Run", null, null, "Active" ]
+, [ "row-795z.6yf9.wzqs", "00000000-0000-0000-6C60-70A1E72D882A", 0, 1773929376, null, 1773929376, null, "{ }", "359", "B431-DOGAREA0042", "MULTIPOLYGON (((-73.98889097690027 40.70441291794277, -73.98936058920606 40.70447014479315, -73.98923664974666 40.704219959444686, -73.98879092412409 40.70433812075585, -73.98889097690027 40.70441291794277)))", "B431", "B-02", "B431", "302", "33", "84", "11201", "B", "Dog Run", "Brooklyn Bridge Park Dog Run", null, null, "Active" ]
+, [ "row-jm5d-cf3i.zrdu", "00000000-0000-0000-DF1C-014B0A056A66", 0, 1773929376, null, 1773929376, null, "{ }", "357", "X104-DOGAREA0021", "MULTIPOLYGON (((-73.87614217858459 40.87790618127396, -73.87592934410544 40.87786335507095, -73.8759157579414 40.877924859110195, -73.87590879653165 40.87798699701027, -73.8759085069281 40.87804935910083, -73.87591488991927 40.87811153295919, -73.87613029432327 40.87809098919628, -73.87612460053649 40.87804467368468, -73.87612469313446 40.877998157271215, -73.87613057014366 40.877951855979184, -73.87614217858459 40.87790618127396)))", "X104", "X-07", "X104", "207", "11", "52", "10467", "X", "Dog Run", "Williamsbridge Oval Dog Run", null, null, "Active" ]
+, [ "row-b878.4wb2_c2a3", "00000000-0000-0000-2E8B-6C5790FBA6EA", 0, 1773929376, null, 1773929376, null, "{ }", "344", "B251-DOGAREA0039", "MULTIPOLYGON (((-73.94245483141643 40.577890512346954, -73.9424385347949 40.57775809288286, -73.94227045901725 40.577762585012835, -73.94210229901825 40.57776066151896, -73.94193447647835 40.57775232621598, -73.94176741070075 40.57773760003004, -73.94160151979156 40.57771652099884, -73.94143721948232 40.57768913976877, -73.94127492194195 40.577655526798125, -73.94116034531083 40.577892206124034, -73.9411852386647 40.57789859278212, -73.9412119922833 40.57790486602015, -73.94123895306355 40.57791060264538, -73.94126610093241 40.57791579634374, -73.94129341699325 40.57792044620489, -73.94132088353433 40.577924546816604, -73.94134848165899 40.57792809726849, -73.94137619011146 40.57793109304708, -73.94174927560898 40.577962457171566, -73.94225918266348 40.57791111903729, -73.94245483141643 40.577890512346954)))", "B251", "B-15", "B251-ZN03", "315", "48", "61", "11235", "B", "Dog Run", "Manhattan Beach Dog Run (Oriental Boulevard)", null, null, "Active" ]
+, [ "row-qn6s_hf65_k6yw", "00000000-0000-0000-347F-A06E032A2315", 0, 1773929376, null, 1773929376, null, "{ }", "343", "B223A-DOGAREA0032", "MULTIPOLYGON (((-74.00305120100298 40.679928792662544, -74.00306528341946 40.67991306750665, -74.00308840994738 40.67987114344248, -74.00310349054344 40.679827146606705, -74.00311022126894 40.67978196491777, -74.0031084649719 40.679736514204045, -74.00288218872358 40.67967290415704, -74.00286514717428 40.67966962580983, -74.00284763494103 40.67966848079025, -74.00283010860592 40.679669498803925, -74.00281302711426 40.67967265372466, -74.00279683521501 40.67967786269454, -74.00278195872947 40.67968498882545, -74.00276878444316 40.67969384750317, -74.00275765655739 40.67970420638723, -74.0027488672269 40.679715794416516, -74.00272164146509 40.67977512275144, -74.00273261261185 40.67977852013213, -74.00274266473541 40.67978328811653, -74.00275150448157 40.67978928893323, -74.00275887634587 40.67979634608776, -74.00276456503944 40.67980425426837, -74.00276840376928 40.679812783848135, -74.00277028133578 40.67982168718845, -74.00277014331583 40.67983070314154, -74.00276799442914 40.67983956965764, -74.0027638949901 40.67984802918806, -74.00305120100298 40.679928792662544)))", "B223A", "B-06", "B223A", "306", "39", "76", "11231", "B", "Dog Run", "Dimattina Park Dog Run - South", null, null, "Active" ]
+, [ "row-79xk-anw6.b9hw", "00000000-0000-0000-784A-B45F9C313E01", 0, 1773929376, null, 1773929376, null, "{ }", "342", "B016-DOGAREA0001", "MULTIPOLYGON (((-73.92320122229064 40.703810960334934, -73.92318268361477 40.7037997960237, -73.92316463653616 40.70378817367703, -73.92314710115609 40.703776105915715, -73.923130097576 40.70376360536063, -73.92311364352848 40.70375068643194, -73.92309775674723 40.703737362649534, -73.9230824537815 40.70372364843281, -73.9230677523638 40.70370955820202, -73.92305366785797 40.703695108177, -73.92304021681316 40.70368031277711, -73.92302741104218 40.70366518912025, -73.92301526709308 40.70364975252639, -73.92300379559425 40.703634021013144, -73.9229930119093 40.70361801080012, -73.92298292430107 40.70360173900282, -73.92295370190949 40.703550616289526, -73.92294468988324 40.703534378527586, -73.92292425379576 40.70353920059454, -73.9229050089858 40.70354631345782, -73.92288739345264 40.703555555319326, -73.92287181094049 40.70356671302901, -73.92285861909454 40.70357953198244, -73.9228481199902 40.70359371971647, -73.92284055302963 40.703608949506545, -73.92283128977988 40.70362984598147, -73.92281871807243 40.70364971635504, -73.92280302758027 40.70366825818136, -73.92314185986001 40.70386790961335, -73.92320122229064 40.703810960334934)))", "B016", "B-04", "B016", "304", "34", "83", "11237", "B", "Dog Run", "Maria Hernandez Park Dog Run", "Yes", null, "Active" ]
+, [ "row-6mng-m8za_mn8c", "00000000-0000-0000-0A10-A1FB8DBAE532", 0, 1773929376, null, 1773929376, null, "{ }", "341", "B055-DOGAREA0014", "MULTIPOLYGON (((-73.94698310879613 40.70619045019168, -73.94697529980554 40.7061684074755, -73.94695982656206 40.70615361844989, -73.94694157804567 40.706140793959584, -73.94692097646771 40.70613023046634, -73.94689850442582 40.706122176732705, -73.94687468243409 40.70611681760264, -73.94681989350703 40.70611949473823, -73.94676514589634 40.7061163644679, -73.94671149746132 40.70610748671525, -73.9466981251764 40.706102452067405, -73.94668382728355 40.706099209007284, -73.94666901432058 40.70609785137785, -73.94665411343476 40.706098418999474, -73.94663955300288 40.70610089406044, -73.94662575079433 40.70610520561421, -73.94661310568674 40.70611123137641, -73.94660197991767 40.70611879591578, -73.94653696927652 40.70617475684522, -73.94654553091561 40.706234922195776, -73.94698310879613 40.70619045019168)))", "B055", "B-01", "B055", "301", "34", "90", "11206", "B", "Dog Run", "Sternberg Park Dog Run", null, null, "Active" ]
+, [ "row-gerx~xn9h.dhme", "00000000-0000-0000-8689-7F217B6001D2", 0, 1773929376, null, 1773929376, null, "{ }", "340", "R031-DOGAREA0006", "MULTIPOLYGON (((-74.18503158566556 40.52001769582299, -74.18528615305085 40.51994485281545, -74.1852932763838 40.51981141241753, -74.18518804478987 40.519693402023684, -74.18494990287836 40.519834839674346, -74.18503158566556 40.52001769582299)))", "R031", "R-03", "R031-ZN03", "503", "51", "123", "10312", "R", "Dog Run", "Wolfe's Pond Park Dog Run", null, null, "Active" ]
+, [ "row-8tys-zbwb~2sax", "00000000-0000-0000-7496-DF8A4523F3D2", 0, 1773929376, null, 1773929376, null, "{ }", "338", "R022-DOGAREA0004", "MULTIPOLYGON (((-74.0927651355187 40.626702924414786, -74.0930476764014 40.6263679357624, -74.09274256154933 40.62621092892658, -74.09245848418288 40.62656616987146, -74.0927651355187 40.626702924414786)))", "R022", "R-01", "R022-ZN01", "501", "49", "120", "10301", "R", "Dog Run", "Silver Lake Park Dog Run", null, null, "Active" ]
+, [ "row-s46e~a4uv.nazk", "00000000-0000-0000-E92F-A3300742A31E", 0, 1773929376, null, 1773929376, null, "{ }", "334", "R006-DOGAREA0003", "MULTIPOLYGON (((-74.25017430828869 40.50034706929862, -74.25005742330822 40.500125235423496, -74.24968056097313 40.50020637641176, -74.2497594073346 40.50043874595636, -74.25017430828869 40.50034706929862)))", "R006", "R-03", "R006-ZN02", "503", "51", "123", "10307", "R", "Dog Run", "Conference House Park Dog Run", null, null, "Active" ]
+, [ "row-iri6.m89x_deqs", "00000000-0000-0000-BC68-409A1CD962EC", 0, 1773929376, null, 1773929376, null, "{ }", "330", "R106-DOGAREA0014", "MULTIPOLYGON (((-74.21147028589863 40.53357681031137, -74.21141024441494 40.533088081594705, -74.2114098373657 40.53308476839319, -74.21131790490031 40.53309247327976, -74.21137879974636 40.53358328790108, -74.21147028589863 40.53357681031137)))", "R106", "R-03", "R106-ZN02", "503", "51", "123", "10309", "R", "Dog Run", "Bloomingdale Park Dog Run", "Yes", "Natural", "Active" ]
+, [ "row-mg7j_8598.894a", "00000000-0000-0000-538B-CC617E76450D", 0, 1773929376, null, 1773929376, null, "{ }", "326", "Q031A-DOGAREA0008", "MULTIPOLYGON (((-73.90852127096527 40.745833038161955, -73.90849407271779 40.745791559015565, -73.90844334229224 40.74577650904931, -73.90827743448853 40.7461387698717, -73.9082764766511 40.7461516346518, -73.9082952555089 40.74616451604846, -73.90835829570594 40.74611310225137, -73.90838042011495 40.74609796522099, -73.90840525229214 40.746085493138814, -73.9084322436523 40.74607596112208, -73.90846079596746 40.74606958211403, -73.90852127096527 40.745833038161955)))", "Q031A", "Q-02", "Q031A", "402", "26", "108", "11377", "Q", "Dog Run", "Windmuller Park Dog Run", null, null, "Active" ]
+, [ "row-sk5b-exr9.37qy", "00000000-0000-0000-258C-2D1B063D22F8", 0, 1773929376, null, 1773929376, null, "{ }", "325", "Q013-DOGAREA0005", "MULTIPOLYGON (((-73.8777400065793 40.742484898185374, -73.87772060812476 40.74244826384429, -73.87739130437573 40.74254913622668, -73.87741070386254 40.74258577062398, -73.8777400065793 40.742484898185374)))", "Q013", "Q-04", "Q013", "404", "25", "110", "11373", "Q", "Dog Run", "Veteran's Grove Dog Run", null, null, "Active" ]
+, [ "row-25nw-yre9_kz3k", "00000000-0000-0000-5A6A-14072A5A20BE", 0, 1773929376, null, 1773929376, null, "{ }", "324", "Q451-DOGAREA0016", "MULTIPOLYGON (((-73.84490546275457 40.733665928134094, -73.84491002403547 40.733674050568936, -73.84518745326871 40.73416802640139, -73.84552848217307 40.734065558842175, -73.84526555483939 40.733567037731234, -73.84526145322398 40.73355926082318, -73.84490546275457 40.733665928134094)))", "Q451", "Q-06", "Q451", "406", "29", "112", "11375", "Q", "Dog Run", "Underbridge Playground Dog Run", "Yes", null, "Active" ]
+, [ "row-4fzd_vxny.x7d7", "00000000-0000-0000-084E-568733AA2E56", 0, 1773929376, null, 1773929376, null, "{ }", "323", "Q341C-DOGAREA0013", "MULTIPOLYGON (((-73.89898429225877 40.74144151575805, -73.89853760977444 40.74148615118925, -73.89856002779842 40.741504136064776, -73.89860093084935 40.74153695056309, -73.89895369664926 40.74157883254477, -73.89897891728852 40.741453110482716, -73.89898429225877 40.74144151575805)))", "Q341C", "Q-02", "Q341C", "402", "26", "108", "11377", "Q", "Dog Run", "Sherry Park Dog Run", null, null, "Active" ]
+, [ "row-ebsu_47t9_r6p9", "00000000-0000-0000-2F90-7FC67BC96939", 0, 1773929376, null, 1773929376, null, "{ }", "322", "Q219-DOGAREA0011", "MULTIPOLYGON (((-73.80842731417049 40.59152764843032, -73.80859378374309 40.59136446971923, -73.80918065070917 40.5917345404197, -73.8091822468088 40.59172621591434, -73.80918428247256 40.591715782208475, -73.8092116569403 40.59159126702609, -73.80923898159844 40.5914870468885, -73.80927019435678 40.5913834635648, -73.80932316760934 40.59123230827884, -73.80938441978773 40.59108298125876, -73.8094318556654 40.59098032172162, -73.80948320422048 40.59087876278955, -73.80955192993925 40.590755031087745, -73.80962646405811 40.5906332685099, -73.80953650256176 40.59064893805609, -73.80934551933528 40.59070170729623, -73.80915708937817 40.59075956392464, -73.80897144321199 40.590822435394486, -73.80878881137701 40.590890243757215, -73.8086267090742 40.59093197619471, -73.80846212326567 40.590967613111495, -73.80829544760518 40.59099706960373, -73.80812708043307 40.591020275185976, -73.80795742595676 40.591037173793204, -73.80779556364632 40.591047342951846, -73.80763325712113 40.591051771191154, -73.80842731417049 40.59152764843032)))", "Q219", "Q-14", "Q219-99", "414", "32", "100", "11693", "Q", "Dog Run", "Rockaway Freeway Dog Park", null, null, "Active" ]
+, [ "row-usqk~x57x-25bf", "00000000-0000-0000-9E1A-BDD3EFC18D0A", 0, 1773929376, null, 1773929376, null, "{ }", "320", "Q141-DOGAREA0010", "MULTIPOLYGON (((-73.94847983136059 40.74689166833943, -73.94846747065537 40.74687689000023, -73.9480525937174 40.746796640496534, -73.94798111603795 40.74685761125108, -73.94813140490538 40.74696727877716, -73.948167529011 40.74695220345052, -73.9482065347648 40.74694210200541, -73.94824724854463 40.746937277382216, -73.94828844593933 40.746937874011024, -73.9483288884542 40.74694387602706, -73.94836736021993 40.74695510098373, -73.94840270231899 40.746971212474996, -73.94847983136059 40.74689166833943)))", "Q141", "Q-02", "Q141", "402", "26", "108", "11101", "Q", "Dog Run", "Murray Playground Dog Run", null, null, "Active" ]
+, [ "row-yzhs-qmw8~7788", "00000000-0000-0000-865C-DA14C9A67E07", 0, 1773929376, null, 1773929376, null, "{ }", "318", "Q010A-DOGAREA0003", "MULTIPOLYGON (((-73.79284763590378 40.787944000189384, -73.79284569148402 40.78791969120754, -73.79288676989331 40.78791904913547, -73.79292728661076 40.787913869303424, -73.79296637995178 40.787904260926126, -73.79300321636826 40.787890429623616, -73.79303701179995 40.78787266935521, -73.7930097306236 40.787838497586236, -73.79297519200776 40.78780835693495, -73.79293440265236 40.787783127194494, -73.79288855570032 40.78776354711413, -73.79283899172127 40.78775018821587, -73.79278715729076 40.78774344031213, -73.79273456829502 40.787743501535424, -73.79268276256997 40.78775036924799, -73.79263325131676 40.7877638435568, -73.79258748355244 40.78778352995043, -73.79254679630647 40.78780885361743, -73.79251237784867 40.78783907378694, -73.792485234438 40.78787330888261, -73.79246615945308 40.78791055717732, -73.79245570958939 40.78794973096892, -73.79245419055279 40.78798968446943, -73.79246164746168 40.788029251608485, -73.79247786238506 40.78806727484507, -73.79252113379172 40.788065535536234, -73.79256346792421 40.788058506768365, -73.79260375168249 40.78804637384411, -73.79264092842851 40.788029453642785, -73.7926740205063 40.788008191958774, -73.79270216010006 40.787983146447274, -73.7927246082247 40.787954975851804, -73.79274311112256 40.787962162726245, -73.79275044234453 40.78793939587568, -73.79279889565785 40.787943445211674, -73.79284763590378 40.787944000189384)))", "Q010A", "Q-11", "Q010A-ZN01", "407", "19", "109", "11360", "Q", "Dog Run", "Little Bay Park Dog Run", null, null, "Active" ]
+, [ "row-6fiz.pyh3~jcnw", "00000000-0000-0000-B72C-01B007CB2B60", 0, 1773929376, null, 1773929376, null, "{ }", "317", "Q015-DOGAREA0006", "MULTIPOLYGON (((-73.86018266254078 40.696914748320964, -73.86081160898239 40.69674682105895, -73.86070544809276 40.69661517260993, -73.86047124433975 40.69663776196164, -73.86042866168597 40.69664152310416, -73.86008923998897 40.69668018517327, -73.86018266254078 40.696914748320964)))", "Q015", "Q-16", "Q015-ZN07", "482", "30", "102", "11385", "Q", "Dog Run", "Forest Park Dog Run", null, null, "Active" ]
+, [ "row-yyvy-e26r_r2sp", "00000000-0000-0000-BE54-E7094D16CE5B", 0, 1773929376, null, 1773929376, null, "{ }", "316", "Q021-DOGAREA0007", "MULTIPOLYGON (((-73.7755832097389 40.72648714570865, -73.77533125636889 40.726572818949315, -73.77536732252099 40.726634205169965, -73.77544796645317 40.72660678339287, -73.77552098648296 40.72673106943807, -73.77543035953857 40.72676188563663, -73.77546829252624 40.72682644796784, -73.77576945083251 40.726720633058065, -73.77564759599954 40.72646623072082, -73.7755832097389 40.72648714570865)))", "Q021", "Q-08", "Q021-ZN01", "408", "23", "107", "11423", "Q", "Dog Run", "Cunningham Park Dog Run", null, null, "Active" ]
+, [ "row-t3j6-hdtg~cxhw", "00000000-0000-0000-133A-20D8E0DBDFCF", 0, 1773929376, null, 1773929376, null, "{ }", "313", "M098-DOGAREA0028", "MULTIPOLYGON (((-73.99849263326139 40.73079911300472, -73.998535117232 40.73080474983506, -73.99857818252146 40.73080646584336, -73.99862619958927 40.73080372077613, -73.99867330051694 40.73079610662942, -73.99868487901057 40.73079095495368, -73.99869519563748 40.73078443178821, -73.99870397102572 40.730776714530336, -73.99871097078638 40.73076800939418, -73.99871600432945 40.73075855051017, -73.99871893906922 40.73074859362144, -73.99871969332186 40.73073840527773, -73.99871824814288 40.73072826013393, -73.99871464259216 40.73071843104448, -73.99870897373395 40.73070918275971, -73.99870139426943 40.73070076382135, -73.99869210661788 40.73069340115948, -73.99868136173296 40.73068729198787, -73.99862153266072 40.73065775551174, -73.99859804708318 40.73064616118233, -73.99858352248701 40.730639069500796, -73.99851176842293 40.73060403431574, -73.99849579967373 40.730596237506305, -73.99849115820183 40.73059397176639, -73.99847280302419 40.73058500966457, -73.99842307029542 40.730560726784546, -73.9983275929803 40.730514108817545, -73.9982585984999 40.730480042461224, -73.99824943751553 40.73047551906844, -73.99823487126646 40.73047958824372, -73.99822145202754 40.73048551698474, -73.99820958701567 40.73049312609718, -73.99819963609914 40.73050218415637, -73.99819189996035 40.730512417413, -73.99818661417629 40.73052351609632, -73.99818393619707 40.730535143418976, -73.99818394889668 40.730546948184184, -73.99818665228635 40.73055857289009, -73.99819196351383 40.730569664535906, -73.99824366491809 40.73063278647397, -73.99830274609009 40.730692041714136, -73.99834300025876 40.7307255871392, -73.99838858150305 40.730754924548926, -73.99843873577547 40.73077956945327, -73.99849263326139 40.73079911300472)))", "M098", "M-02", "M098-ZN01", "102", "1", "6", "10011", "M", "Dog Run", "Washington Square Park Dog Run", null, null, "Active" ]
+, [ "row-4yut~avie~vtde", "00000000-0000-0000-3A17-6C51BC7C0EA6", 0, 1773929376, null, 1773929376, null, "{ }", "312", "M089-DOGAREA0027", "MULTIPOLYGON (((-73.99095698122969 40.73539246410828, -73.99092814395605 40.73554018294415, -73.99093262514918 40.7355464661401, -73.99093569631577 40.73555322199148, -73.99093727579461 40.7355602685894, -73.99093731980876 40.73556741592333, -73.99093582838347 40.73557447398615, -73.99093284061148 40.73558125097269, -73.99092843820249 40.73558756588725, -73.99092273838033 40.73559324944337, -73.99091589388235 40.73559814766611, -73.99090808940689 40.735602129095724, -73.99086798044958 40.73571553767509, -73.99094565666869 40.735748900418, -73.99098254399122 40.735681209440244, -73.99101206915823 40.73561146021536, -73.99103403797669 40.7355401155948, -73.99104830360884 40.735467648338094, -73.99105477130713 40.73539453751084, -73.99095698122969 40.73539246410828)))", "M089", "M-05", "M089", "105", "2", "13", "10003", "M", "Dog Run", "Union Square Park Dog Run", null, null, "Active" ]
+, [ "row-5e79_d23e~zue2", "00000000-0000-0000-0E22-FC1914F52203", 0, 1773929376, null, 1773929376, null, "{ }", "311", "M088-DOGAREA0026", "MULTIPOLYGON (((-73.98141327542261 40.72645335278598, -73.98113766467519 40.72631533918714, -73.98111288690642 40.726305964429095, -73.98108643569437 40.726299778993614, -73.98105901409724 40.72629694688789, -73.98103135242201 40.72629754477469, -73.98100418692034 40.72630155656632, -73.98097823966617 40.72630887432118, -73.98095420198281 40.726319304545065, -73.9809327131373 40.726332568187274, -73.98091434376484 40.726348314145284, -73.98089958521525 40.72636612286488, -73.98088882824217 40.72638551984408, -73.98086817284961 40.72646827408773, -73.98124661209 40.726626779093415, -73.98130879322026 40.72661572645177, -73.98131258658731 40.72662544355891, -73.98131850485659 40.726634525251335, -73.98132637528488 40.726642704950116, -73.98133596712063 40.726649741281065, -73.9813469963357 40.726655428881685, -73.98135913982928 40.726659600204606, -73.98137204252815 40.72666213182231, -73.98138532330361 40.7266629507317, -73.98139859272737 40.726662032556014, -73.98141146135706 40.726659403347135, -73.98142355038902 40.72665514138832, -73.9814345058647 40.726649370893035, -73.98144400458895 40.72664226200569, -73.98145176833614 40.72663402450036, -73.98145756858752 40.72662489877655, -73.9814612360015 40.72661515315889, -73.98146266159955 40.726605074892426, -73.98146180387177 40.72659495843695, -73.9814586875933 40.72658510276537, -73.98145340501246 40.726575796955736, -73.98144611230093 40.72656731388713, -73.98143702126995 40.72655990303435, -73.98142640055644 40.72655378146284, -73.98141327542261 40.72645335278598)))", "M088", "M-03", "M088", "103", "2", "9", "10009", "M", "Dog Run", "Tompkins Square Park Dog Run", null, null, "Active" ]
+, [ "row-azev-gbz8_6bfd", "00000000-0000-0000-DAC5-24BC65C0E6DA", 0, 1773929376, null, 1773929376, null, "{ }", "309", "M053-DOGAREA0014", "MULTIPOLYGON (((-73.97356522953291 40.7819726858672, -73.9735397998395 40.78201016251537, -73.97350060092008 40.782023126136224, -73.97346453248053 40.78204056775917, -73.9734324725302 40.782062061652326, -73.97340520197716 40.782087084807515, -73.97341692826605 40.78215737347311, -73.97363006159638 40.78218303541057, -73.973635553491 40.782165763243356, -73.97370624900547 40.782180969958524, -73.97377469284248 40.78220127295754, -73.97384025247192 40.78222648299543, -73.9739023202564 40.78225636670953, -73.97406535337133 40.78232018064687, -73.97408337796693 40.78229357307594, -73.97418078172369 40.78233169876842, -73.97424393041804 40.78223848125759, -73.97356522953291 40.7819726858672)))", "M053", "M-07", "M053", "107", "6", "20", "10024", "M", "Dog Run", "Theodore Roosevelt Park Dog Run", null, null, "Active" ]
+, [ "row-md2z_ttv6~vaeh", "00000000-0000-0000-9649-FE359137FC25", 0, 1773929376, null, 1773929376, null, "{ }", "308", "M077-DOGAREA0022", "MULTIPOLYGON (((-73.94928819447615 40.817794729838226, -73.94920923042336 40.81770749277876, -73.9491675388267 40.817689782346584, -73.94912269152668 40.817677288885506, -73.94907581194755 40.81767032626095, -73.94902807458666 40.817669067885035, -73.94898067301422 40.817673544901744, -73.94893479379807 40.81768364617535, -73.94889158568691 40.81769911827686, -73.94885213115737 40.81771957447573, -73.94881741796205 40.81774450193113, -73.94878831304167 40.81777327698808, -73.94875567254309 40.817800212552456, -73.94855983625398 40.81798310628374, -73.94846181363765 40.818208930494144, -73.94856716412866 40.81824042738156, -73.94861375340487 40.81821854537345, -73.94866378455855 40.818201605904136, -73.94871635296325 40.818189916536724, -73.94877051021366 40.818183687562616, -73.94882527716354 40.81818303110713, -73.94887966644706 40.81818795933856, -73.94893269433224 40.81819838267255, -73.94898340323724 40.81821411428449, -73.94906400357422 40.81814772748259, -73.94896810799042 40.818054765528736, -73.94908488751531 40.81790471516026, -73.94928819447615 40.817794729838226)))", "M077", "M-09", "M077-ZN02", "109", "7", "26", "10031", "M", "Dog Run", "St. Nicholas Park Dog Run", null, null, "Active" ]
+, [ "row-fga6_sw3e~2rz3", "00000000-0000-0000-26B9-61F7C46BF50A", 0, 1773929376, null, 1773929376, null, "{ }", "307", "M158-DOGAREA0039", "MULTIPOLYGON (((-73.96882015296923 40.7481418999281, -73.9687652105618 40.748215749067874, -73.9692241155006 40.74840885018606, -73.96922548402725 40.74840942597517, -73.96927642095629 40.74833941260673, -73.96882015296923 40.7481418999281)))", "M158", "M-06", "M158", "106", "4", "17", "10017", "M", "Dog Run", "Robert Moses Playground Dog Run", null, null, "Active" ]
+, [ "row-qkab_ikqm-ezc2", "00000000-0000-0000-65C6-5FA5D3BCE216", 0, 1773929376, null, 1773929376, null, "{ }", "306", "M071-DOGAREA0019", "MULTIPOLYGON (((-73.98658491354696 40.781352949592105, -73.98656484805097 40.78137486726908, -73.98658129236954 40.78139831194812, -73.98660621936634 40.78139583846804, -73.98662251796223 40.78139584036122, -73.98664633802245 40.78140156131024, -73.9866689012784 40.781424436667926, -73.98669146969297 40.781421580183306, -73.98671278359042 40.78142444173596, -73.9867378608849 40.78141682097659, -73.98677417216473 40.78141603180761, -73.98678217640959 40.78141868560421, -73.98679186923783 40.78142510819379, -73.98688799853167 40.7812939935037, -73.98677675495885 40.781277682610536, -73.98674917647804 40.781257665790115, -73.98673948319203 40.781229890497904, -73.98672575356208 40.78120319984452, -73.98670955215272 40.78117947065486, -73.98668149561237 40.781145199719475, -73.9866564271989 40.78110898133769, -73.98654360931882 40.78100604085967, -73.98652355047176 40.78099555577378, -73.98642952364246 40.780969811998865, -73.98638995762043 40.7809799803021, -73.98635926329425 40.780991030333034, -73.98633657935973 40.781003266366284, -73.98632101841488 40.78101716286561, -73.9863124420709 40.78103168514091, -73.98630840116296 40.781049182312046, -73.9863113613938 40.7811136748038, -73.98632146443451 40.78112963289579, -73.98633930930296 40.781150985010235, -73.98639001798307 40.78120049069459, -73.98644071449563 40.78124030785585, -73.98646209138387 40.78125348200906, -73.98647969145856 40.781261428302265, -73.98654645091727 40.781289416507455, -73.986571547345 40.781304248898245, -73.9865784558888 40.78131212279028, -73.9865825469956 40.78132154881901, -73.98658491354696 40.781352949592105)))", "M071", "M-14", "M071-ZN01", "107", "6", "20", "10024", "M", "Dog Run", "Riverside Park Dog Run (72nd St)", null, null, "Active" ]
+, [ "row-88va_ej73_r68m", "00000000-0000-0000-2AD9-8388E6AA9900", 0, 1773929376, null, 1773929376, null, "{ }", "305", "M071-DOGAREA0018", "MULTIPOLYGON (((-73.98093357866503 40.78998674582576, -73.98093684708599 40.78997189350943, -73.98093677320011 40.789956834425595, -73.98093335807053 40.78994200081462, -73.98092669991749 40.78992781772885, -73.98091698938177 40.78991469042453, -73.98090450597246 40.78990299715747, -73.98088960503895 40.7898930711709, -73.98087271540211 40.78988519709326, -73.98085432158501 40.78987960102987, -73.98083494841269 40.78987644335636, -73.98081515153497 40.78987581421482, -73.98079549965485 40.78987773261028, -73.9807765543885 40.78988214190496, -73.98075885960002 40.78988891611988, -73.98074292125942 40.789897862633076, -73.98072919677895 40.78990872397857, -73.98071807842233 40.78992118864947, -73.98028684874717 40.79056441259339, -73.98027934014056 40.79058163428189, -73.98027578271551 40.790599573444474, -73.98027627970838 40.79061771231147, -73.9802808146909 40.790635524087165, -73.98028925867264 40.7906524936627, -73.98030136535745 40.79066812932189, -73.98031678535666 40.79068197805212, -73.9803350721091 40.79069363905321, -73.98035569491051 40.790702775446164, -73.98037805786899 40.790709121480596, -73.98040151174972 40.79071249424358, -73.98042538004128 40.79071279546492, -73.9804489684332 40.7907100160216, -73.98047159562175 40.79070423774394, -73.98049260634502 40.79069562711415, -73.98051139152614 40.790684433468805, -73.98052740841794 40.7906709808974, -73.98054019126909 40.79065565923921, -73.98054937146969 40.79063891237987, -73.98093357866503 40.78998674582576)))", "M071", "M-14", "M071-ZN06", "107", "6", "20, 24", "10024", "M", "Dog Run", "Riverside Park Dog Run (87th St)", null, null, "Active" ]
+, [ "row-6trz~i9en~tvkw", "00000000-0000-0000-8CCE-BCE8867E9147", 0, 1773929376, null, 1773929376, null, "{ }", "304", "M071-DOGAREA0017", "MULTIPOLYGON (((-73.97144791980544 40.80271155887992, -73.97178674928256 40.80223131531318, -73.97173319211146 40.802216318791736, -73.97167718386203 40.80220795741957, -73.97162014054238 40.80220644495996, -73.9715635019359 40.80221181688601, -73.97150869841829 40.80222393937755, -73.97145711422543 40.80224250570971, -73.97141005189947 40.80226704705, -73.97136869910493 40.80229694325502, -73.97133410136591 40.80233143997289, -73.97130713124828 40.80236966574379, -73.97128847057307 40.80241065630866, -73.9712785902609 40.802453374414014, -73.97127773965073 40.80249674312763, -73.97128594056413 40.80253966564748, -73.97130298610253 40.80258106042107, -73.97132844656306 40.80261987915689, -73.97136167653049 40.80265514374748, -73.97140183975485 40.802685963385265, -73.97144791980544 40.80271155887992)))", "M071", "M-14", "M071-ZN14", "107", "9", "24", "10024", "M", "Dog Run", "Riverside Park Dog Run (105th St)", null, null, "Active" ]
+, [ "row-tr5s-zfih~2suu", "00000000-0000-0000-06B9-734F2C1C9CE8", 0, 1773929376, null, 1773929376, null, "{ }", "302", "M108N-DOGAREA0035", "MULTIPOLYGON (((-73.96381290702455 40.753634992308086, -73.96394753986357 40.753449268326705, -73.96438623703395 40.75284408220672, -73.96434047265376 40.75282477471429, -73.96463283609752 40.75250755816177, -73.96460400130853 40.75249559419095, -73.96439338176133 40.75272089523828, -73.96436304857731 40.75274950663014, -73.96433050764021 40.752776771974766, -73.96430737050756 40.7527943426787, -73.96427903138941 40.75281408558561, -73.96425948370546 40.75282668209905, -73.96423130472299 40.75284586132726, -73.964224458986 40.7528505202187, -73.96419594107456 40.75287234952109, -73.96416835532176 40.75289592248533, -73.9641521182775 40.752911123372066, -73.9641398568548 40.75292335562655, -73.96380885862513 40.75326613313769, -73.9637772564557 40.75329737615244, -73.96375732786098 40.75331535027958, -73.96373659429452 40.75333282707072, -73.96370760193737 40.75335541522772, -73.96367344454615 40.75337960014605, -73.96363083573927 40.753408126425136, -73.9635883721951 40.753441631629734, -73.96354669288722 40.75348096964146, -73.96351776014288 40.753513394892146, -73.96381290702455 40.753634992308086)))", "M108N", "M-06", "M108N", "106", "5", "17", "10022", "M", "Dog Run", "Peter Detmold Park Dog Run", "Yes", null, "Active" ]
+, [ "row-4mw6_dnap_jhnd", "00000000-0000-0000-7BD1-EBD92B962D02", 0, 1773929376, null, 1773929376, null, "{ }", "301", "M056-DOGAREA0015", "MULTIPOLYGON (((-73.95902744007678 40.8045142400111, -73.95903916411491 40.80452179125635, -73.95905094032562 40.80452929929497, -73.95906276633815 40.80453676502664, -73.95907464333807 40.80454418755125, -73.95908391773408 40.80454997654695, -73.95909314351542 40.804555811450044, -73.95910232068096 40.80456169406162, -73.95911144686217 40.80456762167927, -73.95912052442823 40.8045735961049, -73.9591295510094 40.80457961643713, -73.95913852779084 40.80458568267649, -73.95914745240353 40.80459179302103, -73.95915632484628 40.80459794927186, -73.95916514630538 40.80460414962833, -73.95917391559566 40.80461039409008, -73.95918263153156 40.804616683557235, -73.95919129529926 40.80462301622916, -73.95919990452803 40.80462939300554, -73.95920846040403 40.804635812085834, -73.95921696174116 40.804642275270645, -73.95922275237479 40.804647511917395, -73.95922848491793 40.80465278546377, -73.9592341581855 40.804658095909346, -73.95923977336258 40.804663443254505, -73.95924532808013 40.8046688256975, -73.95925082352267 40.80467424413918, -73.95925625969016 40.804679698579584, -73.95926163421362 40.80468518721692, -73.95926694946252 40.80469071095247, -73.95927220188285 40.80469626798404, -73.95927739265905 40.8047018592125, -73.95928252179166 40.804707483737445, -73.9592875892813 40.80471314065831, -73.9592925927572 40.804718830874805, -73.95929753459059 40.804724552586734, -73.95930241241079 40.80473030669382, -73.95930722621884 40.80473609139506, -73.95931197601428 40.80474190759091, -73.95931666061303 40.80474775348005, -73.95932128119965 40.804753629963336, -73.95932583658956 40.8047595361399, -73.9593303267828 40.80476547200968, -73.95933475177986 40.80477143667232, -73.95933484380835 40.80477210397421, -73.95933500694659 40.804772763196695, -73.9593352423812 40.80477341163872, -73.95933554656094 40.80477404299553, -73.95933591830278 40.804774653664715, -73.95933635523882 40.804775240043405, -73.95933685263157 40.80477579762744, -73.9593374092986 40.80477632191399, -73.95933802050132 40.80477681019978, -73.959338681501 40.80477725978173, -73.95933938874573 40.804777665255564, -73.95934013631012 40.80477802661915, -73.95934092064172 40.80477833936878, -73.95934173463053 40.80477860260148, -73.95934257472295 40.80477881361442, -73.95934343262459 40.80477897060374, -73.95934430477968 40.80477907446864, -73.95934518407928 40.804779122505174, -73.95934606578263 40.804779115612156, -73.95934694159416 40.80477905378658, -73.95934780677403 40.804778936126375, -73.95934865539522 40.804778765330894, -73.95934948271805 40.804778540497985, -73.9593502804446 40.804778265226695, -73.95935104620487 40.80477793951626, -73.95935482084099 40.80477574002864, -73.95935855047075 40.80477349640063, -73.95936223390856 40.80477120953225, -73.95936586996885 40.804768880323635, -73.95936945746645 40.80476650877435, -73.95937299640138 40.804764094884405, -73.95937648440241 40.80476164045394, -73.95937992265402 40.804759146383965, -73.95938330878668 40.804756611773044, -73.95938664161466 40.80475403752132, -73.95938992232203 40.8047514254302, -73.95939314972367 40.80474877549925, -73.9593963214494 40.80474608772768, -73.95939943749873 40.804743363015966, -73.95940249787104 40.80474060226459, -73.95940550138081 40.804737806373694, -73.95940844684235 40.804734976243346, -73.95941133425617 40.80473211097299, -73.9594141624356 40.80472921326379, -73.95941693019607 40.80472628221481, -73.95941963872166 40.80472331962743, -73.95942228564213 40.80472032550086, -73.959424870957 40.80471730073561, -73.95942739347998 40.80471424713223, -73.95942985439738 40.804711162890186, -73.95943225015232 40.8047080507097, -73.95943458311434 40.80470491149206, -73.95943685091329 40.80470174523653, -73.95943905354926 40.80469855194303, -73.95944119102052 40.80469533431314, -73.95944326214257 40.80469209144589, -73.95944526691437 40.80468882514227, -73.9594459620897 40.804687643932695, -73.95944720296573 40.80468553540153, -73.95944907266575 40.80468222402539, -73.95945087482984 40.804678890113045, -73.95945260708629 40.80467553636509, -73.95945427180523 40.8046721627824, -73.95945586661644 40.80466876936409, -73.95945739151898 40.80466535791125, -73.95945884651218 40.80466192932433, -73.95946023041107 40.80465848360286, -73.95946112864603 40.804652734235226, -73.95946198777992 40.80464697404783, -73.95946281018173 40.80464120484252, -73.95946359466696 40.80463542571838, -73.95946434123402 40.80462963937695, -73.95946504988402 40.80462384401714, -73.95946572061575 40.80461804144, -73.95946635224375 40.80461223254563, -73.95946694713814 40.804606417334846, -73.95946750292873 40.80460059580681, -73.95946802080006 40.80459476886246, -73.95946850075106 40.80458893830274, -73.9594689415978 40.80458310232632, -73.95946934452368 40.80457726363502, -73.95946970834417 40.804571421327985, -73.95947003424332 40.80456557720659, -73.95947032222163 40.80455973037042, -73.95947052901269 40.80455487225311, -73.95947057109294 40.80455388261996, -73.95947078204289 40.804548033055134, -73.95947095388482 40.8045421843771, -73.95947108661917 40.804536335685306, -73.95947118143117 40.80453048698017, -73.95947123831968 40.80452464006265, -73.9594712549145 40.80451879493201, -73.95947123477038 40.80451295248992, -73.9594711743321 40.80450711273517, -73.9594710771549 40.804501275669, -73.95947093968186 40.80449544399162, -73.95947076428432 40.804489615902924, -73.95947055096113 40.804483793203836, -73.95947029852724 40.804477975894045, -73.95947000698156 40.80447216577442, -73.95946967869538 40.804466361044895, -73.95946917963903 40.80445880658652, -73.95946892271303 40.804454528227254, -73.95922776068207 40.80421773360992, -73.95911491092204 40.804170041954066, -73.95883136840021 40.80432242608299, -73.9587907780515 40.8043442405678, -73.958793508203 40.80434656483023, -73.9587973790206 40.80434979089939, -73.95880128897106 40.804352976459995, -73.95880523568364 40.80435612241165, -73.95880922034337 40.80435922875481, -73.95881324058132 40.8043622936876, -73.9588172963968 40.80436531811048, -73.958821386606 40.80436830022212, -73.95882551120874 40.80437124002244, -73.95883626298527 40.804379525748104, -73.95884707048677 40.80438777277126, -73.95885793371387 40.80439598019127, -73.95886885385156 40.80440414800866, -73.95887982852923 40.80441227712297, -73.95889085893361 40.804420364833184, -73.95890194506295 40.80442841384075, -73.9589130845489 40.80443642144334, -73.95892427976037 40.80444438944274, -73.95893552951347 40.804452316037555, -73.95894683262256 40.80446020212779, -73.95895818908818 40.804468046812985, -73.95896959891036 40.80447585009314, -73.95898106208902 40.80448361196816, -73.95899257862482 40.804491331537555, -73.958994768932 40.80449278482097, -73.95900414733198 40.80449900970144, -73.95901576821065 40.804506646459764, -73.95902744007678 40.8045142400111)))", "M056", "M-09", "M056-ZN01", "109", "9", "26", "10026", "M", "Dog Run", "Morningside Park Dog Run", null, null, "Active" ]
+, [ "row-z76t~j3sf_z2dp", "00000000-0000-0000-0D78-6126D7D851E6", 0, 1773929376, null, 1773929376, null, "{ }", "310", "M047-DOGAREA0012", "MULTIPOLYGON (((-73.93528895439638 40.79201479100018, -73.93485186316859 40.79232025749249, -73.93499145468067 40.792436899795476, -73.93528895439638 40.79201479100018)))", "M047", "M-11", "M047", "111", "8", "23", "10029", "M", "Dog Run", "Thomas Jefferson Park Dog Run", null, null, "Active" ]
+, [ "row-zagf_cmzh_sjnz", "00000000-0000-0000-FD8E-DDC49ADB32A4", 0, 1773929376, null, 1773929376, null, "{ }", "300", "M058-DOGAREA0016", "MULTIPOLYGON (((-73.94342049558139 40.80282551555144, -73.94338178027525 40.802808669819555, -73.94333591915203 40.802790455405905, -73.94324541953318 40.802754510693546, -73.94323584307335 40.80275326509078, -73.94322693716698 40.80275223233518, -73.94320831362967 40.802752910242425, -73.94320687595123 40.80275316887781, -73.9431046886518 40.802776516152576, -73.94308704655037 40.80278662995265, -73.9430835738536 40.80278862104227, -73.94307294076992 40.802802106166695, -73.94295813473423 40.80296127383699, -73.94294852585942 40.802974314609884, -73.94289458724343 40.803047519176715, -73.94280690989663 40.80316651266135, -73.94274429930024 40.80325148507501, -73.94278557174417 40.80326730391917, -73.94279476134842 40.803251314719034, -73.94280461674843 40.80323555727663, -73.94281512845178 40.803220045094626, -73.9428262869615 40.80320479707862, -73.94283807804581 40.80318982582829, -73.94285049220862 40.80317514934879, -73.94286351640326 40.803160780240404, -73.94287713639498 40.803146734704875, -73.94289133913729 40.803133025342454, -73.94290611039554 40.80311966835494, -73.94292143356891 40.80310667544034, -73.94293729560937 40.80309406099996, -73.94295367754614 40.80308183673067, -73.942970565147 40.803070016132715, -73.94298234793023 40.803061903063025, -73.9429946422644 40.80305424229555, -73.94300741969293 40.803047051826, -73.94302064820424 40.8030403496484, -73.9430342957891 40.80303415105527, -73.94304832925324 40.80302847133856, -73.94306271421821 40.803023324889104, -73.94307741630713 40.803018724296756, -73.94309239758945 40.803014680348745, -73.94310762369068 40.80301120293341, -73.94312205422331 40.80300819338298, -73.94313667976591 40.803005794465214, -73.94315145765252 40.80300401156197, -73.94316634284634 40.80300285095448, -73.94318128912717 40.80300231712245, -73.94319625146359 40.80300241004362, -73.94321118363756 40.80300313149626, -73.94324278636869 40.80301023128538, -73.94325742902546 40.80301277429879, -73.94327187327995 40.80301590433797, -73.94328607766367 40.80301961237771, -73.94330009171283 40.802999133821494, -73.94330056446617 40.80299922860639, -73.94330465745946 40.80299246246956, -73.94333477262113 40.80294845458574, -73.94332652743529 40.80294523485077, -73.94331909722057 40.80294102496712, -73.9433126833377 40.802935939397315, -73.94330746342466 40.802930117806184, -73.94330358191965 40.80292372145427, -73.943301144142 40.80291692599079, -73.94330021866512 40.802909917852894, -73.94330082902601 40.802902888858405, -73.94330295965307 40.80289603350745, -73.94330655113312 40.802889539974935, -73.94331150613954 40.80288358741224, -73.94331768706884 40.80287833784128, -73.9433249255202 40.80287393705993, -73.94333301993336 40.80287050563574, -73.94334174980968 40.802868138012556, -73.94335087571523 40.802866898908505, -73.94336014402158 40.80286682241783, -73.9433693023125 40.80286791111802, -73.94337809819896 40.802870135168625, -73.94338628880008 40.80287343231602, -73.94342049558139 40.80282551555144)))", "M058", "M-11", "M058-ZN02", "111", "9", "25", "10027", "M", "Dog Run", "Marcus Garvey Park Dog Run", null, null, "Active" ]
+, [ "row-ndug.i644.w4dq", "00000000-0000-0000-39F6-29C3451D625C", 0, 1773929376, null, 1773929376, null, "{ }", "299", "M052-DOGAREA0013", "MULTIPOLYGON (((-73.98877885626241 40.74210582626826, -73.98863866948102 40.74206097718203, -73.98861815477183 40.74207582631776, -73.98860392520285 40.74208677687662, -73.98859824734643 40.74209114737556, -73.98857896733492 40.74210692414871, -73.98856033131531 40.74212314313145, -73.98854235823372 40.742139789017436, -73.98852506348457 40.742156845599325, -73.9885084636465 40.74217429666997, -73.98849257529781 40.74219212692273, -73.98847741264947 40.742210319249644, -73.98846298872833 40.74222885654269, -73.98845496081084 40.74223928360896, -73.98844768820702 40.74225002682833, -73.98844119223416 40.74226105378492, -73.98843549302558 40.74227233296304, -73.98843060716285 40.74228383104576, -73.98842654767601 40.74229551381527, -73.98842332759516 40.7423073461531, -73.98841955776525 40.742328214122416, -73.98841654802868 40.742349153308005, -73.98841430075686 40.74237014750107, -73.98841281950507 40.74239118139346, -73.98841210309286 40.74241223877585, -73.988412152708 40.742433302538835, -73.98841296835374 40.74245435737374, -73.98841455121787 40.742475386171066, -73.98841689775165 40.742496374522325, -73.98842000677479 40.74251730531768, -73.98842387592293 40.74253816234769, -73.9884285028314 40.74255893030348, -73.98843388276792 40.74257959297534, -73.98844001336792 40.742600134153825, -73.98844352087782 40.742617263048004, -73.98844719581109 40.742631616596526, -73.98844729670081 40.74263699173243, -73.98844879438201 40.74263725663168, -73.98845307440685 40.74265115728567, -73.98845910622798 40.74266787400013, -73.988461501718 40.74267292338242, -73.98846458987212 40.74267775040883, -73.98846833281276 40.74268230014456, -73.98847269147757 40.74268652215732, -73.98847761378012 40.7426903678144, -73.98848304526483 40.742693794786476, -73.98848892555586 40.74269676344512, -73.98849518717248 40.742699239564274, -73.98850175789674 40.742701196121466, -73.98850856669374 40.74270261149737, -73.98851553305612 40.74270346767381, -73.98852258002655 40.74270375743901, -73.98854409467528 40.74266563391934, -73.98854859917655 40.74265489312082, -73.98861652185819 40.742492926573846, -73.98864932290554 40.74241470817619, -73.98872435887478 40.74223578121225, -73.98876148880395 40.74214724069201, -73.98877885626241 40.74210582626826)))", "M052", "M-05", "M052", "105", "3", "13", "10010", "M", "Dog Run", "Madison Square Park Dog Run", null, null, "Active" ]
+, [ "row-rjv4~98i2.g6f7", "00000000-0000-0000-9650-906BD8E9C1C8", 0, 1773929376, null, 1773929376, null, "{ }", "298", "M099-DOGAREA0030", "MULTIPOLYGON (((-73.94218065781386 40.846406995874254, -73.94216073925664 40.84648373395787, -73.9421416012556 40.84659281271289, -73.94211357639084 40.84670077849733, -73.94207677289461 40.8468072135307, -73.94216052592928 40.84682726899861, -73.94232464693438 40.84643208453744, -73.94218065781386 40.846406995874254)))", "M099", "M-12", "M099", "112", "10", "33", "10033", "M", "Dog Run", "J. Hood Wright Park Dog Run", null, null, "Active" ]
+, [ "row-8hi3_qyqr_7dvf", "00000000-0000-0000-6DAF-AE88CA00AD32", 0, 1773929376, null, 1773929376, null, "{ }", "294", "M037-DOGAREA0009", "MULTIPOLYGON (((-73.92499381237899 40.85591775325249, -73.92497634063557 40.85584811592167, -73.92496740434713 40.85577755213052, -73.92496707752535 40.85570666345723, -73.92497536539109 40.85563605413483, -73.92499219607961 40.855566325642805, -73.92487498298973 40.855548342209936, -73.92468079553205 40.856093197310265, -73.92467389245716 40.856112566868326, -73.9248251125167 40.85614838708127, -73.92482116871395 40.856140319713674, -73.92481852154346 40.856131952426864, -73.92481720644929 40.85612340500932, -73.92478961882796 40.85611414258704, -73.92478807400637 40.85609269908713, -73.924758316626 40.85604621974843, -73.92477719141172 40.85600453751945, -73.92482898052704 40.855992658678744, -73.92484786736858 40.85594025429851, -73.92499381237899 40.85591775325249)))", "M037", "M-12A", "M037-ZN04", "112", "10", "34", "10040", "M", "Dog Run", "Highbridge Park Dog Run", null, null, "Active" ]
+, [ "row-kkgj.rss3-ns44", "00000000-0000-0000-8A52-D53A3E250EC5", 0, 1773929376, null, 1773929376, null, "{ }", "293", "M029-DOGAREA0008", "MULTIPOLYGON (((-73.93196990995385 40.86195015593058, -73.93193093963889 40.86200564635736, -73.93198215568836 40.862015815178495, -73.93202956144962 40.8620195603378, -73.93207305847021 40.86201687367759, -73.93211253405227 40.86200776143945, -73.93214790870904 40.861992231685015, -73.9321790127578 40.861970346452246, -73.93220571800538 40.86194219391715, -73.93222788077969 40.861907923479656, -73.93224574868971 40.86186665190692, -73.9322585496218 40.86181951156401, -73.93226615977012 40.86176695352525, -73.9322684788208 40.86170965760265, -73.93226543748561 40.8616481226273, -73.9322570674596 40.86158385153516, -73.9322435488017 40.86151824739439, -73.93222524030757 40.86145306817053, -73.93220974894805 40.86143196959073, -73.93218989645563 40.86141309355687, -73.9321662231628 40.86139695546482, -73.93213937503957 40.861383994230806, -73.9321100835397 40.86137456327524, -73.93207914781942 40.86136892060688, -73.93204741102558 40.861367219804286, -73.93201573776423 40.861369506400756, -73.93198499156499 40.861375718771676, -73.93195601115983 40.861385688120116, -73.93192958675948 40.86139914116466, -73.931906437506 40.86141571183202, -73.93163623520843 40.86172433101353, -73.93161610398258 40.861741287919195, -73.93159999241028 40.861760563264816, -73.9315883553271 40.861781613425784, -73.93158152071004 40.86180384427438, -73.93157968135496 40.86182663008524, -73.93158288892961 40.861849328839725, -73.93159105395429 40.86187130023596, -73.93160394459599 40.86189192459831, -73.9316211985097 40.861910620894356, -73.93164232875311 40.861926862046985, -73.93166674037484 40.86194019115327, -73.93169374582351 40.86195023139929, -73.93175598946537 40.86184662722736, -73.93176977649246 40.861834066340634, -73.93178616025071 40.86182345564801, -73.9318046707336 40.86181510013677, -73.93182477632502 40.86180923992258, -73.93184589685279 40.86180604395409, -73.93186742375842 40.86180560372133, -73.9318887402612 40.86180793236735, -73.93190923084853 40.86181296289277, -73.93192830736679 40.86182055087258, -73.93194541969333 40.86183047716396, -73.93196007707742 40.861842456022956, -73.93197185524764 40.86185614411369, -73.93198041775605 40.86187114592346, -73.93198551714607 40.8618870317734, -73.93198700562299 40.86190334232694, -73.93198484214972 40.86191960930511, -73.93197908887855 40.86193536539008, -73.93196990995385 40.86195015593058)))", "M029", "M-12", "M029-ZN03", "112", "7", "34", "10040", "M", "Dog Run", "Fort Tryon Park Dog Run", null, null, "Active" ]
+, [ "row-7cfi.zyv6~bjyi", "00000000-0000-0000-FF25-A3DC5ED271BA", 0, 1773929376, null, 1773929376, null, "{ }", "292", "M291-DOGAREA0043", "MULTIPOLYGON (((-74.0016459156729 40.70932680472406, -74.00167338737218 40.70930600882751, -74.00138872482171 40.70902131965808, -74.00138574985006 40.7090231468308, -74.00126161258908 40.70890685446167, -74.00122671644164 40.708928314917515, -74.00121032168734 40.70891326755154, -74.00117387177642 40.70893633632043, -74.00101171034044 40.70878356706046, -74.00099960334362 40.708789525847905, -74.00098833771662 40.70879507039179, -74.0016459156729 40.70932680472406)))", "M291", "M-01", "M291", "101", "1", "1", "10038", "M", "Dog Run", "Fishbridge Garden Dog Run", null, null, "Active" ]
+, [ "row-stxx_k63p.3i55", "00000000-0000-0000-6191-889C72976BCB", 0, 1773929376, null, 1773929376, null, "{ }", "290", "M108Q1-DOGAREA0036", "MULTIPOLYGON (((-73.9570668056758 40.76011094307365, -73.95702465369865 40.76009584030015, -73.95703626940869 40.76007709612365, -73.95702285101825 40.7600722887267, -73.95700036381349 40.76006314561516, -73.95697761019895 40.76005942884144, -73.95695465766573 40.76006115013715, -73.95693161279843 40.76006830233796, -73.95690843053546 40.76008096737291, -73.95688553732363 40.76009897520609, -73.95686330402357 40.760122040516514, -73.95684242744854 40.76014945666927, -73.95680275293682 40.760176485758, -73.95677617769468 40.76019817885498, -73.95675419409463 40.760221418935615, -73.95673018329032 40.76025329589201, -73.95668810449864 40.76026950267246, -73.95666965741074 40.76027956517949, -73.95665325839295 40.76029076849319, -73.95663909344844 40.76030300552439, -73.9566275287146 40.76031598194664, -73.95661881425914 40.76032941869854, -73.9566131753226 40.76034297187263, -73.956610756556 40.760356386681075, -73.95661168855459 40.760369169696666, -73.95661594076098 40.76038096430793, -73.95662340915226 40.760391474209285, -73.95663385468889 40.76040041385014, -73.95664711401022 40.76040767420713, -73.95666296218022 40.760413133626585, -73.95668119554543 40.760416722691936, -73.95670477759717 40.76039414329655, -73.95672856398475 40.76037602597395, -73.95673761994608 40.76038195829822, -73.95674400425571 40.76037131763022, -73.95675268781159 40.76036166477826, -73.95676341699112 40.76035328330554, -73.95677587305921 40.76034642163119, -73.95678968993953 40.76034128223097, -73.95680445895532 40.76033801623594, -73.95681974541118 40.760336719836786, -73.9568583952284 40.76029015480941, -73.95688315537812 40.76028063403746, -73.95697616830314 40.76021440156878, -73.95698261958509 40.7602063345549, -73.95699058621948 40.76019909206826, -73.95699988808896 40.76019283793318, -73.9570103178522 40.760187713451145, -73.9570216373943 40.76018383289721, -73.9570668056758 40.76011094307365)))", "M108Q1", "M-15", "M108T-ZN05", "108", "5", "19", "10065", "M", "Dog Run", "Andrew Haswell Green Dog Run", "Yes", null, "Active" ]
+, [ "row-5jxi~49nv_4ana", "00000000-0000-0000-4360-915168C8AF3A", 0, 1773929376, null, 1773929376, null, "{ }", "289", "M017-DOGAREA0002", "MULTIPOLYGON (((-73.97947522594801 40.711855182717855, -73.97958627186101 40.71184680700159, -73.97959564718714 40.711846099961775, -73.97959737625618 40.71184583191602, -73.97961097211089 40.71184372622928, -73.97961423049803 40.71184237784123, -73.97961704051761 40.711840534092865, -73.97961927670116 40.71183827780892, -73.97962083605907 40.711835711629426, -73.97962164991688 40.71183295260863, -73.97962167918412 40.71183012320911, -73.97961319435026 40.71172842162697, -73.97961234408942 40.711726389023674, -73.97961082512052 40.71172459493724, -73.97960874272988 40.71172316545789, -73.97960624126505 40.711722199667236, -73.97960349821884 40.71172176603561, -73.97959369672076 40.7117229844906, -73.97915805140278 40.71175129144069, -73.97915816630764 40.7117547161038, -73.97916234290628 40.711878711783946, -73.97925920753133 40.7118714747624, -73.97947522594801 40.711855182717855)))", "M017", "M-03", "M017", "103", "2", "7", "10002", "M", "Dog Run", "Corlears Hook Park Dog Run", null, null, "Active" ]
+, [ "row-ruhh.pvca.59wj", "00000000-0000-0000-1C29-4DA6463D1839", 0, 1773929376, null, 1773929376, null, "{ }", "288", "M019-DOGAREA0003", "MULTIPOLYGON (((-73.99349109050381 40.711169877407166, -73.99341922423967 40.710940440280645, -73.99324661742484 40.71096777699611, -73.9932264494017 40.7109709708235, -73.99320607982884 40.71089649827976, -73.99313098530746 40.71090839137221, -73.99310965516857 40.71091176971453, -73.99311565634405 40.710933709218445, -73.99315204676105 40.71106675735725, -73.99327383835828 40.71118958880598, -73.99349109050381 40.711169877407166)))", "M019", "M-03", "M019", "103", "1", "5", "10002", "M", "Dog Run", "Coleman Oval Park Dog Run", "Yes", null, "Active" ]
+, [ "row-bji2~8p96-9ur5", "00000000-0000-0000-C71C-55022256A9E3", 0, 1773929376, null, 1773929376, null, "{ }", "286", "M081-DOGAREA0024", "MULTIPOLYGON (((-73.94401950747532 40.7738798386899, -73.9440053580608 40.77386881506128, -73.94398905833721 40.77385966703385, -73.9439710333483 40.77385263434719, -73.94395175319698 40.77384790003137, -73.94393172238611 40.773845588600615, -73.94391146324136 40.773845758841475, -73.94389150524782 40.77384840740962, -73.94387236846988 40.77385346521987, -73.94385455288841 40.77386080014228, -73.943838523 40.77387021969617, -73.94374677161186 40.77396428740723, -73.9438994915702 40.77404358271203, -73.94401950747532 40.7738798386899)))", "M081", "M-08", "M081-ZN01", "108", "5", "19", "10028", "M", "Dog Run", "Carl Schurz Park Small Dog Run", null, null, "Active" ]
+, [ "row-5i58_bhva~96ht", "00000000-0000-0000-5B5B-1E74EEAE45AD", 0, 1773929376, null, 1773929376, null, "{ }", "285", "M081-DOGAREA0023", "MULTIPOLYGON (((-73.94404415590046 40.774331486213796, -73.94405699551481 40.774335228634826, -73.94407047143957 40.774337308134356, -73.94408421414506 40.774337668701726, -73.94409784695554 40.77433630024848, -73.94411099552524 40.77433323951379, -73.94412329968209 40.77432857187087, -73.94413442172585 40.77432242412719, -73.94414405590423 40.774314964528976, -73.94415193907717 40.77430639916419, -73.9441578542783 40.77429696205882, -73.9441616390093 40.7742869124792, -73.9441631911699 40.77427652593005, -73.94416246669468 40.77426608694898, -73.94415948548239 40.77425588100501, -73.9441543302152 40.774246189995495, -73.94414714044709 40.77423727873561, -73.94413811616047 40.77422939135827, -73.9441275023722 40.77422274500305, -73.94392072875173 40.774131153455194, -73.94390716186172 40.77412743317737, -73.94389295377584 40.77412555141279, -73.94387853087876 40.77412556329953, -73.94386432907608 40.77412747085093, -73.94385077366432 40.77413121484102, -73.94383827340081 40.77413668380702, -73.9438272039219 40.774143712239784, -73.94381789944362 40.77415208958495, -73.94381063854586 40.77416156203702, -73.94380563942212 40.77417184694485, -73.94380305395585 40.77418263370927, -73.94380295941724 40.774193597286555, -73.94380535845403 40.774204408994414, -73.94381017908574 40.77421474281554, -73.94381727587843 40.77422428710474, -73.94382643585732 40.774232756298304, -73.94383738324149 40.77423989451844, -73.94404415590046 40.774331486213796)))", "M081", "M-08", "M081-ZN01", "108", "5", "19", "10028", "M", "Dog Run", "Carl Schurz Park Large Dog Run", null, null, "Active" ]
+, [ "row-8bp6~mc4c-w8u7", "00000000-0000-0000-21A0-E9884A1E854D", 0, 1773929376, null, 1773929376, null, "{ }", "281", "B223DA-DOGAREA0034", "MULTIPOLYGON (((-73.99913350399208 40.692289550539556, -73.99910772803034 40.69221597393019, -73.9990431199329 40.69222793132292, -73.99905441462714 40.69223919863463, -73.99906263096669 40.69224948526151, -73.99907356472242 40.6922683979235, -73.9990774226089 40.69227823335713, -73.99908067709114 40.69229057581395, -73.99908231547519 40.69230378184971, -73.99908207512424 40.69231726792994, -73.99908001520234 40.69233022719558, -73.9990775968651 40.6923389225294, -73.99906957058919 40.69235722899278, -73.99901879475225 40.69246203747284, -73.99917361838577 40.692504572616706, -73.99916103021603 40.692423128333544, -73.99914871154286 40.692363349491515, -73.9991363988068 40.692303601265124, -73.99913350399208 40.692289550539556)))", "B223DA", "B-02", "B223DA", "302", "33", "84", "11201", "B", "Dog Run", "Adam Yauch Park Dog Run", null, null, "Active" ]
+, [ "row-havn_cmzf~ybqf", "00000000-0000-0000-EEA1-174574652568", 0, 1773929376, null, 1773929376, null, "{ }", "280", "B066-DOGAREA0018", "MULTIPOLYGON (((-74.0351633032459 40.63994259832214, -74.03509300143547 40.64003846469399, -74.03501623977644 40.64013141170678, -74.03493322736158 40.640221187138884, -74.0348441910249 40.64030754776815, -74.03474936943054 40.6403902584732, -74.03464902253155 40.64046909493237, -74.03454342211278 40.640543843626794, -74.0344328529723 40.64061430093956, -74.03431761765228 40.64068027675681, -74.03440681894548 40.64079461685471, -74.03489928765335 40.640481152839094, -74.03509936310738 40.640282142180084, -74.03530721264244 40.6400009285438, -74.0351633032459 40.63994259832214)))", "B066", "B-10", "B066", "310", "43", "68", "11220", "B", "Dog Run", "Owl's Head Park Dog Run", null, null, "Active" ]
+, [ "row-zf22_e87c~z83q", "00000000-0000-0000-73E0-D5084EA5FB09", 0, 1773929376, null, 1773929376, null, "{ }", "277", "B114-DOGAREA0029", "MULTIPOLYGON (((-73.94391776901901 40.723233635862485, -73.94392718212593 40.72321148251003, -73.94390482148579 40.72319966053529, -73.94390425211353 40.723199716089475, -73.94378505094174 40.7232112610174, -73.94378624728441 40.723222850258445, -73.94372423450727 40.72322853820063, -73.94372228505736 40.72321733941197, -73.94351350886186 40.72323755897403, -73.94351564491814 40.72325059399669, -73.9434526928673 40.72325699633637, -73.9434497000643 40.72324373846593, -73.94320532072342 40.72326740513768, -73.94322616692003 40.72337982692086, -73.94324323957969 40.723382665639356, -73.94326069883164 40.72338326047621, -73.94327803690997 40.723381594971826, -73.94329475309621 40.72337771660672, -73.94335417298282 40.72336335391276, -73.94341565159682 40.723355469564716, -73.94347797678499 40.723354218752405, -73.94347422663749 40.72334492455386, -73.94352924545812 40.723343436894666, -73.9435842077076 40.723345853790605, -73.94363863522682 40.72335215339555, -73.94363768756573 40.72336144438868, -73.94373820550526 40.72337221591692, -73.94374743782265 40.72337223033347, -73.94375656805859 40.72337118479974, -73.94376538550652 40.72336910262614, -73.94377369009132 40.72336603234244, -73.94378129000435 40.72336204499546, -73.94378801236014 40.72335722965124, -73.94391776901901 40.723233635862485)))", "B114", "B-01", "B114", "301", "33", "94", "11222", "B", "Dog Run", "McGolrick Park Dog Run", null, null, "Active" ]
+, [ "row-c4nr~275d-ndus", "00000000-0000-0000-420C-8482C9386FFF", 0, 1773929376, null, 1773929376, null, "{ }", "276", "B058-DOGAREA0016", "MULTIPOLYGON (((-73.95314871585121 40.71995679300121, -73.95307076701017 40.719918162700694, -73.95305069342609 40.719933606365345, -73.95302762726266 40.71994640400817, -73.95300216527427 40.7199562244833, -73.95297496334085 40.71996281411329, -73.95294672462722 40.71996600298788, -73.9527224055656 40.719986474235036, -73.95275960274674 40.72020537823136, -73.95276282171149 40.72021256742153, -73.9527675477241 40.720219255645894, -73.95277365308579 40.72022526365046, -73.95278097339578 40.720230427474746, -73.95278930754573 40.72023460655656, -73.95279843073568 40.720237688239806, -73.95280809447372 40.720239588674964, -73.95281803722608 40.72024025552524, -73.95282798914954 40.720239670669734, -73.95283768037628 40.72023785110757, -73.95284684693317 40.72023484625887, -73.9528552413959 40.720230736167665, -73.9528626340701 40.720225634204446, -73.95286882601835 40.72021967716534, -73.95314871585121 40.71995679300121)))", "B058", "B-01", "B058-ZN05", "301", "33", "94", "11211", "B", "Dog Run", "McCarren Park Dog Run", null, null, "Active" ]
+, [ "row-jrjf~pj2i-cdnm", "00000000-0000-0000-312B-2F5695EA9094", 0, 1773929376, null, 1773929376, null, "{ }", "269", "B223G-DOGAREA0035", "MULTIPOLYGON (((-73.99485938863606 40.701020594490224, -73.99480344696198 40.70104467527021, -73.99476797423722 40.701051205076524, -73.99473428549675 40.70106188721413, -73.99470321493739 40.7010764587736, -73.99467553050464 40.7010945577867, -73.99465191850997 40.701115736733264, -73.99453941989833 40.70118827309204, -73.99442186546274 40.70125600576457, -73.99429960901948 40.70131873213783, -73.99417301740405 40.70137626310803, -73.99404247165418 40.701428425782424, -73.99390836464335 40.70147506257889, -73.99391824620352 40.70151070626354, -73.99392076556165 40.7015470843763, -73.99391586125681 40.7015833216168, -73.99390365286453 40.70161854539441, -73.99388443389668 40.701651908340736, -73.99450795529913 40.701833846784076, -73.99457895589457 40.701808208974796, -73.99492669409818 40.70105812361131, -73.9949303534153 40.701048225344984, -73.99493185571785 40.70103800730186, -73.99493116312274 40.701027738733416, -73.99492829217563 40.7010176915949, -73.99492331858428 40.70100813154056, -73.99491637603573 40.70099931071939, -73.99482128034319 40.70097291607608, -73.99485938863606 40.701020594490224)))", "B223G", "B-02", "B223G", "302", "33", "84", "11201", "B", "Dog Run", "Hillside Park Dog Run", null, null, "Active" ]
+, [ "row-93um.4n9e-gmbf", "00000000-0000-0000-AF95-865262936085", 0, 1773929376, null, 1773929376, null, "{ }", "267", "B088-DOGAREA0024", "MULTIPOLYGON (((-73.947974331475 40.689905437981565, -73.94799658039236 40.68989087953206, -73.94793967826628 40.689603479261926, -73.94782632328476 40.689613003985635, -73.94781749035117 40.68955608663117, -73.94777180188343 40.68956185260402, -73.94778518534847 40.689616460408836, -73.94779373968684 40.68967862943325, -73.94779298329217 40.68974113552765, -73.94778292504921 40.6898031745373, -73.94776369451112 40.68986394506174, -73.94773553952149 40.689922665563266, -73.9476988226632 40.68997857886848, -73.94772301126855 40.689990412699395, -73.94774942294076 40.68999906512029, -73.94777734212308 40.69000429987038, -73.94780601059412 40.690005975224146, -73.94783465349379 40.69000404580404, -73.94786248997013 40.689998564386684, -73.94788876867302 40.68998967921713, -73.94791277367146 40.68997763221046, -73.94793385640358 40.68996274906052, -73.94795144278021 40.68994543293923, -73.9479650580358 40.68992615550255, -73.947974331475 40.689905437981565)))", "B088", "B-03", "B088", "303", "36", "79", "11216", "B", "Dog Run", "Herbert Von King Park Dog Run", null, null, "Active" ]
+, [ "row-mr4j-m82a-kpqi", "00000000-0000-0000-70EF-417567887945", 0, 1773929376, null, 1773929376, null, "{ }", "266", "B028-DOGAREA0007", "MULTIPOLYGON (((-74.02144864288913 40.61745541495801, -74.02133213266858 40.617444489908124, -74.02121485422433 40.617440616859746, -74.02109754139589 40.617443819989774, -74.02098092682692 40.61745407935297, -74.02086574196647 40.617471330881706, -74.0207527076159 40.61749546638766, -74.02064253038552 40.617526335363195, -74.02053589914982 40.61756374408151, -74.02043348150409 40.61760745829829, -74.02033592022028 40.61765720505324, -74.02024382379378 40.617712672671374, -74.02041491726287 40.617816013183536, -74.02048094261455 40.6178558927041, -74.02085580285508 40.618082270232996, -74.02097017070503 40.618150625960176, -74.02099285845127 40.61813248443272, -74.02101927448565 40.618117558878915, -74.0210486472547 40.61810628618999, -74.02108011181465 40.618098998814396, -74.02111274764303 40.618095910342895, -74.02114559636281 40.61809711010232, -74.02117769483067 40.618102563149684, -74.02144864288913 40.61745541495801)))", "B028", "B-10", "B028", "310", "50", "68", "11228", "B", "Dog Run", "Dyker Beach Park Dog Run", null, null, "Active" ]
+, [ "row-tay3_qenu_y9ie", "00000000-0000-0000-D6DF-465F3EECAB5F", 0, 1773929376, null, 1773929376, null, "{ }", "265", "B223B-DOGAREA0033", "MULTIPOLYGON (((-74.00242395798611 40.68108973709557, -74.00213663378418 40.68057366797847, -74.00213194015296 40.68061083679231, -74.00216950106095 40.68075522274671, -74.0021797240098 40.68080793685703, -74.00218192471937 40.68086119592961, -74.00217607239266 40.6809142948628, -74.00216224624063 40.68096653035235, -74.00214062720345 40.681017210797066, -74.00242395798611 40.68108973709557)))", "B223B", "B-06", "B223B", "306", "39", "76", "11231", "B", "Dog Run", "DiMattina Park Dog Run - North", null, null, "Active" ]
+, [ "row-956d_rbdz~evwz", "00000000-0000-0000-0FBE-981D452B7050", 0, 1773929376, null, 1773929376, null, "{ }", "260", "X201-DOGAREA0027", "MULTIPOLYGON (((-73.91620919253748 40.88655336213484, -73.91598882686665 40.88653890673368, -73.9158155555912 40.88652019625397, -73.91563660510415 40.88652435461304, -73.91558198780697 40.88651859659285, -73.91533244624203 40.886487679319934, -73.91517331338926 40.88646111610081, -73.91514687879062 40.886511129485015, -73.91559790363887 40.886593658353085, -73.9161496548455 40.88671485531165, -73.91620919253748 40.88655336213484)))", "X201", "X-08", "X201", "208", "11", "50", "10471", "X", "Dog Run", "Seton Park Dog Run", null, null, "Active" ]
+, [ "row-wfb6_nqh9.n65p", "00000000-0000-0000-EF2F-F681D4824213", 0, 1773929376, null, 1773929376, null, "{ }", "258", "X039-DOGAREA0012", "MULTIPOLYGON (((-73.82126657937096 40.850532214468906, -73.82126757918866 40.850522465474704, -73.82126663058604 40.8505127134617, -73.82126375193562 40.85050318268115, -73.82126004341718 40.85049576227196, -73.82125516452669 40.85048874347023, -73.82124590815101 40.85048626537742, -73.82123734747776 40.8504826195214, -73.82122973599998 40.85047791345388, -73.82122329985023 40.85047228620147, -73.82121822950677 40.850465905551324, -73.82121467270224 40.85045895903528, -73.82121273798637 40.85045165213423, -73.8212124793263 40.85044420195075, -73.8212139068038 40.850436828220964, -73.82121697714072 40.85042974879709, -73.82122159964243 40.850423174254, -73.82120366112046 40.850388130763115, -73.82072085033116 40.8505333136191, -73.82077160985558 40.85061797314272, -73.82078437203397 40.85061858459404, -73.82079686462275 40.85062066162851, -73.82080879483327 40.8506241569658, -73.82081988775943 40.85062898823412, -73.82082988399183 40.85063504336969, -73.82083855147147 40.85064218243589, -73.82084569022851 40.85065023943163, -73.82085805526913 40.85066092948134, -73.82087251904368 40.85066997398497, -73.82088870743978 40.85067713823268, -73.82090619996087 40.850682236969796, -73.82092454276443 40.850685137118624, -73.82094326168719 40.85068576500284, -73.82096187055393 40.85068410365885, -73.82120386539711 40.85060375334209, -73.82122021722641 40.850595564383156, -73.82123463989396 40.85058549940606, -73.8212467638899 40.85057381718102, -73.82125627770729 40.85056081618999, -73.82126294090158 40.85054682924357, -73.82126657937096 40.850532214468906)))", "X039", "X-15", "X039-ZN04", "228", "13", "45", "10465", "X", "Dog Run", "Pelham Bay Park Dog Run", null, null, "Active" ]
+, [ "row-2khi_9sqa_abeb", "00000000-0000-0000-5EA8-F2F2A35BB1B0", 0, 1773929376, null, 1773929376, null, "{ }", "257", "X047-DOGAREA0015", "MULTIPOLYGON (((-73.92601378337277 40.822998298398, -73.92604787339714 40.82280294952331, -73.92582083880534 40.82276849479351, -73.9257880076029 40.822959078987196, -73.92601378337277 40.822998298398)))", "X047", "X-04", "X047", "204", "17", "44", "10451", "X", "Dog Run", "Franz Sigel Park Dog Run", null, null, "Active" ]
+, [ "row-65dg-epbq.rke8", "00000000-0000-0000-9A14-4EA71BFDFB6E", 0, 1773929376, null, 1773929376, null, "{ }", "255", "X019-DOGAREA0007", "MULTIPOLYGON (((-73.91023102260864 40.88216985427035, -73.91008420125482 40.882101836959656, -73.90986545043397 40.88229608236976, -73.91006404904687 40.88237914963053, -73.91023102260864 40.88216985427035)))", "X019", "X-08", "X019", "208", "11", "50", "10463", "X", "Dog Run", "Ewen Park Dog Run", null, null, "Active" ]
+ ]
+}
