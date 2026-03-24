@@ -591,3 +591,87 @@ p2c <- ggplot(
 print(p2c)
 ggsave("plots/plot2c_density_vs_runs_scatter.png", p2c,
        width = 8, height = 5, dpi = 300, bg = "white")
+
+
+
+# Check all saved plots exist
+plots_expected <- c(
+  "plots/plot1a_ownership_rate.png",
+  "plots/plot1b_bite_counts.png", 
+  "plots/plot1c_density_map.png",
+  "plots/plot2a_density_runs_overlay.png",
+  "plots/plot2b_dogs_per_run_borough.png",
+  "plots/plot2c_density_vs_runs_scatter.png",
+  "plots/plot2d_gap_index_map.png"
+)
+
+cat("=== Plot files check ===\n")
+for (f in plots_expected) {
+  exists <- file.exists(f)
+  size   <- if (exists) paste0(round(file.size(f)/1024), " KB") else "MISSING"
+  cat(sprintf("%-45s %s\n", f, size))
+}
+
+
+# Plot 1C — fix subtitle
+p1c <- p1c + labs(
+  subtitle = "Square-root scale; brighter (yellow) = higher dog concentration"
+)
+
+# Plot 2A — fix subtitle  
+p2a <- p2a + labs(
+  subtitle = "Green dots = dog run locations; brighter (yellow) = higher dog density"
+)
+
+ggsave("plots/plot1c_density_map.png", p1c,
+       width = 7, height = 6, dpi = 300, bg = "white")
+ggsave("plots/plot2a_density_runs_overlay.png", p2a,
+       width = 7, height = 6, dpi = 300, bg = "white")
+cat("1C and 2A subtitles fixed.\n")
+
+
+# ── Borough reference map ─────────────────────────────────────────────────────
+
+nyc_boroughs_map <- master_filtered |>
+  filter(!is.na(borough)) |>
+  group_by(borough) |>
+  summarise(geometry = st_union(geometry), .groups = "drop")
+
+# Compute centroids for borough labels
+borough_centroids <- nyc_boroughs_map |>
+  st_centroid() |>
+  mutate(
+    lon = st_coordinates(geometry)[,1],
+    lat = st_coordinates(geometry)[,2],
+    # Manual nudges for legibility
+    lat = case_when(
+      borough == "Staten Island" ~ lat + 0.01,
+      borough == "Bronx"         ~ lat + 0.01,
+      TRUE                       ~ lat
+    )
+  )
+
+p_borough_ref <- ggplot() +
+  geom_sf(data   = nyc_boroughs_map,
+          aes(fill = borough),
+          colour = "white", linewidth = 0.6) +
+  geom_text(data = borough_centroids,
+            aes(x = lon, y = lat, label = borough),
+            size     = 3.5,
+            fontface = "bold",
+            colour   = "#1F2933") +
+  scale_fill_manual(values = borough_colours, guide = "none") +
+  labs(
+    title   = "New York City — five boroughs",
+    caption = "Reference map; borough boundaries derived from US Census TIGER/Line ZCTAs"
+  ) +
+  theme_void(base_size = 11) +
+  theme(
+    plot.title  = element_text(face = "bold", size = 12),
+    plot.margin = margin(10, 10, 10, 10)
+  )
+
+print(p_borough_ref)
+ggsave("plots/plot0_borough_reference.png", p_borough_ref,
+       width = 6, height = 5, dpi = 300, bg = "white")
+cat("Borough reference map saved.\n")
