@@ -12,6 +12,7 @@ library(tidyverse)
 library(sf)
 library(patchwork)
 library(viridis)
+library(ggrepel)
 
 # ── Load cleaned data ─────────────────────────────────────────────────────────
 master_filtered        <- readRDS("data/cleaned/master_filtered.rds")
@@ -113,16 +114,16 @@ p1a <- ggplot(ownership_rate,
   geom_col(position = position_dodge(width = 0.8), width = 0.7) +
   annotate("rect", xmin = 3.4, xmax = 3.6,          # narrow gap between 2018 and 2022
            ymin = -Inf, ymax = Inf,
-           fill = "#636363", alpha = 0.5) +
+           fill = "#d9d9d9", alpha = 0.5) +
   annotate("text", x = 3.5,
            y = max(ownership_rate$dogs_per_1000) * 0.85,
            label = "2019-21\nno data",
-           size = 2.8, colour = "#939393", hjust = 0.5, lineheight = 0.9) +
+           size = 2.8, colour = "#525252", hjust = 0.5, lineheight = 0.9) +
   scale_fill_manual(values = borough_colours) +
   scale_y_continuous(expand = expansion(mult = c(0, 0.05))) +
   labs(
     title    = "Licensed dogs per 1,000 residents by borough",
-    subtitle = "Annual licence extracts; 2019\u20132021 not published by NYC Open Data",
+    subtitle = "Annual licence extracts; 2019-2021 not published by NYC Open Data",
     x        = "Year",
     y        = "Licensed dogs per 1,000 residents",
     fill     = "Borough",
@@ -149,8 +150,8 @@ p1b <- ggplot(bites_per_year_borough,
            fill = "#ffffcc", alpha = 0.7) +
   annotate("text", x = 2020,
            y = max(bites_per_year_borough$bite_count) * 0.92,
-           label = "drop during\nCOVID-19",
-           size = 2.8, colour = "#939393", hjust = 0.5, lineheight = 0.9) +
+           label = "COVID-19\nDrop",
+           size = 2.8, colour = "#525252", hjust = 0.5, lineheight = 0.9) +
   geom_line(linewidth = 0.9) +
   geom_point(size = 2.2) +
   scale_colour_manual(values = borough_colours) +
@@ -158,7 +159,7 @@ p1b <- ggplot(bites_per_year_borough,
   scale_y_continuous(expand = expansion(mult = c(0, 0.05))) +
   labs(
     title    = "Reported dog bite incidents by borough",
-    subtitle = "All years 2016-2023; Dataset B covers full period continuously",
+    subtitle = "All years 2016-2023; Dog_Bites Dataset covers full period continuously",
     x        = "Year",
     y        = "Number of reported bites",
     colour   = "Borough",
@@ -190,7 +191,7 @@ p1c <- ggplot(map_2022) +
   geom_sf(aes(fill = density_2022), colour = "white", linewidth = 0.15) +
   scale_fill_viridis_c(
     option    = "plasma", # color platte choose subjectively. recoure: https://cran.r-project.org/web/packages/viridis/vignettes/intro-to-viridis.html
-    name      = "Dogs per km^2",
+    name      = "Dogs per km\u00B2", # Directly ask Google. search "how to show ^2 in R"
     trans     = "sqrt",           # sqrt transform reduces extreme skew
     na.value  = "#d9d9d9",
     labels    = scales::comma
@@ -204,7 +205,8 @@ p1c <- ggplot(map_2022) +
   theme(
     plot.title    = element_text(face = "bold", size = 12),
     plot.subtitle = element_text(size = 9, colour = "#737373"),
-    legend.position = "right"
+    legend.position = "right",
+    plot.margin = margin(10, 10, 10, 10)
   )
 
 # ── Preview each plot individually ────────────────────────────────────────────
@@ -238,8 +240,8 @@ master_filtered |>
   group_by(borough) |>
   summarise(
     median_dogs_per_run = median(dogs_per_run, na.rm = TRUE),
-    total_runs          = sum(n_runs),
-    n_zctas_with_runs   = n()
+    total_runs = sum(n_runs),
+    n_zctas_with_runs = n()
   ) |>
   arrange(desc(median_dogs_per_run))
 
@@ -259,7 +261,7 @@ master_filtered <- master_filtered |>
     runs_scaled    = (n_runs - min(n_runs)) /
       (max(n_runs) - min(n_runs)),
     # Gap index: high density + low run access = high gap
-    gap_index      = density_scaled * (1 - runs_scaled),
+    gap_index = density_scaled * (1 - runs_scaled),
     # Access category for Plot 2A
     run_access     = case_when(
       n_runs == 0 ~ "No runs",
@@ -294,10 +296,10 @@ p2a <- ggplot() +
           alpha  = 0.9) +
   scale_fill_viridis_c(
     option   = "plasma",  # same theme as Q1 map
-    name     = "Dogs per km^2",
+    name     = "Dogs per km\u00B2",
     trans    = "sqrt",
-    na.value = "#bdbdbd",
-    labels   = scales::comma
+    na.value = "#d9d9d9",
+    labels   = scales::comma # It automatically adds commas to large numbers on your Y-axis (e.g., changing 1000 to 1,000).
   ) +
   labs(
     title    = "Dog ownership density and off-leash run locations across NYC",
@@ -307,7 +309,7 @@ p2a <- ggplot() +
   theme_void(base_size = 11) +
   theme(
     plot.title       = element_text(face = "bold", size = 12),
-    plot.subtitle    = element_text(size = 9, colour = "#969696"),
+    plot.subtitle    = element_text(size = 9, colour = "#737373"),
     legend.position  = "right",
     plot.margin      = margin(10, 10, 10, 10)
   )
@@ -353,7 +355,6 @@ p2b <- ggplot(borough_gap |> filter(!is.na(dogs_per_run)),
     # 0 (The first number): This is the bottom padding. Setting it to 0 ensures bars sit right on the X-axis line.
     # 0.18 (The second number): This adds 18% extra space at the top. 
     labels = scales::comma
-    # It automatically adds commas to large numbers on your Y-axis (e.g., changing 1000 to 1,000).
   ) +
   labs(
     title    = "Licensed dogs per off-leash run by borough",
@@ -383,32 +384,44 @@ p2c <- ggplot(
   master_filtered |> st_drop_geometry() |> filter(!is.na(borough)),
   aes(x = dog_density, y = n_runs, colour = borough)
 ) +
-  # Highlight the "high density, no runs" danger zone. Prompt: "I want to add a banner highligt the zone with high desity but no runs location."
+  coord_cartesian(clip = "off") + 
+  # Highlight the "high density, no runs" danger zone. Prompt: "How to add a banner highlight the zone with high density but no runs location."
   annotate("rect",
            xmin = median(master_filtered$dog_density, na.rm = TRUE),
            xmax = Inf, ymin = -0.4, ymax = 0.4,
            fill = "#ffffcc", alpha = 0.5) +
   annotate("text",
-           x     = max(master_filtered$dog_density, na.rm = TRUE) * 0.75,
-           y     = -0.2,
-           label = "High density, no runs",
-           size  = 2, colour = "#737373", hjust = 0.5) +
+           x     = max(master_filtered$dog_density, na.rm = TRUE),
+           y     = 0.8, # Move up (out of yellow zone)
+           label = "High density, no runs zones",
+           size  = 3, colour = "#525252", fontface = "bold.italic", hjust = 1) +
+  # New Annotation: An arrow pointing up into the yellow box
+  annotate("curve",
+           x = max(master_filtered$dog_density, na.rm = TRUE) * 0.9, y = 0.7, # Start point
+           xend = max(master_filtered$dog_density, na.rm = TRUE) * 0.95, yend = 0.5, # End point
+           arrow = arrow(length = unit(0.2, "cm")), 
+           curvature = -0.5, colour = "#800026") +
   # Jitter Y only — keeps x coordinates exact on sqrt scale
   geom_point(
     size     = 1.5,
-    alpha    = 0.7,
+    alpha    = 0.65,
     position = position_jitter(width = 0, height = 0.2, seed = 42)
     # seed = 42 fixes the random positions — same every render
   ) +
-  # Labels use true coordinates — no jitter on these
-  geom_text(
-    data     = top_gap,
-    aes(label = paste0(zipcode, "\n(", round(dog_density), "/km\u00b2)")),
-    size     = 1.5,
-    nudge_y  = 0.35,
-    nudge_x  = 0,
-    fontface = "bold",
-    lineheight = 0.85
+  # Labels for top 5
+  geom_text_repel(
+    data        = top_gap,
+    aes(label   = paste0(zipcode, "\n(", round(dog_density), "/km\u00b2)")),
+    size        = 2.5,          # Slightly larger for readability
+    fontface    = "bold",
+    lineheight  = 0.85,
+    box.padding = 0.5,          # Space around the text box
+    point.padding = 0.3,        # Space between point and label
+    min.segment.length = 0,     # Always show the connecting line
+    segment.color = "#252525",   # Color of the leader line
+    segment.size = 0.2,         # Thin lines to keep it clean
+    direction   = "both",       # Allow labels to move up/down/left/right
+    force       = 2             # Strength of the "push" between labels
   ) +
   scale_colour_manual(values = borough_colours) +
   scale_x_continuous(
@@ -423,7 +436,7 @@ p2c <- ggplot(
   labs(
     title    = "Dog ownership density vs. number of off-leash runs per ZCTA",
     subtitle = "Top 5 highest gap-index zipcodes labelled with density; vertical jitter applied to show overlapping points; x-axis square-root scaled",
-    x        = "Dog density (dogs per km^2, sqrt scale)",
+    x        = "Dog density (dogs per km\u00b2, sqrt scale)",
     y        = "Number of off-leash runs",
     colour   = "Borough",
     caption  = "Sources: NYC Dog Licensing Dataset; NYC Parks Dog Runs"
@@ -449,7 +462,7 @@ p2d <- ggplot(master_filtered) +
   labs(
     title    = "Infrastructure gap index across NYC zipcodes",
     subtitle = "High score = high dog density with few or no off-leash spaces",
-    caption  = "Gap index = normalised dog density \u00d7 (1 \u2212 normalised run access)"
+    caption  = "Gap index = normalised dog density * (1 - normalised run access)"
   ) +
   theme_void(base_size = 11) +
   theme(
