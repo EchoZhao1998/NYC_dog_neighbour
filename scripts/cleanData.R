@@ -12,7 +12,9 @@ library(janitor)
 options(tigris_use_cache = TRUE)
 census_api_key("d43934f52489c25471f4f6e0942464d34a9052a8",install = T, overwrite = T)
 
-# ── Load raw data (adjust filenames to match yours) ───────────────────────────
+# ── Load raw data (adjust filenames with "clean_names"(from pkg(janitor)) 
+# converts everything to lowercase with underscores) ───────────────────────────
+
 dogs_raw  <- read_csv("data/Dog_Licensing.csv") |> clean_names()
 bites_raw <- read_csv("data/Dog_Bite.csv") |> clean_names()
 dog_runs_raw <- read_csv("data/Dog_Runs.csv") |> clean_names()
@@ -21,15 +23,30 @@ dog_runs_raw <- read_csv("data/Dog_Runs.csv") |> clean_names()
 # STEP 1: Build NYC zipcode reference list from ZCTA boundaries (Dataset E)
 # ══════════════════════════════════════════════════════════════════════════════
 
-zcta_all <- zctas(cb = TRUE, year = 2020)
+zcta_all <- zctas(cb = TRUE, year = 2020) # my data period is around 2015 - 2023. so I choice "2020"
 
+# Bound of an area. Mentioned on 5147 Week4 Applied Session 
 nyc_bbox <- st_bbox(c(xmin = -74.26, ymin = 40.49,
                       xmax = -73.70, ymax = 40.92),
-                    crs = st_crs(4326)) |> st_as_sfc()
+                    crs = st_crs(4326)) |> st_as_sfc() 
+                   # st_crs = "spatial coodinate reference"
+                   # While a "bound" (bbox) defines where the edges of your box are, 
+                   # the CRS tells R how to interpret those numbers on the Earth's surface. 
+                   # 4326 is the EPSG code for WGS 84, 
+                   # the most common global system used by GPS and web maps. It tells R these coordinates are Longitude and Latitude in decimal degrees.
 
+
+
+# filters the list of ZIP codes (zcta_all) to keep only the areas (polygons) 
+# that physically overlap or touch NYC bounding box(nyc_bbox).
 zcta_nyc <- zcta_all |>
   st_transform(4326) |>
   filter(st_intersects(geometry, nyc_bbox, sparse = FALSE)[,1])
+# sparse = TRUE (Default): Returns a list like [[1]] 1, [[2]] empty. 
+# This is memory-efficient but hard to use inside a filter() function.
+# sparse = FALSE: Returns a logical matrix (a grid of TRUE or FALSE).
+# The [,1] pulls that first column out as a simple vector of TRUE/FALSE.
+# Since I'm comparing many ZIP codes against one bounding box, the matrix has many rows but only one column.
 
 nyc_zip_list <- zcta_nyc$ZCTA5CE20
 cat("NYC ZCTAs from tigris:", length(nyc_zip_list), "\n")
@@ -44,8 +61,15 @@ dogs_clean <- dogs_raw |>
          breedname, zipcode, licenseissueddate, licenseexpireddate) |>
   distinct() |>                                       # remove 39,702 duplicates
   filter(!is.na(zipcode), !is.na(animalgender)) |>    # drop tiny NA rows
-  mutate(zipcode = str_pad(as.character(as.integer(zipcode)), 5, pad = "0")) |>
+  mutate(zipcode = str_pad(as.character(as.integer(zipcode)), 5, pad = "0")) |> 
   filter(zipcode %in% nyc_zip_list)                   # NYC only
+
+# The Problem: When ZIP codes are stored as numbers (as.integer), Excel or R often drops the "leading zero." For example, a Brooklyn ZIP code like 01101 becomes just 1101.
+# The Fix:
+  # as.character() turns the number into text.
+  # 5 tells R the total length must be 5.
+  # pad = "0" tells R to add zeros to the left side until it hits that length
+  # 7452 (4 digits) becomes "07452"
 
 cat("\nDataset A — rows after cleaning:", nrow(dogs_clean), "\n")
 cat("Years available:", sort(unique(dogs_clean$extract_year)), "\n")
@@ -56,7 +80,7 @@ cat("Unique zipcodes:", n_distinct(dogs_clean$zipcode), "\n")
 # ══════════════════════════════════════════════════════════════════════════════
 
 bites_clean <- bites_raw |>
-  filter(species == "DOG") |>
+  filter(species == "DOG") |> # ensure sample are all dog, in case some "Cat" mess 
   filter(!is.na(borough), borough != "Other") |>
   mutate(
     year    = year(dateofbite),
@@ -95,7 +119,7 @@ cat("\nDataset C — dog runs loaded:", nrow(dog_runs_sf), "\n")
 income_raw <- get_acs(
   geography = "zcta",
   variables = "B19013_001",
-  year      = 2022,
+  year      = 2022, # in order the year consistent with records in the datasets, use 2022 instead of 2025. Note: Even "2024" is invalid. 2025 can aquire data
   survey    = "acs5"
 )
 
