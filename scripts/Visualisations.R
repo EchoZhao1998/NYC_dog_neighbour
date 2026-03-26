@@ -7,12 +7,14 @@
 # 2) https://learning.monash.edu/mod/book/view.php?id=5329014&chapterid=933784
 # 3) https://ggplot2-book.org/scales-guides.html
 # 4) https://onepager.togaware.com/Labels_with_Comma.html
+# 5) https://ggplot2.tidyverse.org/reference/ggsf.html
+# 6) https://r-spatial.org/r/2018/10/25/ggplot2-sf-2.html
 
 library(tidyverse)
 library(sf)
 library(patchwork)
 library(viridis)
-library(ggrepel)
+library(ggrepel) # Ask Google AImode for help on adjusting legend, it told me this
 
 # ── Load cleaned data ─────────────────────────────────────────────────────────
 master_filtered        <- readRDS("data/cleaned/master_filtered.rds")
@@ -64,9 +66,15 @@ nyc_boroughs_map <- master_filtered |>
 # Compute centroids for borough labels
 borough_centroids <- nyc_boroughs_map |>
   st_centroid() |>
+  # calculates the exact geometric center of each borough's shape. 
+  # It turns the big borough polygons into single points.
   mutate(
     lon = st_coordinates(geometry)[,1],
     lat = st_coordinates(geometry)[,2],
+    # The geometry column in a spatial dataset is complex. 
+    # These lines extract the raw Longitude (X) and Latitude (Y) numbers into simple columns (lon and lat) 
+    # so ggplot can read them easily.
+    
     # Manual nudges for legibility
     lat = case_when(
       borough == "Staten Island" ~ lat + 0.01,
