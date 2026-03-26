@@ -23,11 +23,11 @@ pop_years <- c(2016, 2017, 2018, 2019, 2021, 2022, 2023)
 pop_raw <- map_dfr(pop_years, function(yr) {
   get_acs(
     geography  = "county",
-    variables  = "B01003_001",   # total population
+    variables  = "B01003_001",   # total population (Telled by Google and AI)
     state      = "NY",
     county     = nyc_counties_fips,
     year       = yr,
-    survey     = "acs1"          # 1-year for annual estimates
+    survey     = "acs1"          # 1-year for annual estimates  (Telled by Google and AI)
   ) |>
     mutate(year = yr)
 })
@@ -40,7 +40,7 @@ pop_clean <- pop_raw |>
     str_detect(NAME, "Queens")     ~ "Queens",
     str_detect(NAME, "Richmond")   ~ "Staten Island"
   )) |>
-  select(borough, year, population = estimate)
+  select(borough, year, population = estimate) # rename "estimate" as population, making it readable
 
 cat("Population data:\n")
 pop_clean |> arrange(borough, year) |> print(n = 40)
