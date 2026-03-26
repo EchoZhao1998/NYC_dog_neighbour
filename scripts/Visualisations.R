@@ -36,14 +36,63 @@ ownership_rate <- dogs_borough_year |>
 cat("Ownership rate table:\n")
 ownership_rate |> arrange(borough, year) |> print(n = 30)
 
-# Borough colour palette — consistent across all Q1 plots
+# Borough colour palette — consistent across all plots
+# color hex number randomly pick from: colorbrewer2.org (resource: 5147 W4 workshop slides.)
+# 
 borough_colours <- c(
-  "Manhattan"     = "#2E86AB",
-  "Brooklyn"      = "#A23B72",
-  "Queens"        = "#F18F01",
-  "Bronx"         = "#4CAF50",
-  "Staten Island" = "#C73E1D"
+  "Manhattan"     = "#3182bd",
+  "Brooklyn"      = "#c51b8a",
+  "Queens"        = "#feb24c",
+  "Bronx"         = "#31a354",
+  "Staten Island" = "#e6550d"
 )
+
+# ── Borough reference map ─────────────────────────────────────────────────────
+
+nyc_boroughs_map <- master_filtered |>
+  filter(!is.na(borough)) |>
+  group_by(borough) |>
+  summarise(geometry = st_union(geometry), .groups = "drop")
+
+# Compute centroids for borough labels
+borough_centroids <- nyc_boroughs_map |>
+  st_centroid() |>
+  mutate(
+    lon = st_coordinates(geometry)[,1],
+    lat = st_coordinates(geometry)[,2],
+    # Manual nudges for legibility
+    lat = case_when(
+      borough == "Staten Island" ~ lat + 0.01,
+      borough == "Bronx"         ~ lat + 0.01,
+      TRUE                       ~ lat
+    )
+  )
+
+p_borough_ref <- ggplot() +
+  geom_sf(data   = nyc_boroughs_map,
+          aes(fill = borough),
+          colour = "#FFFFFF", linewidth = 0.6) +
+  geom_text(data = borough_centroids,
+            aes(x = lon, y = lat, label = borough),
+            size     = 3.5,
+            fontface = "bold",
+            colour   = "#1F2933") + # my website theme color😜, welcome to visit: echozhao1998.github.io
+  scale_fill_manual(values = borough_colours, guide = "none") +
+  labs(
+    title   = "New York City — five boroughs",
+    caption = "Reference map; borough boundaries derived from US Census TIGER/Line ZCTAs"
+  ) +
+  theme_void(base_size = 11) +
+  theme(
+    plot.title  = element_text(face = "bold", size = 12),
+    plot.margin = margin(10, 10, 10, 10)
+  )
+
+print(p_borough_ref)
+ggsave("plots/plot0_borough_reference.png", p_borough_ref,
+       width = 6, height = 5, dpi = 300, bg = "white")
+cat("Borough reference map saved.\n")
+
 
 # ── Plot 1A: Ownership rate bar chart ─────────────────────────────────────────
 
@@ -56,13 +105,13 @@ gap_label <- tibble(
 p1a <- ggplot(ownership_rate,
               aes(x = factor(year), y = dogs_per_1000, fill = borough)) +
   geom_col(position = position_dodge(width = 0.8), width = 0.7) +
-  # Grey shading to mark the gap period
-  annotate("rect", xmin = 3.5, xmax = 4.5,
+  annotate("rect", xmin = 3.4, xmax = 3.6,          # narrow gap between 2018 and 2022
            ymin = -Inf, ymax = Inf,
-           fill = "grey90", alpha = 0.6) +
-  annotate("text", x = 4, y = max(ownership_rate$dogs_per_1000) * 0.7,
-           label = "No licence\ndata 2019\u201321",
-           size = 3, colour = "grey50", hjust = 0.5, lineheight = 0.9) +
+           fill = "#636363", alpha = 0.5) +
+  annotate("text", x = 3.5,
+           y = max(ownership_rate$dogs_per_1000) * 0.85,
+           label = "2019-21\nno data",
+           size = 2.8, colour = "#939393", hjust = 0.5, lineheight = 0.9) +
   scale_fill_manual(values = borough_colours) +
   scale_y_continuous(expand = expansion(mult = c(0, 0.05))) +
   labs(
@@ -71,13 +120,13 @@ p1a <- ggplot(ownership_rate,
     x        = "Year",
     y        = "Licensed dogs per 1,000 residents",
     fill     = "Borough",
-    caption  = "Sources: NYC Dog Licensing Dataset; ACS 1-year estimates"
+    caption  = "Sources: NYC Dog Licensing Dataset"
   ) +
   theme_minimal(base_size = 11) +
   theme(
-    plot.title    = element_text(face = "bold", size = 12),
-    plot.subtitle = element_text(size = 9, colour = "grey40"),
-    legend.position = "bottom",
+    plot.title         = element_text(face = "bold", size = 12),
+    plot.subtitle      = element_text(size = 9, colour = "#737373"),
+    legend.position    = "bottom",
     panel.grid.major.x = element_blank()
   )
 
@@ -89,13 +138,13 @@ covid_year <- 2020
 p1b <- ggplot(bites_per_year_borough,
               aes(x = year, y = bite_count,
                   colour = borough, group = borough)) +
-  # COVID shading
   annotate("rect", xmin = 2019.5, xmax = 2020.5,
            ymin = -Inf, ymax = Inf,
-           fill = "#FFF3CD", alpha = 0.8) +
-  annotate("text", x = 2020, y = max(bites_per_year_borough$bite_count) * 0.92,
-           label = "COVID-19\npeak", size = 3,
-           colour = "grey40", hjust = 0.5, lineheight = 0.9) +
+           fill = "#ffffcc", alpha = 0.7) +
+  annotate("text", x = 2020,
+           y = max(bites_per_year_borough$bite_count) * 0.92,
+           label = "drop during\nCOVID-19",
+           size = 2.8, colour = "#939393", hjust = 0.5, lineheight = 0.9) +
   geom_line(linewidth = 0.9) +
   geom_point(size = 2.2) +
   scale_colour_manual(values = borough_colours) +
@@ -103,7 +152,7 @@ p1b <- ggplot(bites_per_year_borough,
   scale_y_continuous(expand = expansion(mult = c(0, 0.05))) +
   labs(
     title    = "Reported dog bite incidents by borough",
-    subtitle = "All years 2016\u20132023; Dataset B covers full period continuously",
+    subtitle = "All years 2016-2023; Dataset B covers full period continuously",
     x        = "Year",
     y        = "Number of reported bites",
     colour   = "Borough",
@@ -111,9 +160,9 @@ p1b <- ggplot(bites_per_year_borough,
   ) +
   theme_minimal(base_size = 11) +
   theme(
-    plot.title    = element_text(face = "bold", size = 12),
-    plot.subtitle = element_text(size = 9, colour = "grey40"),
-    legend.position = "bottom",
+    plot.title       = element_text(face = "bold", size = 12),
+    plot.subtitle    = element_text(size = 9, colour = "#737373"),
+    legend.position  = "bottom",
     panel.grid.minor = element_blank()
   )
 
@@ -134,10 +183,10 @@ map_2022 <- master_filtered |>
 p1c <- ggplot(map_2022) +
   geom_sf(aes(fill = density_2022), colour = "white", linewidth = 0.15) +
   scale_fill_viridis_c(
-    option    = "plasma",
-    name      = "Dogs per km\u00b2",
+    option    = "plasma", # color platte choose subjectively. recoure: https://cran.r-project.org/web/packages/viridis/vignettes/intro-to-viridis.html
+    name      = "Dogs per km^2",
     trans     = "sqrt",           # sqrt transform reduces extreme skew
-    na.value  = "grey80",
+    na.value  = "#d9d9d9",
     labels    = scales::comma
   ) +
   labs(
@@ -148,7 +197,7 @@ p1c <- ggplot(map_2022) +
   theme_void(base_size = 11) +
   theme(
     plot.title    = element_text(face = "bold", size = 12),
-    plot.subtitle = element_text(size = 9, colour = "grey40"),
+    plot.subtitle = element_text(size = 9, colour = "#737373"),
     legend.position = "right"
   )
 
@@ -166,76 +215,6 @@ ggsave("plots/plot1c_density_map.png",    p1c,
        width = 7, height = 6, dpi = 300, bg = "white")
 
 cat("Q1 plots saved.\n")
-
-
-
-# ── Plot 1A fix — narrow gap indicator ───────────────────────────────────────
-p1a <- ggplot(ownership_rate,
-              aes(x = factor(year), y = dogs_per_1000, fill = borough)) +
-  geom_col(position = position_dodge(width = 0.8), width = 0.7) +
-  annotate("rect", xmin = 3.4, xmax = 3.6,          # narrow gap between 2018 and 2022
-           ymin = -Inf, ymax = Inf,
-           fill = "grey70", alpha = 0.5) +
-  annotate("text", x = 3.5,
-           y = max(ownership_rate$dogs_per_1000) * 0.85,
-           label = "2019\u201321\nno data",
-           size = 2.8, colour = "grey30", hjust = 0.5, lineheight = 0.9) +
-  scale_fill_manual(values = borough_colours) +
-  scale_y_continuous(expand = expansion(mult = c(0, 0.05))) +
-  labs(
-    title    = "Licensed dogs per 1,000 residents by borough",
-    subtitle = "Annual licence extracts; 2019\u20132021 not published by NYC Open Data",
-    x        = "Year",
-    y        = "Licensed dogs per 1,000 residents",
-    fill     = "Borough",
-    caption  = "Sources: NYC Dog Licensing Dataset; ACS 1-year estimates"
-  ) +
-  theme_minimal(base_size = 11) +
-  theme(
-    plot.title         = element_text(face = "bold", size = 12),
-    plot.subtitle      = element_text(size = 9, colour = "grey40"),
-    legend.position    = "bottom",
-    panel.grid.major.x = element_blank()
-  )
-
-# ── Plot 1B fix — correct label to "dip" ─────────────────────────────────────
-p1b <- ggplot(bites_per_year_borough,
-              aes(x = year, y = bite_count,
-                  colour = borough, group = borough)) +
-  annotate("rect", xmin = 2019.5, xmax = 2020.5,
-           ymin = -Inf, ymax = Inf,
-           fill = "#FFF3CD", alpha = 0.8) +
-  annotate("text", x = 2020,
-           y = max(bites_per_year_borough$bite_count) * 0.92,
-           label = "COVID-19\nreporting dip",
-           size = 2.8, colour = "grey40", hjust = 0.5, lineheight = 0.9) +
-  geom_line(linewidth = 0.9) +
-  geom_point(size = 2.2) +
-  scale_colour_manual(values = borough_colours) +
-  scale_x_continuous(breaks = 2016:2023) +
-  scale_y_continuous(expand = expansion(mult = c(0, 0.05))) +
-  labs(
-    title    = "Reported dog bite incidents by borough",
-    subtitle = "All years 2016\u20132023; Dataset B covers full period continuously",
-    x        = "Year",
-    y        = "Number of reported bites",
-    colour   = "Borough",
-    caption  = "Source: DOHMH Dog Bite Data"
-  ) +
-  theme_minimal(base_size = 11) +
-  theme(
-    plot.title       = element_text(face = "bold", size = 12),
-    plot.subtitle    = element_text(size = 9, colour = "grey40"),
-    legend.position  = "bottom",
-    panel.grid.minor = element_blank()
-  )
-
-# Re-save both
-ggsave("plots/plot1a_ownership_rate.png", p1a,
-       width = 8, height = 5, dpi = 300, bg = "white")
-ggsave("plots/plot1b_bite_counts.png",    p1b,
-       width = 8, height = 5, dpi = 300, bg = "white")
-cat("Plots 1A and 1B re-saved.\n")
 
 
 # Check gap index inputs
@@ -285,11 +264,11 @@ master_filtered <- master_filtered |>
 
 # Borough colour palette (reuse from Q1)
 borough_colours <- c(
-  "Manhattan"     = "#2E86AB",
-  "Brooklyn"      = "#A23B72",
-  "Queens"        = "#F18F01",
-  "Bronx"         = "#4CAF50",
-  "Staten Island" = "#C73E1D"
+  "Manhattan"     = "#3182bd",
+  "Brooklyn"      = "#c51b8a",
+  "Queens"        = "#feb24c",
+  "Bronx"         = "#31a354",
+  "Staten Island" = "#e6550d"
 )
 
 # ── Plot 2A: Choropleth — dog density + run locations overlaid ────────────────
@@ -304,25 +283,25 @@ p2a <- ggplot() +
           aes(fill = dog_density),
           colour = "white", linewidth = 0.15) +
   geom_sf(data   = dog_runs_centroids,
-          colour = "#4CAF50",
-          size   = 1,
-          alpha  = 0.85) +
+          colour = "#1a9850",
+          size   = 1.2,
+          alpha  = 0.9) +
   scale_fill_viridis_c(
     option   = "plasma",
-    name     = "Dogs per km\u00b2",
+    name     = "Dogs per km^2",
     trans    = "sqrt",
-    na.value = "grey80",
+    na.value = "#bdbdbd",
     labels   = scales::comma
   ) +
   labs(
     title    = "Dog ownership density and off-leash run locations across NYC",
-    subtitle = "Green dots = dog run locations; darker areas = higher dog density",
+    subtitle = "Green dots = dog run locations; brighter (yellow) = higher dog density",
     caption  = "Sources: NYC Dog Licensing Dataset; NYC Parks Dog Runs; US Census TIGER/Line"
   ) +
   theme_void(base_size = 11) +
   theme(
     plot.title       = element_text(face = "bold", size = 12),
-    plot.subtitle    = element_text(size = 9, colour = "grey40"),
+    plot.subtitle    = element_text(size = 9, colour = "#969696"),
     legend.position  = "right",
     plot.margin      = margin(10, 10, 10, 10)
   )
@@ -335,8 +314,8 @@ borough_gap <- master_filtered |>
   filter(!is.na(borough)) |>
   group_by(borough) |>
   summarise(
-    total_dogs       = sum(total_dogs),
-    total_runs       = sum(n_runs),
+    total_dogs = sum(total_dogs),
+    total_runs = sum(n_runs),
     pct_zctas_no_run = mean(n_runs == 0) * 100
   ) |>
   mutate(
@@ -350,16 +329,21 @@ p2b <- ggplot(borough_gap |> filter(!is.na(dogs_per_run)),
               aes(x = reorder(borough, dogs_per_run),
                   y = dogs_per_run,
                   fill = borough)) +
-  geom_col(width = 0.65) +
+  geom_col(width = 0.6) +
   geom_text(aes(label = scales::comma(round(dogs_per_run))),
             hjust  = -0.15,
             size   = 3.5,
-            colour = "grey30") +
-  coord_flip() +
+            colour = "#525252") +
+  coord_flip() + # horizontal bars
   scale_fill_manual(values = borough_colours, guide = "none") +
   scale_y_continuous(
-    expand = expansion(mult = c(0, 0.18)),
+    expand = expansion(mult = c(0, 0.18)), 
+    # expension: controls the "breathing room" between your data and the plot axes. 
+    # By default, ggplot adds a 5% buffer so points don't touch the edges.
+    # 0 (The first number): This is the bottom padding. Setting it to 0 ensures bars sit right on the X-axis line.
+    # 0.18 (The second number): This adds 18% extra space at the top. 
     labels = scales::comma
+    # It automatically adds commas to large numbers on your Y-axis (e.g., changing 1000 to 1,000).
   ) +
   labs(
     title    = "Licensed dogs per off-leash run by borough",
@@ -618,60 +602,9 @@ p1c <- p1c + labs(
   subtitle = "Square-root scale; brighter (yellow) = higher dog concentration"
 )
 
-# Plot 2A — fix subtitle  
-p2a <- p2a + labs(
-  subtitle = "Green dots = dog run locations; brighter (yellow) = higher dog density"
-)
 
 ggsave("plots/plot1c_density_map.png", p1c,
        width = 7, height = 6, dpi = 300, bg = "white")
 ggsave("plots/plot2a_density_runs_overlay.png", p2a,
        width = 7, height = 6, dpi = 300, bg = "white")
 cat("1C and 2A subtitles fixed.\n")
-
-
-# ── Borough reference map ─────────────────────────────────────────────────────
-
-nyc_boroughs_map <- master_filtered |>
-  filter(!is.na(borough)) |>
-  group_by(borough) |>
-  summarise(geometry = st_union(geometry), .groups = "drop")
-
-# Compute centroids for borough labels
-borough_centroids <- nyc_boroughs_map |>
-  st_centroid() |>
-  mutate(
-    lon = st_coordinates(geometry)[,1],
-    lat = st_coordinates(geometry)[,2],
-    # Manual nudges for legibility
-    lat = case_when(
-      borough == "Staten Island" ~ lat + 0.01,
-      borough == "Bronx"         ~ lat + 0.01,
-      TRUE                       ~ lat
-    )
-  )
-
-p_borough_ref <- ggplot() +
-  geom_sf(data   = nyc_boroughs_map,
-          aes(fill = borough),
-          colour = "white", linewidth = 0.6) +
-  geom_text(data = borough_centroids,
-            aes(x = lon, y = lat, label = borough),
-            size     = 3.5,
-            fontface = "bold",
-            colour   = "#1F2933") +
-  scale_fill_manual(values = borough_colours, guide = "none") +
-  labs(
-    title   = "New York City — five boroughs",
-    caption = "Reference map; borough boundaries derived from US Census TIGER/Line ZCTAs"
-  ) +
-  theme_void(base_size = 11) +
-  theme(
-    plot.title  = element_text(face = "bold", size = 12),
-    plot.margin = margin(10, 10, 10, 10)
-  )
-
-print(p_borough_ref)
-ggsave("plots/plot0_borough_reference.png", p_borough_ref,
-       width = 6, height = 5, dpi = 300, bg = "white")
-cat("Borough reference map saved.\n")
