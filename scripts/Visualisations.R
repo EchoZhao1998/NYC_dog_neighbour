@@ -15,6 +15,7 @@ library(sf)
 library(patchwork)
 library(viridis)
 library(ggrepel) # Ask Google AImode for help on adjusting legend, it told me this
+library(scales)
 
 # ── Load cleaned data ─────────────────────────────────────────────────────────
 master_filtered        <- readRDS("data/cleaned/master_filtered.rds")
@@ -459,29 +460,6 @@ cat("master_filtered updated with 2022-only density.\n")
 
 
 
-
-
-
-
-# ── Compute gap index ─────────────────────────────────────────────────────────
-
-master_filtered <- master_filtered |>
-  mutate(
-    # Normalise both variables 0-1 across all ZCTAs
-    density_scaled = (dog_density - min(dog_density, na.rm = TRUE)) /
-      (max(dog_density, na.rm = TRUE) - min(dog_density, na.rm = TRUE)),
-    runs_scaled    = (n_runs - min(n_runs)) /
-      (max(n_runs) - min(n_runs)),
-    # Gap index: high density + low run access = high gap
-    gap_index = density_scaled * (1 - runs_scaled),
-    # Access category for Plot 2A
-    run_access     = case_when(
-      n_runs == 0 ~ "No runs",
-      n_runs == 1 ~ "1 run",
-      n_runs >= 2 ~ "2+ runs"
-    ) |> factor(levels = c("No runs", "1 run", "2+ runs"))
-  )
-
 # Borough colour palette (reuse from Q1)
 borough_colours <- c(
   "Manhattan"     = "#3182bd",
@@ -551,6 +529,27 @@ borough_gap <- master_filtered |>
                                      # By using NA_real_, explicitly telling R: "Put a missing value here, but make sure it's the decimal-friendly version of NA."
   ) |>
   arrange(desc(dogs_per_run))
+
+
+# Update borough_gap to use 2022 dogs only
+borough_gap <- master_filtered |>
+  st_drop_geometry() |>
+  filter(!is.na(borough)) |>
+  group_by(borough) |>
+  summarise(
+    total_dogs_2022  = sum(dogs_2022, na.rm = TRUE),  # 2022 only
+    total_runs       = sum(n_runs),
+    pct_zctas_no_run = mean(n_runs == 0) * 100
+  ) |>
+  mutate(
+    dogs_per_run = if_else(total_runs > 0,
+                           total_dogs_2022 / total_runs,
+                           NA_real_)
+  ) |>
+  arrange(desc(dogs_per_run))
+
+print(borough_gap)
+
 
 p2b <- ggplot(borough_gap |> filter(!is.na(dogs_per_run)),
               aes(x = reorder(borough, dogs_per_run),
@@ -698,7 +697,35 @@ ggsave("plots/plot2d_gap_index_map.png", p2d,
 
 cat("Q2 plots saved.\n")
 
+# Update titles to indicate 2022 data
+p2a <- p2a + labs(
+  title = "Dog ownership density and off-leash run locations across NYC (2022)"
+)
 
+p2b <- p2b + labs(
+  title    = "Licensed dogs per off-leash run by borough (2022)",
+  subtitle = "Higher = more dogs competing for each run space; based on 2022 licence records"
+)
+
+p2c <- p2c + labs(
+  title = "Dog ownership density vs. number of off-leash runs per ZCTA (2022)"
+)
+
+p2d <- p2d + labs(
+  title = "Infrastructure gap index across NYC zipcodes (2022)"
+)
+
+# Resave all four
+ggsave("plots/plot2a_density_runs_overlay.png", p2a,
+       width = 7, height = 6, dpi = 300, bg = "white")
+ggsave("plots/plot2b_dogs_per_run_borough.png", p2b,
+       width = 7, height = 4, dpi = 300, bg = "white")
+ggsave("plots/plot2c_density_vs_runs_scatter.png", p2c,
+       width = 8, height = 5, dpi = 300, bg = "white")
+ggsave("plots/plot2d_gap_index_map.png", p2d,
+       width = 7, height = 6, dpi = 300, bg = "white")
+
+cat("All Q2 plots updated with 2022 labels.\n")
 # Check all saved plots exist
 plots_expected <- c(
   "plots/plot1a_ownership_rate.png",
@@ -716,3 +743,87 @@ for (f in plots_expected) {
   size   <- if (exists) paste0(round(file.size(f)/1024), " KB") else "MISSING"
   cat(sprintf("%-45s %s\n", f, size))
 }
+
+
+# see the actual imcome boundaries
+master_filtered |>
+  st_drop_geometry() |>
+  filter(!is.na(median_income)) |>
+  mutate(income_quartile = ntile(median_income, 4)) |>
+  group_by(income_quartile) |>
+  summarise(
+    min_income    = dollar(min(median_income)),
+    max_income    = dollar(max(median_income)),
+    median_income = dollar(median(median_income)),
+    n_zctas       = n()
+  )
+
+
+# Check bite_rate is correctly computed
+# Currently it uses total_bites / total_dogs
+# We need to update denominator to dogs_2022 for consistency
+
+master_filtered <- master_filtered |>
+  mutate(
+    bite_rate = if_else(
+      dogs_2022 > 0,
+      total_bites / dogs_2022 * 1000,
+      NA_real_
+    )
+  )
+
+# Check result
+cat("=== Bite rate summary ===\n")
+summary(master_filtered$bite_rate)
+
+cat("\n=== ZCTAs with valid bite rate ===\n")
+sum(!is.na(master_filtered$bite_rate))
+
+cat("\n=== Income quartile distribution ===\n")
+master_filtered |>
+  st_drop_geometry() |>
+  filter(!is.na(median_income)) |>
+  mutate(income_quartile = ntile(median_income, 4)) |>
+  count(income_quartile)
+
+cat("\n=== Spearman correlation preview ===\n")
+cor_test <- cor.test(
+  master_filtered$dog_density,
+  master_filtered$bite_rate,
+  method = "spearman",
+  use    = "complete.obs"
+)
+cat("rho =", round(cor_test$estimate, 3), "\n")
+cat("p =",   round(cor_test$p.value, 4),  "\n")
+print(cor_test$p.value)
+
+# Check all pairwise Spearman correlations for Q3 variables
+library(tidyr)
+
+q3_data <- master_filtered |>
+  st_drop_geometry() |>
+  filter(!is.na(bite_rate), !is.na(median_income), !is.na(borough)) |>
+  select(dog_density, bite_rate, n_runs, 
+         dogs_per_run, median_income, gap_index)
+
+# Correlation matrix
+cor_vars <- c("dog_density", "bite_rate", "n_runs", 
+              "median_income", "gap_index")
+
+cor_results <- map_dfr(cor_vars, function(x) {
+  map_dfr(cor_vars, function(y) {
+    if (x == y) return(NULL)
+    test <- cor.test(q3_data[[x]], q3_data[[y]], 
+                     method = "spearman",
+                     use = "complete.obs")
+    tibble(
+      var1  = x,
+      var2  = y,
+      rho   = round(test$estimate, 3),
+      p_val = round(test$p.value, 4)
+    )
+  })
+}) |>
+  filter(var1 < var2)  # remove duplicates
+
+print(cor_results)
