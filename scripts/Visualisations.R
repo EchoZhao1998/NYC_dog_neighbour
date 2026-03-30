@@ -145,6 +145,122 @@ p1a <- ggplot(ownership_rate,
     panel.grid.major.x = element_blank()
   )
 
+
+# Summary table for report
+ownership_summary <- ownership_rate |>
+  group_by(borough) |>
+  summarise(
+    min_rate  = round(min(dogs_per_1000, na.rm = TRUE), 1),
+    max_rate  = round(max(dogs_per_1000, na.rm = TRUE), 1),
+    rate_2018 = round(dogs_per_1000[year == 2018], 1),
+    rate_2022 = round(dogs_per_1000[year == 2022], 1)
+  ) |>
+  mutate(
+    change_2018_2022 = round(rate_2022 - rate_2018, 1),
+    pct_change       = round((rate_2022 - rate_2018) / rate_2018 * 100, 1)
+  ) |>
+  arrange(desc(rate_2022))
+
+print(ownership_summary)
+
+
+ownership_summary <- ownership_rate |>
+  group_by(borough) |>
+  summarise(
+    rate_2016 = round(dogs_per_1000[year == 2016], 1),
+    rate_2018 = round(dogs_per_1000[year == 2018], 1),
+    rate_2022 = round(dogs_per_1000[year == 2022], 1),
+    rate_2023 = round(dogs_per_1000[year == 2023], 1)
+  ) |>
+  mutate(
+    change_2016_2022     = round(rate_2022 - rate_2016, 1),
+    pct_change_2016_2022 = round((rate_2022 - rate_2016) / rate_2016 * 100, 1),
+    change_2018_2022     = round(rate_2022 - rate_2018, 1),
+    pct_change_2018_2022 = round((rate_2022 - rate_2018) / rate_2018 * 100, 1)
+  ) |>
+  arrange(desc(rate_2022))
+
+print(ownership_summary)
+
+# Check raw record counts by extract year — before any filtering
+dogs_raw |> count(extract_year) |> arrange(extract_year)
+
+# Table for Section 3.1 — ownership rate summary
+# Clean version without the anomalous 2018 baseline percentage
+
+report_table <- ownership_rate |>
+  select(borough, year, dogs_per_1000) |>
+  pivot_wider(names_from = year, 
+              values_from = dogs_per_1000,
+              names_prefix = "Y") |>
+  mutate(
+    change_2016_2022 = round(Y2022 - Y2016, 1),
+    pct_change       = paste0(round((Y2022 - Y2016) / Y2016 * 100, 1), "%")
+  ) |>
+  arrange(desc(Y2022)) |>
+  rename(
+    Borough          = borough,
+    "2016"           = Y2016,
+    "2017"           = Y2017,
+    "2018"           = Y2018,
+    "2022"           = Y2022,
+    "2023"           = Y2023,
+    "Change 2016-22" = change_2016_2022,
+    "% Change"       = pct_change
+  )
+
+print(report_table)
+
+# ── Plan A: Table in Section 3 (if tutor confirms tables allowed) ─────────────
+# Use knitr or gt package to format for report
+# install.packages("gt")
+library(gt)
+
+table_gt <- report_table |>
+  gt() |>
+  tab_header(
+    title    = "Table 1: Licensed dogs per 1,000 residents by borough",
+    subtitle = "Ownership rates for available years; 2019-2021 not published"
+  ) |>
+  tab_spanner(
+    label   = "Dogs per 1,000 residents",
+    columns = c("2016", "2017", "2018", "2022", "2023")
+  ) |>
+  tab_spanner(
+    label   = "2016\u20132022 change",
+    columns = c("Change 2016-22", "% Change")
+  ) |>
+  fmt_number(
+    columns  = c("2016", "2017", "2018", "2022", "2023",
+                 "Change 2016-22"),
+    decimals = 1
+  ) |>
+  cols_align(align = "right",
+             columns = c("2016", "2017", "2018", "2022", "2023",
+                         "Change 2016-22", "% Change")) |>
+  tab_footnote(
+    footnote = "Sources: NYC Dog Licensing Dataset (Dataset A); ACS 1-year estimates (Dataset F)."
+  ) |>
+  tab_style(
+    style     = cell_text(weight = "bold"),
+    locations = cells_column_labels()
+  )
+
+# Save as PNG for report insertion
+ggsave_gt <- function(gt_obj, filename, width = 7, height = 3) {
+  gt::gtsave(gt_obj, filename)
+}
+table_gt |> gtsave("plots/table1_ownership_rates.png",
+                   vwidth = 900, vheight = 300)
+cat("Table 1 saved.\n")
+
+# ── Plan B: Table in Appendix (if tutor says Section 3 tables not allowed) ────
+# Identical table, just referenced differently in text:
+# "Full ownership rate figures are provided in Appendix Table A1."
+# No code change needed — same table, different placement in Word doc
+
+
+
 # ── Plot 1B: Bite counts line chart ───────────────────────────────────────────
 
 # Add COVID annotation year
@@ -181,6 +297,24 @@ p1b <- ggplot(bites_per_year_borough,
     panel.grid.minor = element_blank()
   )
 
+# Get key numbers for Figure 2 citations
+bites_per_year_borough |>
+  filter(borough == "Queens") |>
+  arrange(year) |>
+  select(year, bite_count)
+
+# All boroughs in key years
+bites_per_year_borough |>
+  filter(year %in% c(2018, 2019, 2020, 2022)) |>
+  pivot_wider(names_from = year,
+              values_from = bite_count,
+              names_prefix = "Y") |>
+  mutate(
+    drop_2019_2020 = round((Y2020 - Y2019) / Y2019 * 100, 1),
+    recovery       = round((Y2022 - Y2018) / Y2018 * 100, 1)
+  ) |>
+  arrange(desc(Y2022))
+
 # ── Plot 1C: Choropleth — dog density 2022 ────────────────────────────────────
 
 # Use 2022 as the most recent year with large licensing count
@@ -216,6 +350,36 @@ p1c <- ggplot(map_2022) +
     legend.position = "right",
     plot.margin = margin(10, 10, 10, 10)
   )
+
+# Key density values for Figure 3 citations
+density_summary <- map_2022 |>
+  st_drop_geometry() |>
+  filter(!is.na(borough), density_2022 > 0) |>
+  group_by(borough) |>
+  summarise(
+    median_density = round(median(density_2022, na.rm = TRUE)),
+    max_density    = round(max(density_2022, na.rm = TRUE)),
+    max_zip        = zipcode[which.max(density_2022)]
+  ) |>
+  arrange(desc(median_density))
+
+print(density_summary)
+
+# Top 5 densest ZCTAs
+map_2022 |>
+  st_drop_geometry() |>
+  filter(!is.na(borough)) |>
+  arrange(desc(density_2022)) |>
+  select(zipcode, borough, density_2022) |>
+  mutate(density_2022 = round(density_2022)) |>
+  head(5)
+
+# Verify what density_2022 represents
+map_2022 |>
+  st_drop_geometry() |>
+  filter(zipcode == "10069") |>
+  select(zipcode, dogs_2022, total_dogs, 
+         density_2022, dog_density, ALAND20)
 
 # ── Preview each plot individually ────────────────────────────────────────────
 print(p1a)
@@ -258,6 +422,46 @@ master_filtered |>
 # ══════════════════════════════════════════════════════════════════════════════
 # Phase 3 — Q2 Visualisations
 # ══════════════════════════════════════════════════════════════════════════════
+
+# Recompute master_filtered using 2022 dogs only for density
+dogs_2022 <- dogs_clean |>
+  filter(extract_year == 2022) |>
+  count(zipcode, name = "dogs_2022")
+
+master_filtered <- master_filtered |>
+  left_join(dogs_2022, by = "zipcode") |>
+  mutate(
+    dogs_2022     = replace_na(dogs_2022, 0),
+    # Replace dog_density with 2022-only version
+    dog_density   = dogs_2022 / (as.numeric(ALAND20) / 1e6),
+    # Recompute gap index using 2022 density
+    density_scaled = (dog_density - min(dog_density, na.rm = TRUE)) /
+      (max(dog_density, na.rm = TRUE) - 
+         min(dog_density, na.rm = TRUE)),
+    runs_scaled    = (n_runs - min(n_runs)) /
+      (max(n_runs) - min(n_runs)),
+    gap_index      = density_scaled * (1 - runs_scaled)
+  )
+
+# Verify zipcode 10069
+master_filtered |>
+  st_drop_geometry() |>
+  filter(zipcode == "10069") |>
+  select(zipcode, dogs_2022, dog_density, gap_index)
+
+# Check new density range
+summary(master_filtered$dog_density)
+
+# Save updated master
+saveRDS(master_filtered, "data/cleaned/master_filtered.rds")
+cat("master_filtered updated with 2022-only density.\n")
+
+
+
+
+
+
+
 
 # ── Compute gap index ─────────────────────────────────────────────────────────
 
@@ -322,6 +526,9 @@ p2a <- ggplot() +
     plot.margin      = margin(10, 10, 10, 10)
   )
 
+ggsave("plots/plot2a_density_runs_overlay.png", p2a,
+       width = 7, height = 6, dpi = 300, bg = "white")
+
 # ── Plot 2B: Bar chart — dogs per run by borough ──────────────────────────────
 
 # Borough-level summary: total dogs / total runs (only where runs exist)
@@ -378,6 +585,9 @@ p2b <- ggplot(borough_gap |> filter(!is.na(dogs_per_run)),
     panel.grid.major.y = element_blank(),
     panel.grid.minor   = element_blank()
   )
+
+ggsave("plots/plot2b_dogs_per_run_borough.png", p2b,
+       width = 7, height = 4, dpi = 300, bg = "white")
 
 # ── Plot 2C: Scatter(jitter) — dog density vs n_runs, coloured by borough ─────────────
 
@@ -457,6 +667,9 @@ p2c <- ggplot(
     panel.grid.minor = element_blank() # Refer: https://r-charts.com/ggplot2/grid/. My aim is remove too many grid lines, so it looks more "clean". Then Google AI taught me search "r grid"
   )
 
+ggsave("plots/plot2c_density_vs_runs_scatter.png", p2c,
+       width = 8, height = 5, dpi = 300, bg = "white")
+
 # ── Plot 2D: Gap index choropleth ─────────────────────────────────────────────
 
 p2d <- ggplot(master_filtered) +
@@ -480,6 +693,9 @@ p2d <- ggplot(master_filtered) +
     plot.margin     = margin(10, 10, 10, 10)
   )
 
+ggsave("plots/plot2d_gap_index_map.png", p2d,
+       width = 7, height = 6, dpi = 300, bg = "white")
+
 # ── Print and save all ────────────────────────────────────────────────────────
 
 print(p2a)
@@ -487,14 +703,10 @@ print(p2b)
 print(p2c)
 print(p2d)
 
-ggsave("plots/plot2a_density_runs_overlay.png", p2a,
-       width = 7, height = 6, dpi = 300, bg = "white")
-ggsave("plots/plot2b_dogs_per_run_borough.png", p2b,
-       width = 7, height = 4, dpi = 300, bg = "white")
-ggsave("plots/plot2c_density_vs_runs_scatter.png", p2c,
-       width = 8, height = 5, dpi = 300, bg = "white")
-ggsave("plots/plot2d_gap_index_map.png", p2d,
-       width = 7, height = 6, dpi = 300, bg = "white")
+
+
+
+
 
 cat("Q2 plots saved.\n")
 
