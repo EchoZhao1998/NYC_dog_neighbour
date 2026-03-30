@@ -696,18 +696,6 @@ p2d <- ggplot(master_filtered) +
 ggsave("plots/plot2d_gap_index_map.png", p2d,
        width = 7, height = 6, dpi = 300, bg = "white")
 
-# ── Print and save all ────────────────────────────────────────────────────────
-
-print(p2a)
-print(p2b)
-print(p2c)
-print(p2d)
-
-
-
-
-
-
 cat("Q2 plots saved.\n")
 
 
