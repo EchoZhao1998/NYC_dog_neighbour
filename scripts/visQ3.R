@@ -44,22 +44,26 @@ p3a <- ggplot(master_filtered |> filter(!is.na(bite_rate))) +
   geom_sf(aes(fill = bite_rate),
           colour = "white", linewidth = 0.15) +
   scale_fill_viridis_c(
-    option   = "YlOrRd",
-    name     = "Bites per\n1,000 dogs",
+    option   = "rocket",
+    direction = -1, # 1 - from dark to light. -1 converse
+    name = "Bites per\n1,000 dogs",
     na.value = "#d9d9d9",
-    trans    = "sqrt"
+    trans = "sqrt"
   ) +
   labs(
-    title    = "Dog bite rate across NYC zipcodes",
+    title = "Dog bite rate across NYC zipcodes",
     subtitle = "Bites per 1,000 licensed dogs (2022 denominator); sqrt scale",
-    caption  = "Sources: DOHMH Dog Bite Data; NYC Dog Licensing Dataset"
+    caption = "Sources: DOHMH Dog Bite Data; NYC Dog Licensing Dataset"
   ) +
   theme_void(base_size = 11) +
   theme(
-    plot.title      = element_text(face = "bold", size = 12),
-    plot.subtitle   = element_text(size = 9, colour = "#737373"),
+    plot.title = element_text(face = "bold", size = 12),
+    plot.subtitle = element_text(size = 9, colour = "#737373"),
     legend.position = "right"
   )
+
+ggsave("plots/plot3a_bite_rate_map.png", p3a,
+       width = 7, height = 6, dpi = 300, bg = "white")
 
 # ── Figure 9: Dog density vs bite rate + Spearman annotation ─────────────────
 
@@ -105,11 +109,14 @@ p3b <- ggplot(q3_data,
     panel.grid.minor = element_blank()
   )
 
+ggsave("plots/plot3b_density_vs_biterate.png", p3b,
+       width = 8, height = 5, dpi = 300, bg = "white")
+
 # ── Figure 10: Bite rate by run access category ───────────────────────────────
 
 p3c <- ggplot(q3_data,
               aes(x = run_access, y = bite_rate, fill = run_access)) +
-  geom_violin(alpha = 0.6, trim = TRUE) +
+  geom_violin(alpha = 0.6, trim = TRUE) + # reference: https://www.atlassian.com/data/charts/violin-plot-complete-guide
   geom_boxplot(width = 0.15, outlier.size = 1,
                fill = "white", alpha = 0.8) +
   scale_fill_manual(
@@ -132,6 +139,39 @@ p3c <- ggplot(q3_data,
     plot.subtitle    = element_text(size = 9, colour = "#737373"),
     panel.grid.minor = element_blank()
   )
+
+ggsave("plots/plot3c_runs_vs_biterate.png",    p3c,
+       width = 7, height = 5, dpi = 300, bg = "white")
+
+# ── Kruskal-Wallis + pairwise Wilcoxon ───────────────────────────────────────
+
+kruskal_result <- kruskal.test(
+  bite_rate ~ run_access,
+  data = q3_data
+)
+cat("=== Kruskal-Wallis test ===\n")
+print(kruskal_result)
+
+pairwise_result <- pairwise.wilcox.test(
+  q3_data$bite_rate,
+  q3_data$run_access,
+  p.adjust.method = "bonferroni"
+)
+cat("\n=== Pairwise Wilcoxon (Bonferroni corrected) ===\n")
+print(pairwise_result)
+
+# Descriptive statistics per group — for report table
+cat("\n=== Median bite rate by run access ===\n")
+q3_data |>
+  group_by(run_access) |>
+  summarise(
+    n          = n(),
+    median     = round(median(bite_rate, na.rm = TRUE), 1),
+    q25        = round(quantile(bite_rate, 0.25, na.rm = TRUE), 1),
+    q75        = round(quantile(bite_rate, 0.75, na.rm = TRUE), 1),
+    max        = round(max(bite_rate, na.rm = TRUE), 1)
+  )
+
 
 # ── Figure 11: Faceted scatter — density vs bite rate by income quartile ──────
 
@@ -165,19 +205,7 @@ p3d <- ggplot(q3_data,
     strip.text       = element_text(face = "bold", size = 10)
   )
 
-# ── Print and save ────────────────────────────────────────────────────────────
 
-print(p3a)
-print(p3b)
-print(p3c)
-print(p3d)
-
-ggsave("plots/plot3a_bite_rate_map.png",       p3a,
-       width = 7, height = 6, dpi = 300, bg = "white")
-ggsave("plots/plot3b_density_vs_biterate.png", p3b,
-       width = 8, height = 5, dpi = 300, bg = "white")
-ggsave("plots/plot3c_runs_vs_biterate.png",    p3c,
-       width = 7, height = 5, dpi = 300, bg = "white")
 ggsave("plots/plot3d_income_facet.png",        p3d,
        width = 9, height = 7, dpi = 300, bg = "white")
 
