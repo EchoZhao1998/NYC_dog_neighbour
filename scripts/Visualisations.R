@@ -333,7 +333,9 @@ map_2022 <- master_filtered |>
 p1c <- ggplot(map_2022) +
   geom_sf(aes(fill = density_2022), colour = "white", linewidth = 0.15) +
   scale_fill_viridis_c(
-    option = "plasma", # color platte choose subjectively. recoure: https://cran.r-project.org/web/packages/viridis/vignettes/intro-to-viridis.html
+    # color platte choose subjectively. recoure: https://cran.r-project.org/web/packages/viridis/vignettes/intro-to-viridis.html
+    # why I choose plasma, perceptually uniform, good contrast, no semantic bias
+    option = "plasma",
     trans  = "sqrt", # sqrt transform reduces extreme skew
     breaks = c(500, 1000, 2000, 3000, 4000),  # explicit breaks
     name = "Dogs per km\u00B2", # Directly ask Google. search "how to show ^2 in R"
@@ -676,23 +678,23 @@ ggsave("plots/plot2c_density_vs_runs_scatter.png", p2c,
 p2d <- ggplot(master_filtered) +
   geom_sf(aes(fill = gap_index),
           colour = "white", linewidth = 0.15) +
-  scale_fill_viridis_c(
-    option   = "YlOrRd",
-    name     = "Gap index",
+    scale_fill_viridis_c(
+    option = "viridis",
+    name = "Gap index",
     breaks = c(0, 0.25, 0.50, 0.75, 1.00),
     na.value = "#d9d9d9"
   ) +
   labs(
-    title    = "Infrastructure gap index across NYC zipcodes",
+    title  = "Infrastructure gap index across NYC zipcodes",
     subtitle = "High score = high dog density with few or no off-leash spaces",
     caption  = "Gap index = normalised dog density * (1 - normalised run access)"
   ) +
   theme_void(base_size = 11) +
   theme(
-    plot.title      = element_text(face = "bold", size = 12),
-    plot.subtitle   = element_text(size = 9, colour = "#737373"),
+    plot.title  = element_text(face = "bold", size = 12),
+    plot.subtitle  = element_text(size = 9, colour = "#737373"),
     legend.position = "right",
-    plot.margin     = margin(10, 10, 10, 10)
+    plot.margin = margin(10, 10, 10, 10)
   )
 
 ggsave("plots/plot2d_gap_index_map.png", p2d,
@@ -706,7 +708,7 @@ p2a <- p2a + labs(
 )
 
 p2b <- p2b + labs(
-  title    = "Licensed dogs per off-leash run by borough (2022)",
+  title = "Licensed dogs per off-leash run by borough (2022)",
   subtitle = "Higher = more dogs competing for each run space; based on 2022 licence records"
 )
 
@@ -743,22 +745,22 @@ plots_expected <- c(
 cat("=== Plot files check ===\n")
 for (f in plots_expected) {
   exists <- file.exists(f)
-  size   <- if (exists) paste0(round(file.size(f)/1024), " KB") else "MISSING"
+  size <- if (exists) paste0(round(file.size(f)/1024), " KB") else "MISSING"
   cat(sprintf("%-45s %s\n", f, size))
 }
 
 
-# see the actual imcome boundaries
+# Check the actual imcome boundaries
 master_filtered |>
   st_drop_geometry() |>
   filter(!is.na(median_income)) |>
   mutate(income_quartile = ntile(median_income, 4)) |>
   group_by(income_quartile) |>
   summarise(
-    min_income    = dollar(min(median_income)),
-    max_income    = dollar(max(median_income)),
+    min_income  = dollar(min(median_income)),
+    max_income  = dollar(max(median_income)),
     median_income = dollar(median(median_income)),
-    n_zctas       = n()
+    n_zctas = n()
   )
 
 
