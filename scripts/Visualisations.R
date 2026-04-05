@@ -333,9 +333,10 @@ map_2022 <- master_filtered |>
 p1c <- ggplot(map_2022) +
   geom_sf(aes(fill = density_2022), colour = "white", linewidth = 0.15) +
   scale_fill_viridis_c(
-    option    = "plasma", # color platte choose subjectively. recoure: https://cran.r-project.org/web/packages/viridis/vignettes/intro-to-viridis.html
-    name      = "Dogs per km\u00B2", # Directly ask Google. search "how to show ^2 in R"
-    trans     = "sqrt",           # sqrt transform reduces extreme skew
+    option = "plasma", # color platte choose subjectively. recoure: https://cran.r-project.org/web/packages/viridis/vignettes/intro-to-viridis.html
+    trans  = "sqrt", # sqrt transform reduces extreme skew
+    breaks = c(500, 1000, 2000, 3000, 4000),  # explicit breaks
+    name = "Dogs per km\u00B2", # Directly ask Google. search "how to show ^2 in R"
     na.value  = "#d9d9d9",
     labels    = scales::comma
   ) +
@@ -359,8 +360,8 @@ density_summary <- map_2022 |>
   group_by(borough) |>
   summarise(
     median_density = round(median(density_2022, na.rm = TRUE)),
-    max_density    = round(max(density_2022, na.rm = TRUE)),
-    max_zip        = zipcode[which.max(density_2022)]
+    max_density = round(max(density_2022, na.rm = TRUE)),
+    max_zip = zipcode[which.max(density_2022)]
   ) |>
   arrange(desc(median_density))
 
@@ -485,11 +486,12 @@ p2a <- ggplot() +
           size   = 1.2,
           alpha  = 0.9) +
   scale_fill_viridis_c(
+    trans = "sqrt", # sqrt(data) can display the diffrence more clean, other wise the color will be to colse.
     option   = "plasma",  # same theme as Q1 map
     name     = "Dogs per km\u00B2",
-    trans    = "sqrt",
+    breaks = c(0, 500, 1000, 2000, 3000, 4000),
     na.value = "#d9d9d9",
-    labels   = scales::comma # It automatically adds commas to large numbers on your Y-axis (e.g., changing 1000 to 1,000).
+    labels   = comma # It automatically adds commas to large numbers on your Y-axis (e.g., changing 1000 to 1,000).
   ) +
   labs(
     title    = "Dog ownership density and off-leash run locations across NYC",
@@ -538,7 +540,7 @@ borough_gap <- master_filtered |>
   group_by(borough) |>
   summarise(
     total_dogs_2022  = sum(dogs_2022, na.rm = TRUE),  # 2022 only
-    total_runs       = sum(n_runs),
+    total_runs = sum(n_runs),
     pct_zctas_no_run = mean(n_runs == 0) * 100
   ) |>
   mutate(
@@ -558,7 +560,7 @@ p2b <- ggplot(borough_gap |> filter(!is.na(dogs_per_run)),
   geom_col(width = 0.6) +
   geom_text(aes(label = scales::comma(round(dogs_per_run))),
             hjust  = -0.15,
-            size   = 3.5,
+            size = 3.5,
             colour = "#525252") +
   coord_flip() + # horizontal bars
   scale_fill_manual(values = borough_colours, guide = "none") +
@@ -568,21 +570,21 @@ p2b <- ggplot(borough_gap |> filter(!is.na(dogs_per_run)),
     # By default, ggplot adds a 5% buffer so points don't touch the edges.
     # 0 (The first number): This is the bottom padding. Setting it to 0 ensures bars sit right on the X-axis line.
     # 0.18 (The second number): This adds 18% extra space at the top. 
-    labels = scales::comma
+    labels = comma
   ) +
   labs(
-    title    = "Licensed dogs per off-leash run by borough",
+    title = "Licensed dogs per off-leash run by borough",
     subtitle = "Higher = more dogs competing for each run space",
-    x        = NULL,
-    y        = "Licensed dogs per run",
+    x  = NULL,
+    y = "Licensed dogs per run",
     caption  = "Sources: NYC Dog Licensing Dataset; NYC Parks Dog Runs"
   ) +
   theme_minimal(base_size = 11) +
   theme(
-    plot.title         = element_text(face = "bold", size = 12),
-    plot.subtitle      = element_text(size = 9, colour = "#737373"),
+    plot.title = element_text(face = "bold", size = 12),
+    plot.subtitle = element_text(size = 9, colour = "#737373"),
     panel.grid.major.y = element_blank(),
-    panel.grid.minor   = element_blank()
+    panel.grid.minor = element_blank()
   )
 
 ggsave("plots/plot2b_dogs_per_run_borough.png", p2b,
@@ -608,10 +610,10 @@ p2c <- ggplot(
            xmax = Inf, ymin = -0.4, ymax = 0.4,
            fill = "#ffffcc", alpha = 0.5) +
   annotate("text",
-           x     = max(master_filtered$dog_density, na.rm = TRUE),
-           y     = 0.8, # Move up (out of yellow zone)
+           x = max(master_filtered$dog_density, na.rm = TRUE),
+           y = 0.8, # Move up (out of yellow zone)
            label = "High density, no runs zones",
-           size  = 3, colour = "#525252", fontface = "bold.italic", hjust = 1) +
+           size = 3, colour = "#525252", fontface = "bold.italic", hjust = 1) +
   # New Annotation: An arrow pointing up into the yellow box
   annotate("curve",
            x = max(master_filtered$dog_density, na.rm = TRUE) * 0.9, y = 0.7, # Start point
@@ -627,22 +629,22 @@ p2c <- ggplot(
   ) +
   # Labels for top 5
   geom_text_repel(
-    data        = top_gap,
-    aes(label   = paste0(zipcode, "\n(", round(dog_density), "/km\u00b2)")),
-    size        = 2.5,          # Slightly larger for readability
-    fontface    = "bold",
-    lineheight  = 0.85,
-    box.padding = 0.5,          # Space around the text box
-    point.padding = 0.3,        # Space between point and label
-    min.segment.length = 0,     # Always show the connecting line
+    data = top_gap,
+    aes(label = paste0(zipcode, "\n(", round(dog_density), "/km\u00b2)")),
+    size = 2.5,          # large enough for readability
+    fontface = "bold",
+    lineheight = 0.85,
+    box.padding = 0.5,  # Space around the text box
+    point.padding = 0.3,   # Space between point and label
+    min.segment.length = 0,  # Always show the connecting line
     segment.color = "#252525",   # Color of the leader line
-    segment.size = 0.2,         # Thin lines to keep it clean
-    direction   = "both",       # Allow labels to move up/down/left/right
-    force       = 2             # Strength of the "push" between labels
+    segment.size = 0.2,  # Thin lines to keep it clean
+    direction = "both",  # Allow labels to move up/down/left/right
+    force = 2   # Strength of the "push" between labels
   ) +
   scale_colour_manual(values = borough_colours) +
   scale_x_continuous(
-    labels = scales::comma,
+    labels = comma,
     trans  = "sqrt"
   ) +
   scale_y_continuous(
@@ -675,8 +677,9 @@ p2d <- ggplot(master_filtered) +
   geom_sf(aes(fill = gap_index),
           colour = "white", linewidth = 0.15) +
   scale_fill_viridis_c(
-    option   = "inferno",
+    option   = "YlOrRd",
     name     = "Gap index",
+    breaks = c(0, 0.25, 0.50, 0.75, 1.00),
     na.value = "#d9d9d9"
   ) +
   labs(
